@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base44 Style Guide — Bath Spa University</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Side Navigation (Desktop) -->
+  <nav class="desktop-nav">
+    <div class="nav-content">
+      <h2 class="nav-title">Base44 Style Guide</h2>
+      <div class="nav-section">
+        <p class="nav-label">Navigation</p>
+        <ul class="nav-links">
+          <li><a href="#overview" class="nav-link active" data-section="overview">Overview</a></li>
+          <li><a href="#principles" class="nav-link" data-section="principles">Principles</a></li>
+          <li><a href="#colours" class="nav-link" data-section="colours">Colours</a></li>
+          <li><a href="#typography" class="nav-link" data-section="typography">Typography</a></li>
+          <li><a href="#spacing" class="nav-link" data-section="spacing">Spacing & Layout</a></li>
+          <li><a href="#components" class="nav-link" data-section="components">Components</a></li>
+          <li><a href="#imagery" class="nav-link" data-section="imagery">Imagery</a></li>
+          <li><a href="#patterns" class="nav-link" data-section="patterns">Patterns</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-content">
+      <h2 class="nav-title-mobile">Base44 Style Guide</h2>
+      <select id="mobile-nav" class="mobile-select">
+        <option value="overview">Overview</option>
+        <option value="principles">Principles</option>
+        <option value="colours">Colours</option>
+        <option value="typography">Typography</option>
+        <option value="spacing">Spacing & Layout</option>
+        <option value="components">Components</option>
+        <option value="imagery">Imagery</option>
+        <option value="patterns">Patterns</option>
+      </select>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <!-- OVERVIEW SECTION -->
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <section id="overview" class="section scroll-mt-20">
+        <div class="hero-dark">
+          <svg class="blob blob-top-left" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M100,20 C160,10 230,40 250,100 C270,160 240,230 170,250 C100,270 30,240 20,170 C10,100 40,30 100,20 Z" fill="#F5A623"/>
+          </svg>
+          <svg class="blob blob-top-right" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#2DD4A8"/>
+          </svg>
+
+          <div class="hero-content">
+            <p class="eyebrow">Bath Spa University · Web Style Guide 2026</p>
+            <h1 class="display-heading">Professionally<br><span class="text-accent-amber">Creative.</span></h1>
+            <p class="lead-text">A reimagined digital design system built to inspire creativity, confidence, and curiosity in the next generation of original thinkers.</p>
+            <div class="pills">
+              <span class="pill">Primary audience: 17–18 year olds</span>
+              <span class="pill">UG Recruitment</span>
+              <span class="pill">Bath, UK</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three Pillars -->
+        <div class="overview-section">
+          <p class="section-label">Brand Pillars</p>
+          <h2 style="font-size: 2rem; font-weight: 900; color: #23324f; margin-bottom: 3rem; line-height: 1.1;">Three pillars drive every design decision</h2>
+          
+          <div class="pillars-grid">
+            <!-- Creativity: Sparkles icon -->
+            <div class="pillar-card">
+              <div class="pillar-icon" style="background-color: #FFD6E8;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                  <path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
+                </svg>
+              </div>
+              <h3 style="font-size: 1.125rem; font-weight: 700; color: #23324f; margin-bottom: 0.75rem;">Creativity</h3>
+              <p style="font-size: 0.875rem; color: #5a6b82; line-height: 1.6;">Every pixel should feel crafted, original, and alive. We break conventions to inspire making.</p>
+            </div>
+
+            <!-- Confidence: Zap icon -->
+            <div class="pillar-card">
+              <div class="pillar-icon" style="background-color: #FFF3D6;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <h3 style="font-size: 1.125rem; font-weight: 700; color: #23324f; margin-bottom: 0.75rem;">Confidence</h3>
+              <p style="font-size: 0.875rem; color: #5a6b82; line-height: 1.6;">Bold type, decisive colour, and clear hierarchy. Our design speaks with conviction.</p>
+            </div>
+
+            <!-- Curiosity: Eye icon -->
+            <div class="pillar-card">
+              <div class="pillar-icon" style="background-color: #D6FFF0;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2DD4A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <h3 style="font-size: 1.125rem; font-weight: 700; color: #23324f; margin-bottom: 0.75rem;">Curiosity</h3>
+              <p style="font-size: 0.875rem; color: #5a6b82; line-height: 1.6;">Unexpected details, micro-interactions, and layered content invite exploration and discovery.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tone of Voice -->
+        <div class="overview-section" style="margin-top: 4rem;">
+          <h2 style="font-size: 1.75rem; font-weight: 900; color: #23324f; margin-bottom: 3rem; line-height: 1.1;">Tone of Voice</h2>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 100%; margin: 0 auto;">
+            <!-- We are -->
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <span style="color: #2DD4A8; font-size: 1rem;">→</span>
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: #23324f; margin: 0;">We are</h3>
+              </div>
+              <ul style="list-style: none; padding: 0; margin: 0; space-y: 1rem;">
+                <li style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; font-size: 0.975rem; color: #5a6b82; line-height: 1.5;">
+                  <span style="color: #2DD4A8; flex-shrink: 0; font-size: 1.5rem; line-height: 1; margin-top: -0.25rem;">●</span>
+                  <span>Warm, direct, and encouraging</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; font-size: 0.975rem; color: #5a6b82; line-height: 1.5;">
+                  <span style="color: #2DD4A8; flex-shrink: 0; font-size: 1.5rem; line-height: 1; margin-top: -0.25rem;">●</span>
+                  <span>Conversational but never dumbed down</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; font-size: 0.975rem; color: #5a6b82; line-height: 1.5;">
+                  <span style="color: #2DD4A8; flex-shrink: 0; font-size: 1.5rem; line-height: 1; margin-top: -0.25rem;">●</span>
+                  <span>Creatively confident — we own our difference</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 1rem; font-size: 0.975rem; color: #5a6b82; line-height: 1.5;">
+                  <span style="color: #2DD4A8; flex-shrink: 0; font-size: 1.5rem; line-height: 1; margin-top: -0.25rem;">●</span>
+                  <span>Authentic and student-first</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- We avoid -->
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <span style="color: #E91E8C; font-size: 1rem;">→</span>
+                <h3 style="font-size: 1.125rem; font-weight: 700; color: #23324f; margin: 0;">We avoid</h3>
+              </div>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; font-size: 0.975rem; color: #5a6b82; line-height: 1.5;">
+                  <span style="color: #E91E8C; flex-shrink: 0; font-size: 1.5rem; line-height: 1; margin-top: -0.25rem;">●</span>
+                  <span>Corporate jargon or stiff institutional language</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; font-size: 0.975rem; color: #5a6b82; line-height: 1.5;">
+                  <span style="color: #E91E8C; flex-shrink: 0; font-size: 1.5rem; line-height: 1; margin-top: -0.25rem;">●</span>
+                  <span>Trying too hard to be trendy or using slang</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; font-size: 0.975rem; color: #5a6b82; line-height: 1.5;">
+                  <span style="color: #E91E8C; flex-shrink: 0; font-size: 1.5rem; line-height: 1; margin-top: -0.25rem;">●</span>
+                  <span>Generic statements that could be any university</span>
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 1rem; font-size: 0.975rem; color: #5a6b82; line-height: 1.5;">
+                  <span style="color: #E91E8C; flex-shrink: 0; font-size: 1.5rem; line-height: 1; margin-top: -0.25rem;">●</span>
+                  <span>Passive voice or impersonal tone</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <!-- PRINCIPLES SECTION -->
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <section id="principles" class="section scroll-mt-20">
+        <div class="section-header">
+          <p class="section-label">Design Principles</p>
+          <h2>Five rules for designing with personality</h2>
+          <p class="section-description">These principles ensure every page feels unmistakably Bath Spa — creative, confident, and built for a young audience that expects more.</p>
+        </div>
+
+        <div class="principles-list">
+          <div class="principle-card">
+            <div class="principle-number">01</div>
+            <div class="principle-content">
+              <h3>Lead with Emotion, not Information</h3>
+              <p>Students decide with feeling first. Hero moments should evoke belonging and excitement before presenting facts. Data and details sit below the fold.</p>
+              <div class="principle-do-dont">
+                <div class="do-card">
+                  <p class="label">✓ Do this</p>
+                  <p>Use bold imagery, short punchy copy, and student stories as the entry point.</p>
+                </div>
+                <div class="dont-card">
+                  <p class="label">✗ Avoid this</p>
+                  <p>Don't lead with league tables, stats, or paragraphs of institutional text.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="principle-card">
+            <div class="principle-number">02</div>
+            <div class="principle-content">
+              <h3>Design for Scroll, not Search</h3>
+              <p>17-year-olds are native scrollers. Content should flow vertically with visual rhythm — alternating between dense and spacious, text and image, dark and light.</p>
+              <div class="principle-do-dont">
+                <div class="do-card">
+                  <p class="label">✓ Do this</p>
+                  <p>Create visual variety with section-level mood changes. Use staggered reveals.</p>
+                </div>
+                <div class="dont-card">
+                  <p class="label">✗ Avoid this</p>
+                  <p>Don't create flat, uniform blocks. Avoid long pages that feel like one continuous tone.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="principle-card">
+            <div class="principle-number">03</div>
+            <div class="principle-content">
+              <h3>Make it Feel Handmade</h3>
+              <p>Bath Spa is a creative university — the site should feel crafted, not templated. Organic shapes, expressive type, and unexpected layout breaks signal creativity.</p>
+              <div class="principle-do-dont">
+                <div class="do-card">
+                  <p class="label">✓ Do this</p>
+                  <p>Use organic blob shapes, rotated elements, overlapping layers, and mixed media.</p>
+                </div>
+                <div class="dont-card">
+                  <p class="label">✗ Avoid this</p>
+                  <p>Don't rely on rigid grids and stock corporate UI. Avoid cookie-cutter card layouts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="principle-card">
+            <div class="principle-number">04</div>
+            <div class="principle-content">
+              <h3>Confidence Through Contrast</h3>
+              <p>Bold colour contrasts and dramatic scale shifts create visual confidence. Large type next to small detail. Dark sections next to light ones. Full-bleed next to contained.</p>
+              <div class="principle-do-dont">
+                <div class="do-card">
+                  <p class="label">✓ Do this</p>
+                  <p>Push scale extremes. Use 72px headings next to 14px body. Dark hero into white content.</p>
+                </div>
+                <div class="dont-card">
+                  <p class="label">✗ Avoid this</p>
+                  <p>Don't play it safe with uniform sizes. Avoid "everything the same weight" layouts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="principle-card">
+            <div class="principle-number">05</div>
+            <div class="principle-content">
+              <h3>Every Page is a Canvas</h3>
+              <p>No page should feel like a template was filled in. Each page tells a unique story with its own visual personality while staying within the system.</p>
+              <div class="principle-do-dont">
+                <div class="do-card">
+                  <p class="label">✓ Do this</p>
+                  <p>Vary hero treatments per page. Let content shape the layout, not the other way around.</p>
+                </div>
+                <div class="dont-card">
+                  <p class="label">✗ Avoid this</p>
+                  <p>Don't copy-paste the same hero/3-column/CTA structure on every page.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <!-- COLOURS SECTION -->
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <section id="colours" class="section scroll-mt-20">
+        <div class="section-header">
+          <p class="section-label">Colour Palette</p>
+          <h2>Colour that sparks feeling</h2>
+          <p class="section-description">Our palette is built for energy and contrast. A deep navy anchors everything, while magenta, amber, and mint inject personality. Soft tints keep content sections distinct without heavy colour.</p>
+        </div>
+
+        <!-- Primary Colours -->
+        <div class="colour-section">
+          <h3>Primary</h3>
+          <div class="colour-grid">
+            <div class="colour-item">
+              <div class="colour-swatch-large" data-hex="#23324f" style="background-color: #23324f;"></div>
+              <div class="colour-label">
+                <p class="name">BSU Navy</p>
+                <code>#23324f</code>
+              </div>
+              <p class="usage">Primary backgrounds, headings, body text</p>
+            </div>
+            <div class="colour-item">
+              <div class="colour-swatch-large" data-hex="#E91E8C" style="background-color: #E91E8C;"></div>
+              <div class="colour-label">
+                <p class="name">Electric Magenta</p>
+                <code>#E91E8C</code>
+              </div>
+              <p class="usage">Primary accent, CTAs, links, brand moments</p>
+            </div>
+            <div class="colour-item">
+              <div class="colour-swatch-large" data-hex="#FFFFFF" style="background-color: #FFFFFF; border: 1px solid #e2e8f0;"></div>
+              <div class="colour-label">
+                <p class="name">Pure White</p>
+                <code>#FFFFFF</code>
+              </div>
+              <p class="usage">Content backgrounds, reversed text</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Colours -->
+        <div class="colour-section">
+          <h3>Secondary</h3>
+          <div class="colour-grid">
+            <div class="colour-item">
+              <div class="colour-swatch-large" data-hex="#fbbf24" style="background-color: #fbbf24;"></div>
+              <div class="colour-label">
+                <p class="name">Warm Amber</p>
+                <code>#fbbf24</code>
+              </div>
+              <p class="usage">Keyword highlights, pull-quotes, callouts</p>
+            </div>
+            <div class="colour-item">
+              <div class="colour-swatch-large" data-hex="#2DD4A8" style="background-color: #2DD4A8;"></div>
+              <div class="colour-label">
+                <p class="name">Fresh Mint</p>
+                <code>#2DD4A8</code>
+              </div>
+              <p class="usage">Success states, curiosity accents</p>
+            </div>
+            <div class="colour-item">
+              <div class="colour-swatch-large" data-hex="#FFD6E8" style="background-color: #FFD6E8; border: 1px solid #fcd6e8;"></div>
+              <div class="colour-label">
+                <p class="name">Soft Blush</p>
+                <code>#FFD6E8</code>
+              </div>
+              <p class="usage">Soft backgrounds, illustrations, hover states</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Neutrals -->
+        <div class="colour-section">
+          <h3>Neutrals</h3>
+          <div class="neutral-grid">
+            <div class="colour-item">
+              <div class="colour-swatch" data-hex="#0F172A" style="background-color: #0F172A;"></div>
+              <div class="colour-label">
+                <p class="name">Slate 900</p>
+                <code>#0F172A</code>
+              </div>
+              <p class="usage">Darkest text</p>
+            </div>
+            <div class="colour-item">
+              <div class="colour-swatch" data-hex="#334155" style="background-color: #334155;"></div>
+              <div class="colour-label">
+                <p class="name">Slate 700</p>
+                <code>#334155</code>
+              </div>
+              <p class="usage">Secondary text</p>
+            </div>
+            <div class="colour-item">
+              <div class="colour-swatch" data-hex="#94A3B8" style="background-color: #94A3B8;"></div>
+              <div class="colour-label">
+                <p class="name">Slate 400</p>
+                <code>#94A3B8</code>
+              </div>
+              <p class="usage">Placeholder text</p>
+            </div>
+            <div class="colour-item">
+              <div class="colour-swatch" data-hex="#E2E8F0" style="background-color: #E2E8F0; border: 1px solid #cbd5e1;"></div>
+              <div class="colour-label">
+                <p class="name">Slate 200</p>
+                <code>#E2E8F0</code>
+              </div>
+              <p class="usage">Borders, dividers</p>
+            </div>
+            <div class="colour-item">
+              <div class="colour-swatch" data-hex="#F8FAFC" style="background-color: #F8FAFC; border: 1px solid #e2e8f0;"></div>
+              <div class="colour-label">
+                <p class="name">Slate 50</p>
+                <code>#F8FAFC</code>
+              </div>
+              <p class="usage">Neutral section tint</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amber Keyword Highlights -->
+        <div class="colour-section">
+          <h3>Amber Keyword Highlights</h3>
+          <p class="colour-description">On dark navy backgrounds, Warm Amber (#F5A623) lifts specific words out of body text with strong contrast and warmth — without using a gradient. Use sparingly on 1–3 key words per headline.</p>
+          
+          <div class="highlight-examples">
+            <!-- Hero headline with amber accents -->
+            <div class="highlight-hero" style="background-color: #23324f; position: relative; overflow: hidden;">
+              <svg class="blob blob-top-right" viewBox="0 0 300 300" style="position: absolute; top: -40px; right: -40px; width: 320px; height: 320px; opacity: 0.07; pointer-events: none;">
+                <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#F5A623"/>
+              </svg>
+              <div style="position: relative; z-index: 10; padding: 2.5rem 2rem;">
+                <p style="font-size: 0.625rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1rem;">Hero headline — amber accent</p>
+                <h3 style="font-size: 2.25rem; font-weight: 900; color: white; line-height: 0.95; margin-bottom: 1rem;">Make <span style="color: #F5A623;">bold</span> work.<br>Make <span style="color: #F5A623;">original</span> work.</h3>
+                <p style="color: rgba(255,255,255,0.65); font-size: 1rem; max-width: 28rem; line-height: 1.5;">At Bath Spa, we believe your creativity is your greatest asset. Study with people who take it seriously.</p>
+              </div>
+            </div>
+
+            <!-- Pull-quote and stat -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+              <div style="background-color: #23324f; padding: 2rem; border-radius: 1.5rem;">
+                <p style="font-size: 0.625rem; letter-spacing: 0.125em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.75rem;">Pull-quote</p>
+                <blockquote style="font-size: 1.25rem; font-weight: 700; color: white; line-height: 1.4;">
+                  "Bath Spa gave me the <span style="color: #F5A623;">confidence</span> to call myself an artist."
+                </blockquote>
+                <p style="font-size: 0.875rem; color: rgba(255,255,255,0.5); margin-top: 1rem;">— Maya, BA Fine Art, 2025</p>
+              </div>
+              <div style="background-color: #23324f; padding: 2rem; border-radius: 1.5rem; display: flex; align-items: center;">
+                <div>
+                  <p style="font-size: 0.625rem; letter-spacing: 0.125em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">Key stat</p>
+                  <p style="font-size: 3rem; font-weight: 900; color: #F5A623;">94%</p>
+                  <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem; margin-top: 0.5rem;">of graduates in work or further study within 6 months</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Usage note -->
+            <div style="background-color: #FFF8EC; border: 1px solid #fde8bc; border-radius: 0.75rem; padding: 1.25rem; margin-top: 1rem;">
+              <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #c48600; margin-bottom: 0.5rem;">Usage rule</p>
+              <p style="font-size: 0.875rem; color: #4b5563;">Use amber highlights on <strong>dark navy only</strong>. Never use amber text on white or light backgrounds — contrast is insufficient. Limit to 1–3 words per block; over-use diminishes impact.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section Background Tints -->
+        <div class="colour-section">
+          <h3>Section Background Tints</h3>
+          <p class="colour-description">Avoid pure white on every section. These very light tints create visual separation between content areas, signal a mood shift, and add warmth without overwhelming the content.</p>
+          
+          <!-- Tint swatches -->
+          <div class="tint-grid" style="margin-bottom: 2rem;">
+            <div class="tint-card">
+              <div style="height: 5rem; border-radius: 0.75rem; background-color: #FFF0F6; border: 2px solid #fcd6e8; margin-bottom: 0.75rem;"></div>
+              <p style="font-size: 0.75rem; font-weight: 700; color: #23324f; margin: 0;">Blush Tint</p>
+              <code style="font-size: 0.625rem; color: #94a3b8; display: block; margin-bottom: 0.25rem;">#FFF0F6</code>
+              <p style="font-size: 0.625rem; color: #94a3b8; margin: 0;">Magenta tint</p>
+            </div>
+            <div class="tint-card">
+              <div style="height: 5rem; border-radius: 0.75rem; background-color: #FFF8EC; border: 2px solid #fde8bc; margin-bottom: 0.75rem;"></div>
+              <p style="font-size: 0.75rem; font-weight: 700; color: #23324f; margin: 0;">Amber Tint</p>
+              <code style="font-size: 0.625rem; color: #c48600; display: block; margin-bottom: 0.25rem;">#FFF8EC</code>
+              <p style="font-size: 0.625rem; color: #c48600; margin: 0;">Amber tint</p>
+            </div>
+            <div class="tint-card">
+              <div style="height: 5rem; border-radius: 0.75rem; background-color: #EDFDF8; border: 2px solid #b8f0e2; margin-bottom: 0.75rem;"></div>
+              <p style="font-size: 0.75rem; font-weight: 700; color: #23324f; margin: 0;">Mint Tint</p>
+              <code style="font-size: 0.625rem; color: #0d9b76; display: block; margin-bottom: 0.25rem;">#EDFDF8</code>
+              <p style="font-size: 0.625rem; color: #0d9b76; margin: 0;">Mint tint</p>
+            </div>
+            <div class="tint-card">
+              <div style="height: 5rem; border-radius: 0.75rem; background-color: #EEF1F6; border: 2px solid #c8d0df; margin-bottom: 0.75rem;"></div>
+              <p style="font-size: 0.75rem; font-weight: 700; color: #23324f; margin: 0;">Navy Tint</p>
+              <code style="font-size: 0.625rem; color: #5a6b82; display: block; margin-bottom: 0.25rem;">#EEF1F6</code>
+              <p style="font-size: 0.625rem; color: #5a6b82; margin: 0;">Navy tint</p>
+            </div>
+            <div class="tint-card">
+              <div style="height: 5rem; border-radius: 0.75rem; background-color: #F9F7F4; border: 2px solid #e8e2d8; margin-bottom: 0.75rem;"></div>
+              <p style="font-size: 0.75rem; font-weight: 700; color: #23324f; margin: 0;">Warm Stone</p>
+              <code style="font-size: 0.625rem; color: #94a3b8; display: block; margin-bottom: 0.25rem;">#F9F7F4</code>
+              <p style="font-size: 0.625rem; color: #94a3b8; margin: 0;">Warm neutral</p>
+            </div>
+          </div>
+
+          <!-- Section sequence example -->
+          <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 0.75rem;">Section sequence example</p>
+          <div style="border-radius: 1.5rem; overflow: hidden;">
+            <!-- White section -->
+            <div style="background-color: white; padding: 2rem;">
+              <p style="font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; margin-bottom: 0.5rem;">White — #FFFFFF</p>
+              <h4 style="font-size: 1.25rem; font-weight: 700; color: #23324f; margin-bottom: 0.25rem;">Course overview</h4>
+              <p style="font-size: 0.875rem; color: #5a6b82; max-width: 45rem;">Standard content section on a clean white background. Works well as the default starting point.</p>
+            </div>
+            <!-- Amber tint -->
+            <div style="background-color: #FFFBEC; padding: 2rem;">
+              <p style="font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.06em; color: #c48600; margin-bottom: 0.5rem;">Amber Tint — #FFFBEC</p>
+              <h4 style="font-size: 1.25rem; font-weight: 700; color: #23324f; margin-bottom: 0.25rem;">Why choose Bath Spa?</h4>
+              <p style="font-size: 0.875rem; color: #5a6b82; max-width: 45rem;">A warm amber tint signals an inspirational or testimonial-type section. Gives warmth and energy.</p>
+            </div>
+            <!-- Navy tint -->
+            <div style="background-color: #EEF1F6; padding: 2rem;">
+              <p style="font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(35,50,79,0.4); margin-bottom: 0.5rem;">Navy Tint — #EEF1F6</p>
+              <h4 style="font-size: 1.25rem; font-weight: 700; color: #23324f; margin-bottom: 0.25rem;">Entry requirements</h4>
+              <p style="font-size: 0.875rem; color: #5a6b82; max-width: 45rem;">A cool navy tint works well for structured or informational sections — practical content that still needs to feel on-brand.</p>
+            </div>
+            <!-- Mint tint -->
+            <div style="background-color: #EDFDF8; padding: 2rem;">
+              <p style="font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.06em; color: #0d9b76; margin-bottom: 0.5rem;">Mint Tint — #EDFDF8</p>
+              <h4 style="font-size: 1.25rem; font-weight: 700; color: #23324f; margin-bottom: 0.25rem;">Sustainability & campus life</h4>
+              <p style="font-size: 0.875rem; color: #5a6b82; max-width: 45rem;">Fresh mint tint signals positivity and openness — good for student life, wellbeing, and sustainability topics.</p>
+            </div>
+            <!-- Navy dark section -->
+            <div style="background-color: #23324f; padding: 2rem;">
+              <p style="font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.3); margin-bottom: 0.5rem;">Navy — #23324f</p>
+              <h4 style="font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 0.25rem;">Ready to apply?</h4>
+              <p style="font-size: 0.875rem; color: rgba(255,255,255,0.6); max-width: 45rem;">A full dark section brings a strong visual close — used for CTAs, key stats, or section endings.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SVG Section Dividers -->
+        <div class="colour-section">
+          <h3>SVG Section Dividers</h3>
+          <p class="colour-description">These SVG shapes sit between sections to create a clear visual break and add creative character. They transition between one background colour and the next.</p>
+          
+          <!-- Wave divider -->
+          <div style="margin-bottom: 2rem;">
+            <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 0.75rem;">Wave — white into amber tint</p>
+            <div style="border-radius: 1.5rem; overflow: hidden;">
+              <div style="background-color: white; padding: 2rem 0;">
+                <p style="padding: 0 2rem; font-size: 0.875rem; color: #94a3b8;">Previous section content on white...</p>
+              </div>
+              <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" style="width: 100%; display: block; background: white;" aria-hidden="true">
+                <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#FFFBEC"/>
+              </svg>
+              <div style="background-color: #FFFBEC; padding: 1.5rem 2rem;">
+                <p style="font-size: 0.875rem; color: #94a3b8;">Next section on amber tint...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Angled divider -->
+          <div style="margin-bottom: 2rem;">
+            <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 0.75rem;">Angled cut — amber tint into navy</p>
+            <div style="border-radius: 1.5rem; overflow: hidden;">
+              <div style="background-color: #FFFBEC; padding: 2rem 0;">
+                <p style="padding: 0 2rem; font-size: 0.875rem; color: #94a3b8;">Previous amber tint section...</p>
+              </div>
+              <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" style="width: 100%; display: block; background-color: #FFFBEC;" aria-hidden="true">
+                <path d="M0,0 L1440,60 L1440,60 L0,60 Z" fill="#23324f"/>
+              </svg>
+              <div style="background-color: #23324f; padding: 1.5rem 2rem; color: white;">
+                <p style="font-size: 0.875rem; color: rgba(255,255,255,0.6);">Next navy section...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Scallop divider -->
+          <div style="margin-bottom: 2rem;">
+            <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 0.75rem;">Scallop arcs — navy into mint tint</p>
+            <div style="border-radius: 1.5rem; overflow: hidden;">
+              <div style="background-color: #23324f; padding: 2rem 0;">
+                <p style="padding: 0 2rem; font-size: 0.875rem; color: rgba(255,255,255,0.5);">Previous navy section...</p>
+              </div>
+              <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" style="width: 100%; display: block; background-color: #23324f;" aria-hidden="true">
+                <path d="M0,0 Q90,70 180,0 Q270,70 360,0 Q450,70 540,0 Q630,70 720,0 Q810,70 900,0 Q990,70 1080,0 Q1170,70 1260,0 Q1350,70 1440,0 L1440,70 L0,70 Z" fill="#EDFDF8"/>
+              </svg>
+              <div style="background-color: #EDFDF8; padding: 1.5rem 2rem;">
+                <p style="font-size: 0.875rem; color: #94a3b8;">Next mint tint section...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zigzag divider -->
+          <div style="margin-bottom: 2rem;">
+            <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 0.75rem;">Zigzag edge — navy tint into white</p>
+            <div style="border-radius: 1.5rem; overflow: hidden;">
+              <div style="background-color: #EEF1F6; padding: 2rem 0;">
+                <p style="padding: 0 2rem; font-size: 0.875rem; color: #5a6b82;">Previous navy tint section...</p>
+              </div>
+              <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" style="width: 100%; display: block; background-color: #EEF1F6;" aria-hidden="true">
+                <polyline points="0,40 60,0 120,40 180,0 240,40 300,0 360,40 420,0 480,40 540,0 600,40 660,0 720,40 780,0 840,40 900,0 960,40 1020,0 1080,40 1140,0 1200,40 1260,0 1320,40 1380,0 1440,40 1440,40 0,40" fill="white" style="stroke: none;"/>
+              </svg>
+              <div style="background-color: white; padding: 1.5rem 2rem;">
+                <p style="font-size: 0.875rem; color: #94a3b8;">Next white section...</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Implementation note -->
+          <div style="background-color: #EEF1F6; border-radius: 0.75rem; padding: 1.25rem;">
+            <p style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(35,50,79,0.5); margin-bottom: 0.5rem;">Implementation note</p>
+            <p style="font-size: 0.875rem; color: #4b5563;">Each divider is an inline SVG with <code style="background-color: white; padding: 0.25rem 0.375rem; border-radius: 0.25rem; font-size: 0.75rem; font-family: monospace;">viewBox="0 0 1440 60"</code> and <code style="background-color: white; padding: 0.25rem 0.375rem; border-radius: 0.25rem; font-size: 0.75rem; font-family: monospace;">width="100%"</code>. The fill colour matches the incoming section's background. No JavaScript required.</p>
+          </div>
+        </div>
+
+        <!-- Accessibility Notes -->
+        <div class="colour-section">
+          <h3>Accessibility Notes</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <!-- Left column -->
+            <div style="space-y: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                <div style="width: 4rem; height: 2.5rem; border-radius: 0.5rem; background-color: #23324f; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: white; font-size: 0.75rem; font-weight: 700;">Aa</span>
+                </div>
+                <div>
+                  <p style="font-size: 0.875rem; font-weight: 500; color: #23324f;">White on Navy</p>
+                  <p style="font-size: 0.75rem; color: #94a3b8;">Contrast ratio: 10.5:1 ✓ AAA</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div style="width: 4rem; height: 2.5rem; border-radius: 0.5rem; background-color: #23324f; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #F5A623; font-size: 0.75rem; font-weight: 700;">Aa</span>
+                </div>
+                <div>
+                  <p style="font-size: 0.875rem; font-weight: 500; color: #23324f;">Amber on Navy</p>
+                  <p style="font-size: 0.75rem; color: #94a3b8;">Contrast ratio: 7.2:1 ✓ AAA</p>
+                </div>
+              </div>
+            </div>
+            <!-- Right column -->
+            <div style="space-y: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                <div style="width: 4rem; height: 2.5rem; border-radius: 0.5rem; background-color: white; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #23324f; font-size: 0.75rem; font-weight: 700;">Aa</span>
+                </div>
+                <div>
+                  <p style="font-size: 0.875rem; font-weight: 500; color: #23324f;">Navy on White</p>
+                  <p style="font-size: 0.75rem; color: #94a3b8;">Contrast ratio: 10.5:1 ✓ AAA</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div style="width: 4rem; height: 2.5rem; border-radius: 0.5rem; background-color: #E91E8C; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: white; font-size: 0.75rem; font-weight: 700;">Aa</span>
+                </div>
+                <div>
+                  <p style="font-size: 0.875rem; font-weight: 500; color: #23324f;">White on Magenta</p>
+                  <p style="font-size: 0.75rem; color: #94a3b8;">Contrast ratio: 4.6:1 ✓ AA Large</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <!-- TYPOGRAPHY SECTION -->
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <section id="typography" class="section scroll-mt-20">
+        <div class="section-header">
+          <p class="section-label">Typography</p>
+          <h2>Type that speaks with conviction</h2>
+          <p class="section-description">We use the system's default sans-serif stack for performance and consistency. Personality comes from weight contrast, scale extremes, and tight tracking on headlines.</p>
+        </div>
+
+        <!-- Font Stack -->
+        <div class="typography-grid">
+          <div class="type-card">
+            <p class="label" style="color: #E91E8C;">Display & Headings</p>
+            <p style="font-size: 3rem; font-weight: 900; line-height: 0.95; color: #23324f; margin: 1rem 0;">Aa Bb Cc</p>
+            <p class="description">System sans-serif · <strong>Black (900)</strong> and <strong>Bold (700)</strong> weights · Tight letter-spacing · Line height: 0.95–1.1</p>
+            <div style="margin-top: 1rem; padding: 0.75rem; background: #f9fafb; border-radius: 0.5rem;">
+              <code style="font-size: 0.75rem; color: #6b7280;">font-family: ui-sans-serif, system-ui, sans-serif</code>
+            </div>
+          </div>
+          <div class="type-card">
+            <p class="label" style="color: #2DD4A8;">Body & UI Text</p>
+            <p style="font-size: 1.125rem; color: #23324f; line-height: 1.6; margin: 1rem 0;">The quick brown fox jumps over the lazy dog. We believe in originality.</p>
+            <p class="description">System sans-serif · <strong>Regular (400)</strong>, <strong>Medium (500)</strong>, <strong>Semibold (600)</strong> · Normal tracking · Line height: 1.5–1.7</p>
+            <div style="margin-top: 1rem; padding: 0.75rem; background: #f9fafb; border-radius: 0.5rem;">
+              <code style="font-size: 0.75rem; color: #6b7280;">Leading-relaxed for body, leading-tight for headings</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Type Scale -->
+        <div class="type-scale">
+          <h3>Type Scale</h3>
+          <div class="scale-list">
+            <div class="scale-item">
+              <code class="size-label">72px / 4.5rem</code>
+              <p style="font-size: 4.5rem; font-weight: 900; line-height: 0.95; color: #23324f; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Bath Spa University</p>
+              <p class="use">Hero headlines only</p>
+            </div>
+            <div class="scale-item">
+              <code class="size-label">48px / 3rem</code>
+              <p style="font-size: 3rem; font-weight: 900; line-height: 1; color: #23324f; margin: 0;">Bath Spa University</p>
+              <p class="use">Page titles</p>
+            </div>
+            <div class="scale-item">
+              <code class="size-label">36px / 2.25rem</code>
+              <p style="font-size: 2.25rem; font-weight: 700; line-height: 1.05; color: #23324f; margin: 0;">Bath Spa University</p>
+              <p class="use">Section headings</p>
+            </div>
+            <div class="scale-item">
+              <code class="size-label">24px / 1.5rem</code>
+              <p style="font-size: 1.5rem; font-weight: 700; line-height: 1.1; color: #23324f; margin: 0;">Bath Spa University</p>
+              <p class="use">Subsections, card titles</p>
+            </div>
+            <div class="scale-item">
+              <code class="size-label">20px / 1.25rem</code>
+              <p style="font-size: 1.25rem; font-weight: 600; line-height: 1.2; color: #23324f; margin: 0;">Bath Spa University</p>
+              <p class="use">Content headings</p>
+            </div>
+            <div class="scale-item">
+              <code class="size-label">18px / 1.125rem</code>
+              <p style="font-size: 1.125rem; font-weight: 400; line-height: 1.6; color: #23324f; margin: 0;">Bath Spa University</p>
+              <p class="use">Intro paragraphs, lead text</p>
+            </div>
+            <div class="scale-item">
+              <code class="size-label">16px / 1rem</code>
+              <p style="font-size: 1rem; font-weight: 400; line-height: 1.6; color: #23324f; margin: 0;">Bath Spa University</p>
+              <p class="use">Standard body text</p>
+            </div>
+            <div class="scale-item">
+              <code class="size-label">14px / 0.875rem</code>
+              <p style="font-size: 0.875rem; font-weight: 400; line-height: 1.5; color: #23324f; margin: 0;">Bath Spa University</p>
+              <p class="use">Secondary info, captions</p>
+            </div>
+            <div class="scale-item">
+              <code class="size-label">12px / 0.75rem</code>
+              <p style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.025em; color: #23324f; margin: 0;">OVERLINE TEXT</p>
+              <p class="use">Labels, overlines, metadata</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weight Contrast -->
+        <div class="weight-section">
+          <svg class="blob blob-top-right" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="white"/>
+          </svg>
+          <svg class="blob blob-bottom-left" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="white"/>
+          </svg>
+          <h3 style="position: relative; z-index: 10;">Weight Contrast is Key</h3>
+          <p style="position: relative; z-index: 10;">The magic is in the contrast. Pair heavy headings with light body text to create visual rhythm and hierarchy.</p>
+          <div class="contrast-demo" style="position: relative; z-index: 10;">
+            <h1>Find your<br>creative voice.</h1>
+            <p>At Bath Spa, creativity isn't just something we teach — it's how we think, work, and shape the future. Your originality matters here.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <!-- SPACING SECTION -->
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <section id="spacing" class="section scroll-mt-20">
+        <div class="section-header">
+          <p class="section-label">Spacing & Layout</p>
+          <h2>Breathable, rhythmic layouts</h2>
+          <p class="section-description">Generous white space is a design feature, not wasted screen. It signals confidence and lets content breathe, especially important for our young audience used to social media density.</p>
+        </div>
+
+        <!-- Spacing Scale -->
+        <div class="spacing-section">
+          <h3>Spacing Scale</h3>
+          <div class="spacing-scale">
+            <div class="spacing-item">
+              <code>4px</code>
+              <div class="bar" style="width: 16px; background: linear-gradient(to right, #E91E8C, #F5A623);"></div>
+              <p>Icon gaps</p>
+            </div>
+            <div class="spacing-item">
+              <code>8px</code>
+              <div class="bar" style="width: 32px; background: linear-gradient(to right, #E91E8C, #F5A623);"></div>
+              <p>Tight padding</p>
+            </div>
+            <div class="spacing-item">
+              <code>12px</code>
+              <div class="bar" style="width: 48px; background: linear-gradient(to right, #E91E8C, #F5A623);"></div>
+              <p>Input padding</p>
+            </div>
+            <div class="spacing-item">
+              <code>16px</code>
+              <div class="bar" style="width: 64px; background: linear-gradient(to right, #E91E8C, #F5A623);"></div>
+              <p>Card padding (mobile)</p>
+            </div>
+            <div class="spacing-item">
+              <code>24px</code>
+              <div class="bar" style="width: 96px; background: linear-gradient(to right, #E91E8C, #F5A623);"></div>
+              <p>Component gaps</p>
+            </div>
+            <div class="spacing-item">
+              <code>32px</code>
+              <div class="bar" style="width: 128px; background: linear-gradient(to right, #E91E8C, #F5A623);"></div>
+              <p>Section padding (mobile)</p>
+            </div>
+            <div class="spacing-item">
+              <code>48px</code>
+              <div class="bar" style="width: 192px; background: linear-gradient(to right, #E91E8C, #F5A623);"></div>
+              <p>Section gaps</p>
+            </div>
+            <div class="spacing-item">
+              <code>64px</code>
+              <div class="bar" style="width: 256px; background: linear-gradient(to right, #E91E8C, #F5A623);"></div>
+              <p>Section padding (desktop)</p>
+            </div>
+            <div class="spacing-item">
+              <code>96px</code>
+              <div class="bar" style="width: 320px; max-width: 100%; background: linear-gradient(to right, #E91E8C, #F5A623);"></div>
+              <p>Major section spacing</p>
+            </div>
+            <div class="spacing-item">
+              <code>128px</code>
+              <div class="bar" style="width: 380px; max-width: 100%; background: linear-gradient(to right, #E91E8C, #F5A623);"></div>
+              <p>Hero padding</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="spacing-section">
+          <h3>Content Grid</h3>
+          <p>Max container width: <code>1280px</code> with <code>24px</code> gutter</p>
+          <div class="grid-demo">
+            <div class="grid-cols">
+              <div class="grid-col">1</div>
+              <div class="grid-col">2</div>
+              <div class="grid-col">3</div>
+              <div class="grid-col">4</div>
+              <div class="grid-col">5</div>
+              <div class="grid-col">6</div>
+              <div class="grid-col">7</div>
+              <div class="grid-col">8</div>
+              <div class="grid-col">9</div>
+              <div class="grid-col">10</div>
+              <div class="grid-col">11</div>
+              <div class="grid-col">12</div>
+            </div>
+          </div>
+          <!-- Layout variants -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+            <div style="text-align: center;">
+              <p style="font-size: 0.875rem; font-weight: 700; color: #23324f; margin-bottom: 0.5rem;">Narrow</p>
+              <p style="font-size: 0.75rem; color: #5a6b82; margin-bottom: 0.25rem;">6 cols (640px)</p>
+              <p style="font-size: 0.75rem; color: #94a3b8;">Long-form text</p>
+            </div>
+            <div style="text-align: center;">
+              <p style="font-size: 0.875rem; font-weight: 700; color: #23324f; margin-bottom: 0.5rem;">Standard</p>
+              <p style="font-size: 0.75rem; color: #5a6b82; margin-bottom: 0.25rem;">8–10 cols</p>
+              <p style="font-size: 0.75rem; color: #94a3b8;">Mixed content</p>
+            </div>
+            <div style="text-align: center;">
+              <p style="font-size: 0.875rem; font-weight: 700; color: #23324f; margin-bottom: 0.5rem;">Full Bleed</p>
+              <p style="font-size: 0.75rem; color: #5a6b82; margin-bottom: 0.25rem;">12 cols / edge</p>
+              <p style="font-size: 0.75rem; color: #94a3b8;">Heroes, galleries</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Breakpoints -->
+        <div class="spacing-section">
+          <h3>Breakpoints</h3>
+          <div class="breakpoints-grid">
+            <div class="breakpoint-card">
+              <p class="breakpoint-name">Mobile</p>
+              <p class="breakpoint-size">&lt; 640px</p>
+              <p class="breakpoint-use">Stack everything, generous touch targets</p>
+            </div>
+            <div class="breakpoint-card">
+              <p class="breakpoint-name">Tablet</p>
+              <p class="breakpoint-size">640–1024px</p>
+              <p class="breakpoint-use">Start introducing side-by-side layouts</p>
+            </div>
+            <div class="breakpoint-card">
+              <p class="breakpoint-name">Desktop</p>
+              <p class="breakpoint-size">1024–1280px</p>
+              <p class="breakpoint-use">Full layout with sidebar navigation</p>
+            </div>
+            <div class="breakpoint-card">
+              <p class="breakpoint-name">Wide</p>
+              <p class="breakpoint-size">&gt; 1280px</p>
+              <p class="breakpoint-use">Max-width container, extra breathing room</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <!-- COMPONENTS SECTION -->
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <section id="components" class="section scroll-mt-20">
+        <div class="section-header">
+          <p class="section-label">Component Library</p>
+          <h2>Building blocks with character</h2>
+          <p class="section-description">Every component carries the Bath Spa personality. Rounded corners, generous padding, and subtle motion make interactions feel crafted and intentional.</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="comp-tabs" role="tablist">
+          <button class="comp-tab active" data-tab="buttons" role="tab" aria-selected="true">Buttons</button>
+          <button class="comp-tab" data-tab="inputs" role="tab" aria-selected="false">Form Inputs</button>
+          <button class="comp-tab" data-tab="cards" role="tab" aria-selected="false">Cards</button>
+          <button class="comp-tab" data-tab="news" role="tab" aria-selected="false">News Cards</button>
+          <button class="comp-tab" data-tab="accordion" role="tab" aria-selected="false">Accordion</button>
+          <button class="comp-tab" data-tab="text" role="tab" aria-selected="false">Text Content</button>
+          <button class="comp-tab" data-tab="badges" role="tab" aria-selected="false">Badges & Tags</button>
+          <button class="comp-tab" data-tab="nav" role="tab" aria-selected="false">Navigation</button>
+        </div>
+
+        <!-- ── Buttons tab ── -->
+        <div class="comp-panel active" id="tab-buttons">
+          <div class="comp-group">
+            <p class="comp-group-label">Primary Buttons</p>
+            <div class="comp-row">
+              <button class="btn btn-accent btn-lg">Book Open Day</button>
+              <button class="btn btn-primary btn-lg">Explore Courses</button>
+              <button class="btn btn-primary btn-lg" disabled style="opacity:0.5;cursor:not-allowed;">Disabled</button>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Secondary & Ghost</p>
+            <div class="comp-row">
+              <button class="btn btn-outline btn-lg">Download Prospectus</button>
+              <button class="btn-ghost">Learn more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Icon & Compact</p>
+            <div class="comp-row" style="align-items:center;">
+              <button class="btn btn-accent btn-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+              <button class="btn-icon-outline"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+              <button class="btn btn-accent" style="padding:0.5rem 1.25rem;font-size:0.75rem;">Apply now</button>
+            </div>
+          </div>
+
+          <div class="spec-box">
+            <p class="spec-label">Specification</p>
+            <ul>
+              <li>• Border radius: <code>rounded-full</code> (pill shape)</li>
+              <li>• Padding: <code>px-7 py-3.5</code> (generous, easy touch target)</li>
+              <li>• Font: <code>text-sm font-semibold</code></li>
+              <li>• Hover: shadow + slight brightness shift. Active: <code>scale-95</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── Form Inputs tab ── -->
+        <div class="comp-panel" id="tab-inputs">
+          <div class="comp-group" style="max-width:32rem;">
+            <p class="comp-group-label">Text Inputs</p>
+            <div class="comp-form">
+              <div class="form-field">
+                <label class="form-label" for="sg-name">Full name</label>
+                <input id="sg-name" type="text" class="input-field input-lg" placeholder="Enter your full name">
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="sg-search">Search courses</label>
+                <div class="input-icon-wrap">
+                  <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                  <input id="sg-search" type="text" class="input-field input-lg input-with-icon" placeholder="e.g. Fine Art, Psychology…">
+                </div>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="sg-subject">Subject area</label>
+                <div class="input-icon-wrap">
+                  <select id="sg-subject" class="input-field input-lg input-select">
+                    <option>Choose a subject</option>
+                    <option>Art & Design</option>
+                    <option>Business</option>
+                    <option>Computing</option>
+                    <option>Education</option>
+                  </select>
+                  <svg class="input-icon input-icon-right" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="spec-box">
+            <p class="spec-label">Specification</p>
+            <ul>
+              <li>• Border radius: <code>rounded-xl</code></li>
+              <li>• Padding: <code>px-4 py-3.5</code></li>
+              <li>• Focus: magenta border + ring</li>
+              <li>• Labels: <code>text-sm font-medium</code> above input</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── Cards tab ── -->
+        <div class="comp-panel" id="tab-cards">
+          <div class="comp-group">
+            <p class="comp-group-label">Course Card</p>
+            <div class="course-cards-grid">
+              <div class="course-card">
+                <div class="course-card-img" style="--accent:#E91E8C;">
+                  <span class="course-card-overline">BA (Hons)</span>
+                </div>
+                <div class="course-card-body">
+                  <h3 class="course-card-title">Fine Art</h3>
+                  <p class="course-card-desc">Explore your creative potential and develop professional skills in a supportive studio environment.</p>
+                  <div class="course-card-footer">
+                    <span class="course-card-meta"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 3 years</span>
+                    <div class="course-card-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                  </div>
+                </div>
+              </div>
+              <div class="course-card">
+                <div class="course-card-img" style="--accent:#F5A623;">
+                  <span class="course-card-overline">BA (Hons)</span>
+                </div>
+                <div class="course-card-body">
+                  <h3 class="course-card-title">Creative Writing</h3>
+                  <p class="course-card-desc">Explore your creative potential and develop professional skills in a supportive studio environment.</p>
+                  <div class="course-card-footer">
+                    <span class="course-card-meta"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 3 years</span>
+                    <div class="course-card-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                  </div>
+                </div>
+              </div>
+              <div class="course-card">
+                <div class="course-card-img" style="--accent:#2DD4A8;">
+                  <span class="course-card-overline">BA (Hons)</span>
+                </div>
+                <div class="course-card-body">
+                  <h3 class="course-card-title">Psychology</h3>
+                  <p class="course-card-desc">Explore your creative potential and develop professional skills in a supportive studio environment.</p>
+                  <div class="course-card-footer">
+                    <span class="course-card-meta"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 3 years</span>
+                    <div class="course-card-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Event Card</p>
+            <div style="max-width:22rem;">
+              <div class="event-card">
+                <div class="event-card-header">
+                  <span class="badge" style="background:#FFD6E8;color:#E91E8C;">Open Day</span>
+                  <span class="event-card-date">28 Mar 2026</span>
+                </div>
+                <h3 class="event-card-title">Undergraduate Open Day</h3>
+                <p class="event-card-desc">Explore our campuses, meet students and staff, and discover where your creativity could take you.</p>
+                <div class="event-card-meta">
+                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Newton Park</span>
+                  <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 10am–4pm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── News Cards tab ── -->
+        <div class="comp-panel" id="tab-news">
+          <div class="comp-group">
+            <p class="comp-group-label">Featured News Card — Large</p>
+            <div class="news-featured">
+              <div class="news-featured-img">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/bf376f827_generated_92cba8a7.png" alt="Architecture student">
+                <span class="news-cat-badge" style="background:#FFD6E8;color:#E91E8C;">Student Story</span>
+              </div>
+              <div class="news-featured-body">
+                <p class="news-date">12 Mar 2026</p>
+                <h3 class="news-featured-title">Architecture student finds support and community at Bath Spa</h3>
+                <p class="news-excerpt">With help from BSU staff and the wider student community, second year Oli Smith has been able to thrive in his studies — and wants others to know support is there.</p>
+                <span class="news-read-more">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Standard News Grid — 3 Column</p>
+            <div class="news-grid">
+              <div class="news-card">
+                <div class="news-card-img-wrap">
+                  <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/bf376f827_generated_92cba8a7.png" alt="">
+                </div>
+                <div class="news-card-body">
+                  <div class="news-card-meta"><span class="news-cat-badge" style="background:#FFD6E8;color:#E91E8C;">Student Story</span><span class="news-date">12 Mar 2026</span></div>
+                  <h3 class="news-card-title">Architecture student finds support and community at Bath Spa</h3>
+                  <p class="news-card-excerpt">With help from BSU staff and the wider student community, second year Oli Smith has been able to thrive.</p>
+                  <span class="news-read-more news-read-more-sm">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+              </div>
+              <div class="news-card">
+                <div class="news-card-img-wrap">
+                  <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/7582c44e2_generated_939065c9.png" alt="">
+                </div>
+                <div class="news-card-body">
+                  <div class="news-card-meta"><span class="news-cat-badge" style="background:#EEF1F6;color:#23324f;">News</span><span class="news-date">10 Mar 2026</span></div>
+                  <h3 class="news-card-title">BSU students take talents overseas for Brazilian music festival</h3>
+                  <p class="news-card-excerpt">Students perform on international stages, collaborating with musicians at the SESC Festival in São Paulo.</p>
+                  <span class="news-read-more news-read-more-sm">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+              </div>
+              <div class="news-card">
+                <div class="news-card-img-wrap news-card-no-img">
+                  <span>BSU</span>
+                </div>
+                <div class="news-card-body">
+                  <div class="news-card-meta"><span class="news-cat-badge" style="background:#FFF8EC;color:#c48600;">Award</span><span class="news-date">5 Mar 2026</span></div>
+                  <h3 class="news-card-title">BA Architecture achieves RIBA validation</h3>
+                  <p class="news-card-excerpt">BSU's BA Architecture course has been validated by the Royal Institute of British Architects.</p>
+                  <span class="news-read-more news-read-more-sm">Read more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Compact News List</p>
+            <div class="news-list">
+              <div class="news-list-item">
+                <div class="news-list-thumb"><img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/bf376f827_generated_92cba8a7.png" alt=""></div>
+                <div class="news-list-body">
+                  <div class="news-list-meta"><span style="color:#E91E8C;font-size:0.6875rem;font-weight:600;">Student Story</span><span class="news-date">12 Mar 2026</span></div>
+                  <p class="news-list-title">Architecture student finds support and community at Bath Spa</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+              <div class="news-list-item">
+                <div class="news-list-thumb"><img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/7582c44e2_generated_939065c9.png" alt=""></div>
+                <div class="news-list-body">
+                  <div class="news-list-meta"><span style="color:#23324f;font-size:0.6875rem;font-weight:600;">News</span><span class="news-date">10 Mar 2026</span></div>
+                  <p class="news-list-title">BSU students take talents overseas for Brazilian music festival</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+              <div class="news-list-item">
+                <div class="news-list-thumb news-list-thumb-empty"><span>BSU</span></div>
+                <div class="news-list-body">
+                  <div class="news-list-meta"><span style="color:#c48600;font-size:0.6875rem;font-weight:600;">Award</span><span class="news-date">5 Mar 2026</span></div>
+                  <p class="news-list-title">BA Architecture achieves RIBA validation</p>
+                </div>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="spec-box">
+            <p class="spec-label">Specification</p>
+            <ul>
+              <li>• Featured card: equal-split 50/50 image–text grid at md breakpoint</li>
+              <li>• No-image fallback: dot-grid pattern on tint background, keeps layout consistent</li>
+              <li>• Category badge colour driven by content type (see Badges tab)</li>
+              <li>• Hover: title colour shift to magenta + arrow nudge</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── Accordion tab ── -->
+        <div class="comp-panel" id="tab-accordion">
+          <div class="comp-group">
+            <p class="comp-group-label">Standard Accordion — on White</p>
+            <div class="accordion-wrap accordion-white">
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="true">
+                  <span class="accordion-q open">What are the entry requirements for undergraduate courses?</span>
+                  <span class="accordion-icon open"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/></svg></span>
+                </button>
+                <div class="accordion-body" style="display:block;">
+                  <p>Entry requirements vary by course, but most undergraduate programmes ask for 96–128 UCAS tariff points. We welcome students from a wide range of backgrounds and consider contextual factors. Check individual course pages for specific requirements.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  <span class="accordion-q">When are the Open Days?</span>
+                  <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+                </button>
+                <div class="accordion-body" style="display:none;">
+                  <p>We hold several Open Days throughout the year, typically in October, November, March and June. You can book a place on our Open Days page. We also offer personal campus tours on request.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  <span class="accordion-q">What campuses does Bath Spa University have?</span>
+                  <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+                </button>
+                <div class="accordion-body" style="display:none;">
+                  <p>Bath Spa has two main campuses: Newton Park, set in a 170-acre country estate with a 13th-century castle, and Locksbrook Campus — a contemporary creative hub near Bath city centre. Both campuses are within easy reach of each other.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  <span class="accordion-q">Is student accommodation available?</span>
+                  <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+                </button>
+                <div class="accordion-body" style="display:none;">
+                  <p>Yes. We guarantee accommodation to all first-year students who apply by the deadline. Our halls are located on and near both campuses, with a range of room types and price points to suit different needs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Accordion — on Navy Tint</p>
+            <div class="accordion-wrap accordion-tint">
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="true">
+                  <span class="accordion-q open">What are the entry requirements for undergraduate courses?</span>
+                  <span class="accordion-icon open"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/></svg></span>
+                </button>
+                <div class="accordion-body" style="display:block;">
+                  <p>Entry requirements vary by course, but most undergraduate programmes ask for 96–128 UCAS tariff points.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  <span class="accordion-q">When are the Open Days?</span>
+                  <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+                </button>
+                <div class="accordion-body" style="display:none;">
+                  <p>We hold several Open Days throughout the year, typically in October, November, March and June.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  <span class="accordion-q">What campuses does Bath Spa University have?</span>
+                  <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+                </button>
+                <div class="accordion-body" style="display:none;">
+                  <p>Bath Spa has two main campuses: Newton Park and Locksbrook Campus near Bath city centre.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Accordion — on Navy Dark</p>
+            <p style="font-size:0.75rem;color:#94a3b8;margin-bottom:1.25rem;">Inverse treatment for dark sections. Question text in white, answer in white/65.</p>
+            <div class="accordion-wrap accordion-dark">
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="true">
+                  <span class="accordion-q open">What are the entry requirements for undergraduate courses?</span>
+                  <span class="accordion-icon open accordion-icon-amber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/></svg></span>
+                </button>
+                <div class="accordion-body" style="display:block;">
+                  <p>Entry requirements vary by course, but most undergraduate programmes ask for 96–128 UCAS tariff points.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  <span class="accordion-q">When are the Open Days?</span>
+                  <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+                </button>
+                <div class="accordion-body" style="display:none;">
+                  <p>We hold several Open Days throughout the year, typically in October, November, March and June.</p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                  <span class="accordion-q">What campuses does Bath Spa University have?</span>
+                  <span class="accordion-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+                </button>
+                <div class="accordion-body" style="display:none;">
+                  <p>Bath Spa has two main campuses: Newton Park and Locksbrook Campus near Bath city centre.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="spec-box">
+            <p class="spec-label">Specification</p>
+            <ul>
+              <li>• Expand/collapse with smooth height transition</li>
+              <li>• Active question: magenta text + filled magenta circle icon</li>
+              <li>• Icon: <code>Plus</code> / <code>Minus</code> inside a bordered circle</li>
+              <li>• Works on white, tint, and dark navy backgrounds</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── Text Content tab ── -->
+        <div class="comp-panel" id="tab-text">
+          <div class="comp-group">
+            <p class="comp-group-label">Full-Width Text Block</p>
+            <div class="text-block-demo">
+              <p class="text-block-overline">About the course</p>
+              <h2 class="text-block-heading">Where creativity meets craft</h2>
+              <div class="text-block-body">
+                <p>Our Fine Art degree is built around the studio. From your first week you'll be making work, testing ideas, and developing a practice that's entirely your own. We believe in learning by doing.</p>
+                <p>You'll study painting, drawing, sculpture, installation, and digital media — with the freedom to specialise as your practice develops. Our tutors are practising artists who bring real-world experience into every session.</p>
+              </div>
+              <button class="btn btn-primary btn-lg" style="margin-top:2rem;display:inline-flex;align-items:center;gap:0.5rem;">View course details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Two-Column Text</p>
+            <div class="text-block-demo text-block-tint">
+              <p class="text-block-overline">What you'll study</p>
+              <h2 class="text-block-heading" style="font-size:1.75rem;max-width:28rem;">A curriculum built around your curiosity</h2>
+              <div class="text-two-col">
+                <div>
+                  <p>In Year 1, you'll explore the fundamentals — material processes, critical thinking, and the history of contemporary art. You'll work alongside students from every discipline, sharing studios and ideas.</p>
+                  <p>Regular crits, tutorials, and group sessions help you develop your voice early. You won't just make work — you'll learn to talk about it, defend it, and grow from feedback.</p>
+                </div>
+                <div>
+                  <p>Years 2 and 3 bring increasing independence. By your final year, you'll be producing a substantial body of work for your degree show — Bath Spa's annual exhibition that attracts galleries and creative employers from across the UK.</p>
+                  <p>Optional study abroad partnerships and live briefs with cultural organisations give you real-world experience before you graduate.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Text + Image — Image Right</p>
+            <div class="text-image-split">
+              <div class="text-image-body">
+                <p class="text-block-overline">The degree show</p>
+                <h2 class="text-block-heading" style="font-size:1.75rem;">Your work seen by the world</h2>
+                <p style="font-size:0.875rem;color:#6b7280;line-height:1.7;margin-bottom:0.75rem;">Every year Bath Spa's degree show brings together hundreds of graduating students for an exhibition across both campuses — open to the public, attended by galleries, agencies, and creative employers.</p>
+                <p style="font-size:0.875rem;color:#6b7280;line-height:1.7;margin-bottom:1.5rem;">Many students receive commissions, job offers, and gallery representation before graduation day. It's not a finishing line — it's a launch pad.</p>
+                <a href="#" class="text-link">View past degree shows <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              </div>
+              <div class="text-image-media">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/bf376f827_generated_92cba8a7.png" alt="Students working in the studio">
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Text + Image — Image Left</p>
+            <div class="text-image-split text-image-split-amber">
+              <div class="text-image-media order-img-left">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/7582c44e2_generated_939065c9.png" alt="Bath city centre">
+              </div>
+              <div class="text-image-body">
+                <p class="text-block-overline" style="color:#c48600;">Student life</p>
+                <h2 class="text-block-heading" style="font-size:1.75rem;">Bath is part of your education</h2>
+                <p style="font-size:0.875rem;color:#6b7280;line-height:1.7;margin-bottom:1.5rem;">The city of Bath is a UNESCO World Heritage Site — and it's on your doorstep. Roman baths, Georgian crescents, contemporary galleries, independent venues, and a thriving creative scene make it one of the UK's most inspiring places to study.</p>
+                <a href="#" class="text-link">Explore life in Bath <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Pull Quote</p>
+            <div class="pull-quote">
+              <svg class="blob blob-bottom-left" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="opacity:0.05;fill:#2DD4A8;">
+                <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z"/>
+              </svg>
+              <div style="position:relative;z-index:10;max-width:40rem;">
+                <span class="pull-quote-mark">"</span>
+                <blockquote class="pull-quote-text">The tutors didn't just teach me to paint — they taught me to think like an <span style="color:#F5A623;">artist</span>.</blockquote>
+                <div class="pull-quote-attribution">
+                  <div class="pull-quote-avatar">JL</div>
+                  <div>
+                    <p class="pull-quote-name">Jess Liu</p>
+                    <p class="pull-quote-role">BA Fine Art, 2024 · Now represented by Fold Gallery, London</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="spec-box">
+            <p class="spec-label">Specification</p>
+            <ul>
+              <li>• Body text: <code>text-base leading-relaxed text-gray-600</code></li>
+              <li>• Max body width: <code>max-w-2xl</code> for comfortable line length (~65–70 chars)</li>
+              <li>• Two-column text: equal <code>md:grid-cols-2 gap-6</code>, full-width on mobile</li>
+              <li>• Image–text split: 50/50 grid, image panel uses absolute fill — no fixed heights needed</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── Badges tab ── -->
+        <div class="comp-panel" id="tab-badges">
+          <div class="comp-group">
+            <p class="comp-group-label">Status Badges</p>
+            <div class="badges-wrap">
+              <span class="badge" style="background:#E91E8C;color:white;">New Course</span>
+              <span class="badge" style="background:#2DD4A8;color:white;">Open for Applications</span>
+              <span class="badge" style="background:#F5A623;color:white;">Clearing Available</span>
+              <span class="badge" style="background:#23324f;color:white;">Featured</span>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Soft Badges</p>
+            <div class="badges-wrap">
+              <span class="badge" style="background:#FFD6E8;color:#E91E8C;">Art & Design</span>
+              <span class="badge" style="background:#D6FFF0;color:#0d9b76;">Sciences</span>
+              <span class="badge" style="background:#FFF3D6;color:#c48600;">Business</span>
+              <span class="badge" style="background:#E0E7FF;color:#4338CA;">Education</span>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Subject Tags</p>
+            <div class="badges-wrap">
+              <button class="subject-tag">Fine Art</button>
+              <button class="subject-tag">Graphic Design</button>
+              <button class="subject-tag">Creative Writing</button>
+              <button class="subject-tag">Psychology</button>
+              <button class="subject-tag">Drama</button>
+              <button class="subject-tag">Music</button>
+              <button class="subject-tag">Film</button>
+              <button class="subject-tag">Photography</button>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Star Ratings</p>
+            <div style="display:flex;align-items:center;gap:0.25rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5A623" stroke="#F5A623" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5A623" stroke="#F5A623" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5A623" stroke="#F5A623" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5A623" stroke="#F5A623" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e2e8f0" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span style="font-size:0.875rem;color:#6b7280;margin-left:0.5rem;">4.0 / 5.0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Navigation tab ── -->
+        <div class="comp-panel" id="tab-nav">
+          <div class="comp-group">
+            <p class="comp-group-label">Breadcrumbs</p>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;">
+              <a href="#" class="nav-demo-link">Home</a>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              <a href="#" class="nav-demo-link">Courses</a>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              <span style="color:#6b7280;">Fine Art</span>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label">Link Styles</p>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+              <p style="font-size:0.875rem;"><a href="#" class="link-standard">Standard link →</a></p>
+              <p style="font-size:0.875rem;"><a href="#" class="link-underline">Underlined emphasis link</a></p>
+              <p style="font-size:0.875rem;"><a href="#" class="link-external">External link <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></p>
+            </div>
+          </div>
+
+          <div class="comp-group">
+            <p class="comp-group-label" style="color:rgba(255,255,255,0.4);">Header Navigation (Preview)</p>
+            <div class="header-nav-demo">
+              <div class="header-nav-logo">
+                <div class="header-nav-icon">BSU</div>
+                <span>Bath Spa</span>
+              </div>
+              <div class="header-nav-links">
+                <a href="#" class="header-nav-link">Courses</a>
+                <a href="#" class="header-nav-link">Life in Bath</a>
+                <a href="#" class="header-nav-link">Campus</a>
+                <a href="#" class="header-nav-link">Student Life</a>
+                <button class="btn btn-accent" style="padding:0.5rem 1.25rem;font-size:0.75rem;">Open Day</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <!-- IMAGERY SECTION -->
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <section id="imagery" class="section scroll-mt-20">
+        <div class="section-header">
+          <p class="section-label">Imagery & Media</p>
+          <h2>Photography that tells stories</h2>
+          <p class="section-description">Our photography should feel like peeking into real life at Bath Spa — warm, creative, and bursting with personality. Bath itself is a character in every story.</p>
+        </div>
+
+        <!-- Photo Grid -->
+        <div class="photo-grid">
+          <div class="photo-item">
+            <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/bf376f827_generated_92cba8a7.png" alt="Creative students collaborating in art studio">
+            <div class="photo-gradient"></div>
+            <div class="photo-badge">
+              <span class="badge" style="background:#2DD4A8;color:white;">✓ Authentic & Creative</span>
+            </div>
+          </div>
+          <div class="photo-item">
+            <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/7582c44e2_generated_939065c9.png" alt="Beautiful honey-coloured Georgian architecture of Bath">
+            <div class="photo-gradient"></div>
+            <div class="photo-badge">
+              <span class="badge" style="background:#F5A623;color:white;">✓ Bath is a Character</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Do / Don't -->
+        <div class="imagery-dodont-grid">
+          <div class="imagery-do-card">
+            <h3 class="imagery-do-heading">
+              <span class="imagery-do-icon">✓</span>
+              Photography Do's
+            </h3>
+            <ul class="imagery-list">
+              <li><span class="imagery-bullet-mint">●</span> Candid, authentic moments — students creating, collaborating, laughing</li>
+              <li><span class="imagery-bullet-mint">●</span> Natural lighting, warm colour grading (golden, amber tones)</li>
+              <li><span class="imagery-bullet-mint">●</span> Diverse students in real settings — studios, campuses, Bath city</li>
+              <li><span class="imagery-bullet-mint">●</span> Environmental portraits that show personality and place</li>
+              <li><span class="imagery-bullet-mint">●</span> Movement and energy — hands making, bodies in motion</li>
+            </ul>
+          </div>
+          <div class="imagery-dont-card">
+            <h3 class="imagery-dont-heading">
+              <span class="imagery-dont-icon">✗</span>
+              Photography Don'ts
+            </h3>
+            <ul class="imagery-list">
+              <li><span class="imagery-bullet-magenta">●</span> Staged stock photography with forced smiles</li>
+              <li><span class="imagery-bullet-magenta">●</span> Overly corporate settings (boardrooms, generic classrooms)</li>
+              <li><span class="imagery-bullet-magenta">●</span> Cool, desaturated colour grading that feels clinical</li>
+              <li><span class="imagery-bullet-magenta">●</span> Isolated headshots with no environmental context</li>
+              <li><span class="imagery-bullet-magenta">●</span> Images that could be literally any university</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Graphic Elements -->
+        <div class="imagery-subsection">
+          <h3 class="imagery-subheading">Graphic Elements</h3>
+          <p class="imagery-subdesc">Organic blob shapes, gradient overlays, and cut-out photography create a distinctive, handmade feel inspired by Bath Spa's Originality campaign.</p>
+          <div class="graphic-elements-grid">
+            <div class="element-box">
+              <div class="el-blob"></div>
+              <p class="el-label">Blob Shape</p>
+            </div>
+            <div class="element-box">
+              <div class="el-gradient-circle"></div>
+              <p class="el-label">Gradient Circle</p>
+            </div>
+            <div class="element-box">
+              <div class="el-rotated-block"></div>
+              <p class="el-label">Rotated Block</p>
+            </div>
+            <div class="element-box">
+              <div class="el-dot-grid">
+                <span style="background:#E91E8C;"></span><span style="background:#F5A623;"></span><span style="background:#2DD4A8;"></span><span style="background:#E91E8C;"></span><span style="background:#F5A623;"></span>
+                <span style="background:#2DD4A8;"></span><span style="background:#E91E8C;"></span><span style="background:#F5A623;"></span><span style="background:#2DD4A8;"></span><span style="background:#E91E8C;"></span>
+                <span style="background:#F5A623;"></span><span style="background:#2DD4A8;"></span><span style="background:#E91E8C;"></span><span style="background:#F5A623;"></span><span style="background:#2DD4A8;"></span>
+                <span style="background:#E91E8C;"></span><span style="background:#F5A623;"></span><span style="background:#2DD4A8;"></span><span style="background:#E91E8C;"></span><span style="background:#F5A623;"></span>
+                <span style="background:#2DD4A8;"></span><span style="background:#E91E8C;"></span><span style="background:#F5A623;"></span><span style="background:#2DD4A8;"></span><span style="background:#E91E8C;"></span>
+              </div>
+              <p class="el-label">Dot Pattern</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Treatments -->
+        <div class="imagery-subsection">
+          <h3 class="imagery-subheading">Image Treatments</h3>
+          <div class="image-treatments-grid">
+            <div class="image-treatment">
+              <div class="treatment-frame">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/bf376f827_generated_92cba8a7.png" alt="Standard crop">
+              </div>
+              <p class="treatment-name">Standard Crop</p>
+              <p class="treatment-desc">Full-colour, soft rounded corners</p>
+            </div>
+            <div class="image-treatment">
+              <div class="treatment-frame treatment-frame-overlay">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/7582c44e2_generated_939065c9.png" alt="Gradient overlay">
+                <div class="treatment-overlay-gradient"></div>
+              </div>
+              <p class="treatment-name">Gradient Overlay</p>
+              <p class="treatment-desc">Brand colour wash for hero usage</p>
+            </div>
+            <div class="image-treatment">
+              <div class="treatment-frame treatment-frame-blob">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/bf376f827_generated_92cba8a7.png" alt="Blob mask">
+              </div>
+              <p class="treatment-name">Blob Mask</p>
+              <p class="treatment-desc">Organic shape for playful layouts</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <!-- PATTERNS SECTION -->
+      <!-- ═════════════════════════════════════════════════════════════ -->
+      <section id="patterns" class="section scroll-mt-20">
+        <div class="section-header">
+          <p class="section-label">Page Patterns</p>
+          <h2>Hero & section patterns</h2>
+          <p class="section-description">Accessible, high-contrast hero layouts. Text lives on a solid background — never over an image. Decorative SVG patterns add creative character without sacrificing legibility.</p>
+        </div>
+
+        <!-- ── Hero Variant 1: Text Left / Image Right ── -->
+        <div class="pattern-demo">
+          <div class="pattern-label">
+            <p class="label">Hero Variant 1</p>
+            <span class="label-badge">With Image</span>
+          </div>
+          <p class="pattern-description">Text panel left · Image panel right · No text over image · Blob decoration</p>
+          <div class="pv1-grid">
+            <!-- Text panel -->
+            <div class="pv1-text">
+              <svg class="pv-blob pv-blob-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#2DD4A8" opacity="0.06"/>
+              </svg>
+              <div style="position:relative;z-index:10;">
+                <div class="pv-badges">
+                  <span class="badge" style="background:#E91E8C;color:white;">BA (Hons)</span>
+                  <span class="pv-badge-outline">3 years full-time</span>
+                </div>
+                <h1 class="pv1-heading">Fine Art</h1>
+                <p class="pv1-body">Push boundaries, experiment with materials, and develop your artistic voice in our world-class studios in the heart of Bath.</p>
+                <div class="button-row">
+                  <button class="btn btn-accent btn-lg">Apply Now</button>
+                  <button class="btn btn-outline-white btn-lg">Book Open Day</button>
+                </div>
+              </div>
+            </div>
+            <!-- Image panel -->
+            <div class="pv1-image">
+              <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/bf376f827_generated_92cba8a7.png" alt="Creative students collaborating in the art studio">
+              <span class="pv1-location-tag">Newton Park Campus</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Hero Variant 2: Image Left / Text Right ── -->
+        <div class="pattern-demo">
+          <div class="pattern-label">
+            <p class="label">Hero Variant 2</p>
+            <span class="label-badge">With Image</span>
+          </div>
+          <p class="pattern-description">Image panel left · Text panel right (white bg) · Suitable for light pages</p>
+          <div class="pv2-grid">
+            <!-- Image panel -->
+            <div class="pv2-image">
+              <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/7582c44e2_generated_939065c9.png" alt="Aerial view of Bath city">
+              <span class="pv2-location-tag"><span class="pv2-dot"></span> Bath, UK</span>
+            </div>
+            <!-- Text panel -->
+            <div class="pv2-text">
+              <svg class="pv-blob pv-blob-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#F5A623" opacity="0.07"/>
+              </svg>
+              <div style="position:relative;z-index:10;">
+                <span class="pv2-overline">Life in Bath</span>
+                <h2 class="pv2-heading">A city that inspires creativity</h2>
+                <p class="pv2-body">Bath isn't just beautiful — it's alive with culture, music, art, and ideas. From Roman architecture to indie galleries, this UNESCO World Heritage city is your extended campus.</p>
+                <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+                  <button class="btn btn-primary btn-lg" style="display:inline-flex;align-items:center;gap:0.5rem;">Explore Bath <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+                  <button class="pv2-watch-btn">
+                    <span class="pv2-play-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+                    Watch film
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Hero Variant 3: No Image / Dark ── -->
+        <div class="pattern-demo">
+          <div class="pattern-label">
+            <p class="label">Hero Variant 3</p>
+            <span class="label-badge dark">No Image · Dark</span>
+          </div>
+          <p class="pattern-description">Solid navy background · Blob shapes · Large expressive type · Coloured accent word</p>
+          <div class="pv3-wrap">
+            <svg class="pv-blob pv-blob-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:24rem;height:24rem;">
+              <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#F5A623" opacity="0.07"/>
+            </svg>
+            <svg class="pv-blob pv-blob-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:20rem;height:20rem;">
+              <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#2DD4A8" opacity="0.05"/>
+            </svg>
+            <div class="pv3-content">
+              <p class="pv3-eyebrow">Bath Spa University · Open Days 2026</p>
+              <h1 class="pv3-heading">Where do<br><span style="color:#F5A623;">you</span> want<br>to begin?</h1>
+              <p class="pv3-body">Explore over 100 undergraduate courses at Bath Spa University. Start with what excites you.</p>
+              <div class="button-row">
+                <button class="btn btn-accent btn-lg">Explore Courses</button>
+                <button class="btn btn-white btn-lg">Book Open Day</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Hero Variant 4: No Image / Light ── -->
+        <div class="pattern-demo">
+          <div class="pattern-label">
+            <p class="label">Hero Variant 4</p>
+            <span class="label-badge light">No Image · Light</span>
+          </div>
+          <p class="pattern-description">White background · Decorative blob shapes · Suitable for most content pages</p>
+          <div class="pv4-wrap">
+            <svg class="pv-blob pv-blob-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:18rem;height:18rem;">
+              <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#F5A623" opacity="0.08"/>
+            </svg>
+            <svg class="pv-blob pv-blob-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:20rem;height:20rem;">
+              <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#2DD4A8" opacity="0.05"/>
+            </svg>
+            <div class="pv4-content">
+              <p class="pv4-eyebrow">Undergraduate · 2026 Entry</p>
+              <h1 class="pv4-heading">Your creativity<br>has a home<br><span class="text-accent-magenta">in Bath.</span></h1>
+              <p class="pv4-body">Join a university built around creative thinking — from the arts and design to science, education, and business. Two stunning campuses. One unforgettable city.</p>
+              <div class="button-row">
+                <button class="btn btn-primary btn-lg">Find Your Course</button>
+                <button class="btn btn-outline btn-lg">Book Open Day</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Social Proof Bar ── -->
+        <div class="pattern-demo">
+          <p class="label" style="margin-bottom:1.25rem;">Social Proof Bar</p>
+          <div class="stats-bar">
+            <svg class="pv-blob pv-blob-br" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:18rem;height:18rem;">
+              <path d="M200,30 C270,50 290,120 270,180 C250,240 180,280 110,260 C40,240 10,170 30,110 C50,50 120,10 200,30 Z" fill="#2DD4A8" opacity="0.05"/>
+            </svg>
+            <svg class="pv-blob pv-blob-tl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:20rem;height:20rem;">
+              <path d="M100,20 C160,10 230,40 250,100 C270,160 240,230 170,250 C100,270 30,240 20,170 C10,100 40,30 100,20 Z" fill="#F5A623" opacity="0.06"/>
+            </svg>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <p class="stat-value">Top 30</p>
+                <p class="stat-label">for Art & Design (Guardian 2026)</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-value">94%</p>
+                <p class="stat-label">Student Satisfaction</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-value">1,200+</p>
+                <p class="stat-label">Creative Graduates / Year</p>
+              </div>
+              <div class="stat-item">
+                <p class="stat-value">#1</p>
+                <p class="stat-label">in Bath for Student Experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── CTA Section ── -->
+        <div class="pattern-demo">
+          <p class="label" style="margin-bottom:1.25rem;">Call to Action — Full Width</p>
+          <div class="cta-block">
+            <svg class="pv-blob pv-blob-br" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:24rem;height:24rem;">
+              <path d="M200,30 C270,50 290,120 270,180 C250,240 180,280 110,260 C40,240 10,170 30,110 C50,50 120,10 200,30 Z" fill="#F5A623" opacity="0.06"/>
+            </svg>
+            <svg class="pv-blob pv-blob-tl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:24rem;height:24rem;">
+              <path d="M100,20 C160,10 230,40 250,100 C270,160 240,230 170,250 C100,270 30,240 20,170 C10,100 40,30 100,20 Z" fill="#2DD4A8" opacity="0.07"/>
+            </svg>
+            <div class="cta-content">
+              <p class="cta-eyebrow">Ready to begin?</p>
+              <h2 class="cta-heading">Your originality<br>starts here.</h2>
+              <p class="cta-body">Visit us on an Open Day and see for yourself why Bath Spa is where creative minds come to thrive.</p>
+              <div class="cta-buttons">
+                <button class="btn btn-accent" style="padding:1rem 2rem;font-size:1rem;">Book Your Open Day</button>
+                <button class="btn btn-white" style="padding:1rem 2rem;font-size:1rem;">Chat With a Student</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Note -->
+        <div class="footer-note">
+          <p class="footer-note-eyebrow">Bath Spa University</p>
+          <p class="footer-note-title">Web Style Guide · Reimagined 2026</p>
+          <p class="footer-note-sub">Designed to inspire creativity, confidence, and curiosity.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
