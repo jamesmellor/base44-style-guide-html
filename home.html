@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bath Spa University — Home</title>
+  <style>
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════════════════ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #23324f;
+      background: #ffffff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    :root {
+      --navy:      #23324f;
+      --magenta:   #E91E8C;
+      --teal:      #2DD4A8;
+      --amber:     #F5A623;
+      --navy-tint: #EEF1F6;
+      --stone:     #F9F7F4;
+      --muted:     #5a6b82;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════════════ */
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 4.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .nav-logomark {
+      width: 5rem;
+      height: 2.375rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.72);
+      padding: 0.5rem 0.875rem;
+      border-radius: 0.375rem;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover { color: white; background: rgba(255,255,255,0.08); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .nav-text-link {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.2s;
+    }
+
+    .nav-text-link:hover { color: white; }
+
+    .btn-nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: var(--magenta);
+      color: white;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      padding: 0.5rem 1.125rem;
+      border-radius: 9999px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-nav-cta:hover { background: #c41570; transform: translateY(-1px); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       HERO / MASTHEAD
+       ═══════════════════════════════════════════════════════════════ */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 580px;
+    }
+
+    .hero-panel {
+      background: var(--navy);
+      padding: 3.5rem 3rem 3.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Arch decoration — B-shape bottom-left */
+    .hero-deco-bl {
+      position: absolute;
+      bottom: -6rem;
+      left: -6rem;
+      width: 22rem;
+      height: 22rem;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    /* Arch decoration — top-right */
+    .hero-deco-tr {
+      position: absolute;
+      top: -4rem;
+      right: -4rem;
+      width: 18rem;
+      height: 18rem;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--amber);
+      margin-bottom: 1.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 1.75rem;
+      height: 2px;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.25rem, 3.5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 0.97;
+      letter-spacing: -0.03em;
+      color: white;
+      margin-bottom: 1.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-headline .accent { color: var(--amber); }
+
+    .hero-body {
+      font-size: 1.0625rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.72;
+      max-width: 38ch;
+      margin-bottom: 2.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.875rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--magenta);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      padding: 0.9375rem 2rem;
+      border-radius: 9999px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #c41570;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(233,30,140,0.35);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      padding: 0.9375rem 2rem;
+      border-radius: 9999px;
+      border: 1.5px solid rgba(255,255,255,0.22);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.48);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SHARED LAYOUT
+       ═══════════════════════════════════════════════════════════════ */
+
+    .wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--magenta);
+      margin-bottom: 0.875rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 1.5rem;
+      height: 2px;
+      background: var(--magenta);
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .section-label.teal { color: var(--magenta); }
+    .section-label.teal::before { background: var(--magenta); }
+    .section-label.amber { color: var(--amber); }
+    .section-label.amber::before { background: var(--amber); }
+
+    .section-heading {
+      font-size: clamp(1.875rem, 3vw, 2.75rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      color: var(--navy);
+    }
+
+    .section-heading.white { color: white; }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 52ch;
+      margin-top: 0.75rem;
+    }
+
+    .section-sub.white { color: rgba(255,255,255,0.6); }
+
+    .section-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+      gap: 1.5rem;
+    }
+
+    .view-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--navy);
+      padding: 0.625rem 1.25rem;
+      border-radius: 9999px;
+      border: 1.5px solid rgba(35,50,79,0.2);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .view-all:hover {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       START YOUR JOURNEY
+       ═══════════════════════════════════════════════════════════════ */
+
+    .journey-section {
+      background: var(--stone);
+      padding: 5rem 0;
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .journey-card {
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(35,50,79,0.07);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .journey-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 48px rgba(35,50,79,0.12);
+      border-color: var(--magenta);
+    }
+
+    .journey-card-img {
+      height: 15rem;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .journey-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .journey-card:hover .journey-card-img img { transform: scale(1.05); }
+
+    .journey-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .journey-card-title {
+      font-size: 1.125rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+
+    .journey-card-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.62;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--magenta);
+      transition: gap 0.2s;
+    }
+
+    .arrow-link:hover { gap: 0.625rem; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       BRAND MESSAGE
+       ═══════════════════════════════════════════════════════════════ */
+
+    .brand-section {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 0;
+    }
+
+    .brand-deco-tr {
+      position: absolute;
+      top: -5rem;
+      right: -5rem;
+      width: 26rem;
+      height: 26rem;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .brand-deco-bl {
+      position: absolute;
+      bottom: -6rem;
+      left: -4rem;
+      width: 22rem;
+      height: 22rem;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    .brand-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .brand-headline {
+      font-size: clamp(2.75rem, 5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 0.97;
+      letter-spacing: -0.035em;
+      color: white;
+    }
+
+    .brand-headline em {
+      font-style: normal;
+      color: var(--amber);
+    }
+
+    .brand-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .brand-body {
+      font-size: 1.0625rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.72;
+    }
+
+    .brand-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+
+    .brand-pillar {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .pillar-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .brand-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.9375rem;
+      padding: 0.9375rem 2rem;
+      border-radius: 9999px;
+      transition: background 0.2s, transform 0.2s;
+      align-self: flex-start;
+    }
+
+    .brand-cta:hover {
+      background: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FEATURED NEWS
+       ═══════════════════════════════════════════════════════════════ */
+
+    .news-section {
+      background: white;
+      padding: 5rem 0;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .news-card {
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(35,50,79,0.07);
+      display: flex;
+      flex-direction: column;
+      background: white;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(35,50,79,0.1);
+    }
+
+    .news-card-img {
+      height: 13.5rem;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .news-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .news-card:hover .news-card-img img { transform: scale(1.05); }
+
+    .news-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .news-date {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--magenta);
+      margin-bottom: 0.625rem;
+    }
+
+    .news-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.42;
+      margin-bottom: 0.625rem;
+      flex: 1;
+    }
+
+    .news-excerpt {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       SOCIAL PROOF
+       ═══════════════════════════════════════════════════════════════ */
+
+    .proof-section {
+      background: var(--navy);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .proof-deco-tr {
+      position: absolute;
+      top: -4rem;
+      right: -4rem;
+      width: 20rem;
+      height: 20rem;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .proof-deco-bl {
+      position: absolute;
+      bottom: -5rem;
+      left: -5rem;
+      width: 18rem;
+      height: 18rem;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    .proof-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .proof-header {
+      margin-bottom: 3rem;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .proof-card {
+      padding: 2rem 2.25rem;
+      border-left: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .proof-card:first-child {
+      border-left: none;
+      padding-left: 0;
+    }
+
+    .proof-stat {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--amber);
+    }
+
+    .proof-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 0.125rem;
+    }
+
+    .proof-desc {
+      font-size: 0.9375rem;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.55;
+    }
+
+    .proof-source {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .proof-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-card:nth-child(3) { border-left: none; padding-left: 0; }
+    }
+
+    @media (max-width: 480px) {
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof-card { border-left: none; border-top: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 0; }
+      .proof-card:first-child { border-top: none; padding-top: 0; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       OUR LOCATIONS
+       ═══════════════════════════════════════════════════════════════ */
+
+    .locations-section {
+      background: white;
+      padding: 5rem 0;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .location-card {
+      display: grid;
+      grid-template-columns: 42% 1fr;
+      background: white;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid rgba(35,50,79,0.09);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .location-card:hover {
+      box-shadow: 0 16px 40px rgba(35,50,79,0.1);
+      transform: translateY(-3px);
+    }
+
+    .location-card-img {
+      overflow: hidden;
+      min-height: 14rem;
+    }
+
+    .location-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .location-card:hover .location-card-img img { transform: scale(1.05); }
+
+    .location-card-body {
+      padding: 1.75rem 1.75rem 1.75rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.375rem;
+    }
+
+    .location-tag {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--magenta);
+      margin-bottom: 0.125rem;
+    }
+
+    .location-name {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+    }
+
+    .location-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .location-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--navy);
+      transition: color 0.2s, gap 0.2s;
+      margin-top: 0.25rem;
+    }
+
+    .location-link:hover {
+      color: var(--magenta);
+      gap: 0.625rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════ */
+
+    .site-footer {
+      background: var(--stone);
+      border-top: 1px solid rgba(35,50,79,0.1);
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem 2.5rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(35,50,79,0.1);
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand-name {
+      font-size: 0.9375rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.005em;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-brand-body {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.625rem;
+    }
+
+    .social-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.125rem;
+      height: 2.125rem;
+      border-radius: 50%;
+      background: rgba(35,50,79,0.07);
+      color: var(--navy);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .social-icon:hover { background: var(--magenta); color: white; }
+
+    .footer-col h4 {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .footer-col ul a {
+      font-size: 0.875rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--magenta); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-bottom p { font-size: 0.75rem; }
+
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-legal a {
+      font-size: 0.75rem;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .footer-legal a:hover { color: var(--navy); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════════════════ */
+
+    @media (max-width: 1100px) {
+      .journey-grid { grid-template-columns: repeat(2, 1fr); }
+      .brand-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; max-height: none; }
+      .hero-panel { padding: 3.5rem 2rem; min-height: 70vw; }
+      .hero-photo { height: 55vw; }
+      .news-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-text-link { display: none; }
+      .section-hdr { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .journey-grid { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      .locations-grid { grid-template-columns: 1fr; }
+      .location-card { grid-template-columns: 1fr; }
+      .location-card-img { min-height: 12rem; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════════════ -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="nav-inner">
+
+      <a href="#" class="nav-logo" aria-label="Bath Spa University home">
+        <svg class="nav-logomark" viewBox="60 400 1300 615" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="white" d="M946.5 409.9v399.3c0 110.1 88.2 199.3 197.1 199.6V409.9z"/>
+          <path fill="white" d="M1356.8 409.9h-198.2v598.9h.6c109.1 0 197.6-89.4 197.6-199.6z"/>
+          <path fill="white" d="M710.7 602.1v218.4H508.5c7.7 105.2 95.3 188.2 202.2 188.2 112 0 202.8-91 202.8-203.3s-90.8-203.3-202.8-203.3"/>
+          <path fill="white" d="M697.3 813.1V596.5h202.2c-7.7-104.3-95.3-186.6-202.2-186.6-112 0-202.8 90.3-202.8 201.6s90.8 201.6 202.8 201.6"/>
+          <path fill="white" d="M473.6 859.2c0 82.6-66.3 149.5-148 149.5h-52.7V409.9h52.2c80 .3 144.7 67.1 144.7 149.5s-64.7 149.2-144.7 149.5h.5v.8c81.7 0 148 66.9 148 149.5"/>
+          <path fill="white" d="M258.7 719.1V409.4h-198v598.9h198v-9.8z"/>
+        </svg>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Student Life</a></li>
+        <li><a href="#">Business & Community</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#" class="nav-text-link">Search</a>
+        <a href="#" class="btn-nav-cta">Open Days
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       HERO / MASTHEAD
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hero" aria-labelledby="hero-headline">
+
+    <div class="hero-panel">
+
+      <svg class="hero-deco-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#F5A623"/>
+      </svg>
+
+      <svg class="hero-deco-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#2DD4A8"/>
+      </svg>
+
+      <p class="hero-eyebrow">Bath Spa University · 2026</p>
+
+      <h1 class="hero-headline" id="hero-headline">
+        Open Days<br>
+        <span class="accent">2026</span>
+      </h1>
+
+      <p class="hero-body">
+        Learn more about life at BSU at one of our Open Days. Explore our beautiful campuses and specialist facilities, and talk to talented academic staff about their subject expertise.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">
+          Book your place
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#" class="btn-ghost">Find a course</a>
+      </div>
+
+    </div>
+
+    <div class="hero-photo" role="img" aria-label="Students at Bath Spa University campus">
+      <img
+        src="https://www.bathspa.ac.uk/media/bathspaacuk/Bath-Spa-University---Day-257131-(2).jpg"
+        alt="Students at Bath Spa University"
+        loading="eager"
+        fetchpriority="high"
+      >
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       START YOUR JOURNEY
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="journey-section" aria-labelledby="journey-heading">
+    <div class="wrap">
+
+      <div class="section-hdr">
+        <div>
+          <p class="section-label">Your path</p>
+          <h2 class="section-heading" id="journey-heading">Start your journey</h2>
+          <p class="section-sub">Find your place at Bath Spa — whatever stage you're at.</p>
+        </div>
+      </div>
+
+      <div class="journey-grid">
+
+        <!-- Undergraduate -->
+        <article class="journey-card">
+          <div class="journey-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/homepage/audience-undergraduate.jpg" alt="Undergraduate students" loading="lazy">
+          </div>
+          <div class="journey-card-body">
+            <h3 class="journey-card-title">Undergraduate</h3>
+            <p class="journey-card-desc">Explore our new Undergraduate Hub and find your place at Bath Spa.</p>
+            <a href="#" class="arrow-link">
+              Explore courses
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Postgraduate -->
+        <article class="journey-card">
+          <div class="journey-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/homepage/audience-postgraduate.jpg" alt="Postgraduate students" loading="lazy">
+          </div>
+          <div class="journey-card-body">
+            <h3 class="journey-card-title">Postgraduate</h3>
+            <p class="journey-card-desc">Expand specialist knowledge and build your career prospects with a postgraduate degree.</p>
+            <a href="#" class="arrow-link">
+              Explore courses
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Teacher Training -->
+        <article class="journey-card">
+          <div class="journey-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/education-/teacher-classroom-adobe-1000x1000.jpeg" alt="Teacher training" loading="lazy">
+          </div>
+          <div class="journey-card-body">
+            <h3 class="journey-card-title">Teacher Training</h3>
+            <p class="journey-card-desc">80 years' experience training confident, creative teachers. Discover teacher training at Bath Spa.</p>
+            <a href="#" class="arrow-link">
+              Find out more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- International -->
+        <article class="journey-card">
+          <div class="journey-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/homepage/audience-international.jpg" alt="International students" loading="lazy">
+          </div>
+          <div class="journey-card-body">
+            <h3 class="journey-card-title">International</h3>
+            <p class="journey-card-desc">Want to study in the UK? We'll support your international journey from day one.</p>
+            <a href="#" class="arrow-link">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       BRAND MESSAGE
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="brand-section" aria-label="About Bath Spa University">
+
+    <!-- Arch decorations -->
+    <svg class="brand-deco-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#F5A623"/>
+    </svg>
+    <svg class="brand-deco-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#2DD4A8"/>
+    </svg>
+
+    <div class="wrap">
+      <div class="brand-inner">
+
+        <h2 class="brand-headline">
+          We are<br>
+          <em>Professionally</em><br>
+          Creative.
+        </h2>
+
+        <div class="brand-right">
+          <p class="brand-body">
+            Tap into your professional creativity and pursue a career that fully expresses your unique ideas and talents, while making a difference to the issues that matter to you.
+          </p>
+
+          <div class="brand-pillars">
+            <div class="brand-pillar">
+              <span class="pillar-dot" style="background: var(--magenta);"></span>
+              Creativity — original thinking at the heart of everything
+            </div>
+            <div class="brand-pillar">
+              <span class="pillar-dot" style="background: var(--amber);"></span>
+              Confidence — bold ideas brought fearlessly into the world
+            </div>
+            <div class="brand-pillar">
+              <span class="pillar-dot" style="background: var(--teal);"></span>
+              Curiosity — a restless desire to explore and discover
+            </div>
+          </div>
+
+          <a href="#" class="brand-cta">
+            Our story
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FEATURED NEWS
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="news-section" aria-labelledby="news-heading">
+    <div class="wrap">
+
+      <div class="section-hdr">
+        <div>
+          <p class="section-label teal">Latest from BSU</p>
+          <h2 class="section-heading" id="news-heading">News &amp; stories</h2>
+        </div>
+        <a href="#" class="view-all">
+          View all news
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="news-grid">
+
+        <article class="news-card">
+          <div class="news-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/news-events/UniSlam-Group-600x435.jpg" alt="BSU poetry slam team" loading="lazy">
+          </div>
+          <div class="news-card-body">
+            <p class="news-date">18 March 2026</p>
+            <h3 class="news-title">BSU makes semi-finals at UniSlam 2026</h3>
+            <p class="news-excerpt">BSU's poetry slam team competes in the annual UniSlam event, reaching the national semi-finals.</p>
+            <a href="#" class="arrow-link">
+              Read more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/news-events/IMG_9006-600x435.JPG" alt="Wildlife conservation students" loading="lazy">
+          </div>
+          <div class="news-card-body">
+            <p class="news-date">13 March 2026</p>
+            <h3 class="news-title">British Science Week: Wildlife Conservation explores professional creativity in nature</h3>
+            <p class="news-excerpt">BSU's unique science modules combine curiosity with creativity and self-expression.</p>
+            <a href="#" class="arrow-link">
+              Read more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/students/student-wellbeing-services/chaplaincy/care-dogs-one-600x435.jpg" alt="Student wellbeing at BSU" loading="lazy">
+          </div>
+          <div class="news-card-body">
+            <p class="news-date">12 March 2026</p>
+            <h3 class="news-title">Student Wellbeing Services support students on University Mental Health Day</h3>
+            <p class="news-excerpt">How BSU is promoting awareness around mental health and building community on campus.</p>
+            <a href="#" class="arrow-link">
+              Read more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SOCIAL PROOF
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="proof-section" aria-label="University achievements">
+
+    <svg class="proof-deco-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#F5A623"/>
+    </svg>
+    <svg class="proof-deco-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#2DD4A8"/>
+    </svg>
+
+    <div class="wrap proof-inner">
+
+      <div class="proof-header">
+        <p style="display:inline-flex; align-items:center; gap:0.5rem; font-size:0.6875rem; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:var(--amber); margin-bottom:0.875rem;">
+          <span style="display:block; width:1.5rem; height:2px; background:var(--amber); flex-shrink:0;"></span>
+          By the numbers
+        </p>
+        <h2 class="section-heading white">Recognised for excellence</h2>
+      </div>
+
+      <div class="proof-grid">
+
+        <div class="proof-card">
+          <p class="proof-label">Student satisfaction</p>
+          <p class="proof-stat">Top 20%</p>
+          <p class="proof-desc">Ranked in the top 20% of universities for student satisfaction with teaching and feedback on assessments.</p>
+          <p class="proof-source">National Student Survey</p>
+        </div>
+
+        <div class="proof-card">
+          <p class="proof-label">Sustainability</p>
+          <p class="proof-stat">#2</p>
+          <p class="proof-desc">The second most sustainable university in the UK, with a long record in the top 20% for sustainability performance.</p>
+          <p class="proof-source">People & Planet University League</p>
+        </div>
+
+        <div class="proof-card">
+          <p class="proof-label">Guardian Guide 2026</p>
+          <p class="proof-stat">+47</p>
+          <p class="proof-desc">The highest-rising university in The Guardian University Guide 2026, climbing 47 places to break into the top 50% of UK universities.</p>
+          <p class="proof-source">The Guardian University Guide 2026</p>
+        </div>
+
+        <div class="proof-card">
+          <p class="proof-label">Employability</p>
+          <p class="proof-stat">Award</p>
+          <p class="proof-desc">Winner of Best University Employability Strategy of the Year, recognising our commitment to graduate outcomes.</p>
+          <p class="proof-source">University Business Awards 2025</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       OUR LOCATIONS
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="locations-section" aria-labelledby="locations-heading">
+    <div class="wrap">
+
+      <div class="section-hdr">
+        <div>
+          <p class="section-label">Where we are</p>
+          <h2 class="section-heading" id="locations-heading">Our locations</h2>
+          <p class="section-sub">Study at one of our inspiring campuses in Bath and beyond.</p>
+        </div>
+      </div>
+
+      <div class="locations-grid">
+
+        <article class="location-card">
+          <div class="location-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/marketing-campaigns/home-pages/main-house-sunset-hp-curve.jpg" alt="Newton Park campus at sunset" loading="lazy">
+          </div>
+          <div class="location-card-body">
+            <span class="location-tag">Main campus</span>
+            <h3 class="location-name">Newton Park</h3>
+            <p class="location-desc">Historic buildings and ultra-modern teaching facilities nestled in the countryside on the edge of Bath.</p>
+            <a href="#" class="location-link">
+              Explore Newton Park
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/marketing-campaigns/home-pages/locksbrook-hp-image-foliage.jpg" alt="Locksbrook campus" loading="lazy">
+          </div>
+          <div class="location-card-body">
+            <span class="location-tag">Creative campus</span>
+            <h3 class="location-name">Locksbrook</h3>
+            <p class="location-desc">A creative campus near Bath city centre, housing our technical workshops and flexible studio spaces.</p>
+            <a href="#" class="location-link">
+              Explore Locksbrook
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/marketing-campaigns/home-pages/students-in-london.jpg" alt="Students at BSU London" loading="lazy">
+          </div>
+          <div class="location-card-body">
+            <span class="location-tag">London</span>
+            <h3 class="location-name">BSU London</h3>
+            <p class="location-desc">Two BSU teaching sites in the UK's capital city, putting you at the centre of creative industries.</p>
+            <a href="#" class="location-link">
+              Explore BSU London
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-card-img">
+            <img src="https://www.bathspa.ac.uk/media/bathspaacuk/marketing-campaigns/home-pages/other-locations-hp-image-1000x1000.jpg" alt="BSU partner locations" loading="lazy">
+          </div>
+          <div class="location-card-body">
+            <span class="location-tag">Partners</span>
+            <h3 class="location-name">Partner Locations</h3>
+            <p class="location-desc">Study with us from a range of locations through our UK and international partner institutions.</p>
+            <a href="#" class="location-link">
+              View all partners
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-inner">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <p class="footer-brand-name">Bath Spa University</p>
+          <p class="footer-brand-body">A creative and professionally creative university in the heart of one of Britain's most beautiful cities.</p>
+          <div class="footer-social" aria-label="Follow us on social media">
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="YouTube">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Study</h4>
+          <ul>
+            <li><a href="#">Undergraduate</a></li>
+            <li><a href="#">Postgraduate</a></li>
+            <li><a href="#">Teacher Training</a></li>
+            <li><a href="#">International</a></li>
+            <li><a href="#">Short Courses</a></li>
+            <li><a href="#">Open Days</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Strategy</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">News &amp; Events</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Student Life</h4>
+          <ul>
+            <li><a href="#">Accommodation</a></li>
+            <li><a href="#">Wellbeing</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Students' Union</a></li>
+            <li><a href="#">Sport &amp; Fitness</a></li>
+            <li><a href="#">Library</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Bath Spa University. All rights reserved. Newton Park, Newton St Loe, Bath, BA2 9BN.</p>
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Terms</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

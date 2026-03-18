@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acting BA (Hons) — Bath Spa University</title>
+  <style>
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESET & BASE
+       ═══════════════════════════════════════════════════════════════ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #23324f;
+      background: #ffffff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    :root {
+      --navy:    #23324f;
+      --magenta: #E91E8C;
+      --teal:    #2DD4A8;
+      --amber:   #F5A623;
+      --stone:   #F9F7F4;
+      --tint:    #EEF1F6;
+      --muted:   #5a6b82;
+      --border:  rgba(35,50,79,0.09);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       NAVIGATION  (identical to home.html)
+       ═══════════════════════════════════════════════════════════════ */
+
+    .site-nav {
+      position: sticky; top: 0; z-index: 200;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 2rem;
+      height: 4.25rem; display: flex; align-items: center;
+      justify-content: space-between; gap: 2rem;
+    }
+
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logomark { width: 5rem; height: 2.375rem; }
+
+    .nav-links { display: flex; list-style: none; flex: 1; justify-content: center; }
+    .nav-links a {
+      display: block; font-size: 0.875rem; font-weight: 500;
+      color: rgba(255,255,255,0.72); padding: 0.5rem 0.875rem;
+      border-radius: 0.375rem; transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: white; background: rgba(255,255,255,0.08); }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .nav-text-link { font-size: 0.8125rem; font-weight: 500; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    .nav-text-link:hover { color: white; }
+
+    .btn-nav-cta {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: var(--magenta); color: white; font-size: 0.8125rem;
+      font-weight: 700; padding: 0.5rem 1.125rem; border-radius: 9999px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-nav-cta:hover { background: #c41570; transform: translateY(-1px); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       BREADCRUMB
+       ═══════════════════════════════════════════════════════════════ */
+
+    .breadcrumb-bar {
+      background: var(--stone);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .breadcrumb {
+      max-width: 1320px; margin: 0 auto; padding: 0.75rem 2rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8125rem; color: var(--muted); flex-wrap: wrap;
+    }
+
+    .breadcrumb a { color: var(--muted); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--magenta); }
+    .breadcrumb-sep { color: rgba(35,50,79,0.3); font-size: 0.75rem; }
+    .breadcrumb-current { color: var(--navy); font-weight: 600; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       COURSE HERO
+       ═══════════════════════════════════════════════════════════════ */
+
+    .course-hero {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      height: 520px;
+    }
+
+    .course-hero-panel {
+      background: var(--navy);
+      padding: 3.5rem 3rem 3.5rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+
+    .course-hero-deco-bl {
+      position: absolute; bottom: -5rem; left: -5rem;
+      width: 20rem; height: 20rem; opacity: 0.05; pointer-events: none;
+    }
+
+    .course-hero-deco-tr {
+      position: absolute; top: -4rem; right: -4rem;
+      width: 18rem; height: 18rem; opacity: 0.07; pointer-events: none;
+    }
+
+    .course-school {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--amber); margin-bottom: 1.25rem;
+      position: relative; z-index: 1;
+    }
+    .course-school::before {
+      content: ''; display: block; width: 1.5rem; height: 2px;
+      background: var(--amber); flex-shrink: 0;
+    }
+
+    .course-title {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: 900; line-height: 0.95; letter-spacing: -0.035em;
+      color: white; margin-bottom: 0.5rem; position: relative; z-index: 1;
+    }
+
+    .course-award {
+      font-size: 1.125rem; font-weight: 600;
+      color: rgba(255,255,255,0.55); margin-bottom: 1.25rem;
+      position: relative; z-index: 1; letter-spacing: -0.01em;
+    }
+
+    .course-tagline {
+      font-size: 0.9375rem; color: rgba(255,255,255,0.65);
+      line-height: 1.65; max-width: 38ch; margin-bottom: 2rem;
+      position: relative; z-index: 1;
+    }
+
+    .course-meta-pills {
+      display: flex; flex-wrap: wrap; gap: 0.625rem;
+      margin-bottom: 2rem; position: relative; z-index: 1;
+    }
+
+    .meta-pill {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.82);
+      font-size: 0.8125rem; font-weight: 600; padding: 0.375rem 0.875rem;
+      border-radius: 9999px; border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .course-hero-actions {
+      display: flex; gap: 0.875rem; flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--magenta); color: white; font-weight: 700;
+      font-size: 0.9375rem; padding: 0.875rem 1.75rem; border-radius: 9999px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: #c41570; transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(233,30,140,0.35);
+    }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: white; font-weight: 600;
+      font-size: 0.9375rem; padding: 0.875rem 1.75rem; border-radius: 9999px;
+      border: 1.5px solid rgba(255,255,255,0.22);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.48); background: rgba(255,255,255,0.06); }
+
+    .course-hero-photo { position: relative; overflow: hidden; }
+    .course-hero-photo img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FACTS BAR
+       ═══════════════════════════════════════════════════════════════ */
+
+    .facts-bar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .facts-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 2rem;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+
+    .fact-item {
+      padding: 1.375rem 1.5rem;
+      border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 0.2rem;
+    }
+    .fact-item:first-child { padding-left: 0; }
+    .fact-item:last-child { border-right: none; }
+
+    .fact-label {
+      font-size: 0.625rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--magenta);
+    }
+
+    .fact-value {
+      font-size: 0.9375rem; font-weight: 800; color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    .fact-note { font-size: 0.75rem; color: var(--muted); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       TWO-COLUMN LAYOUT
+       ═══════════════════════════════════════════════════════════════ */
+
+    .course-layout {
+      max-width: 1320px; margin: 0 auto; padding: 3.5rem 2rem 5rem;
+      display: grid; grid-template-columns: 1fr 340px; gap: 3.5rem;
+      align-items: start;
+    }
+
+    /* ── MAIN CONTENT ── */
+
+    .course-main { min-width: 0; }
+
+    .course-section {
+      padding-bottom: 3rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .course-section:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--magenta); margin-bottom: 0.75rem;
+    }
+    .section-eyebrow::before {
+      content: ''; display: block; width: 1.25rem; height: 2px;
+      background: var(--magenta); flex-shrink: 0;
+    }
+
+    .course-h2 {
+      font-size: 1.75rem; font-weight: 900; letter-spacing: -0.02em;
+      color: var(--navy); margin-bottom: 1.25rem; line-height: 1.1;
+    }
+
+    .course-body {
+      font-size: 1rem; color: var(--muted); line-height: 1.75;
+    }
+    .course-body p + p { margin-top: 1rem; }
+
+    /* Rankings strip */
+    .rankings-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 1rem;
+      overflow: hidden; margin: 2rem 0;
+    }
+
+    .ranking-item {
+      background: var(--stone); padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 0.25rem;
+    }
+
+    .ranking-stat {
+      font-size: 2rem; font-weight: 900; letter-spacing: -0.03em;
+      color: var(--magenta); line-height: 1;
+    }
+
+    .ranking-desc {
+      font-size: 0.8125rem; color: var(--navy); font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .ranking-source {
+      font-size: 0.6875rem; color: var(--muted); margin-top: 0.25rem;
+    }
+
+    /* Module tabs */
+    .module-tabs {
+      display: flex; gap: 0; border-bottom: 2px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .module-tab {
+      background: none; border: none; cursor: pointer;
+      font-size: 0.875rem; font-weight: 600; color: var(--muted);
+      padding: 0.75rem 1.5rem; margin-bottom: -2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .module-tab.active { color: var(--navy); border-bottom-color: var(--magenta); }
+    .module-tab:hover { color: var(--navy); }
+
+    .module-panel { display: none; }
+    .module-panel.active { display: block; }
+
+    .module-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem;
+    }
+
+    .module-card {
+      background: var(--stone); border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+
+    .module-dot {
+      width: 0.5rem; height: 0.5rem; border-radius: 50%;
+      background: var(--magenta); flex-shrink: 0; margin-top: 0.375rem;
+    }
+
+    .module-name {
+      font-size: 0.9375rem; font-weight: 600; color: var(--navy);
+      line-height: 1.35;
+    }
+
+    /* Teaching methods */
+    .teaching-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .teaching-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 0.875rem; padding: 1.25rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+
+    .teaching-icon {
+      width: 2.25rem; height: 2.25rem; border-radius: 0.5rem;
+      background: var(--tint); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; color: var(--navy);
+    }
+
+    .teaching-card-title {
+      font-size: 0.9375rem; font-weight: 700; color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .teaching-card-desc { font-size: 0.8125rem; color: var(--muted); line-height: 1.5; }
+
+    /* Carousel */
+    .carousel {
+      position: relative; overflow: hidden; border-radius: 1rem;
+      background: var(--navy); margin-top: 2rem;
+    }
+
+    .carousel-track {
+      display: flex; transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .carousel-slide {
+      min-width: 100%; position: relative; aspect-ratio: 16/9;
+    }
+
+    .carousel-slide img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+
+    .carousel-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 1.5rem 1.25rem 1.125rem;
+      background: linear-gradient(to top, rgba(35,50,79,0.85) 0%, transparent 100%);
+      color: white; font-size: 0.875rem; font-weight: 600;
+    }
+
+    .carousel-controls {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.875rem 1rem; background: var(--navy);
+    }
+
+    .carousel-dots {
+      display: flex; gap: 0.5rem; align-items: center;
+    }
+
+    .carousel-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.3); border: none; cursor: pointer; padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .carousel-dot.active { background: var(--amber); transform: scale(1.4); }
+
+    .carousel-btn {
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      color: white; border-radius: 9999px; width: 2rem; height: 2rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s;
+      font-size: 0.75rem; padding: 0;
+    }
+
+    .carousel-btn:hover { background: rgba(255,255,255,0.2); }
+
+    .carousel-label {
+      font-size: 0.75rem; color: rgba(255,255,255,0.6); font-weight: 500; letter-spacing: 0.05em;
+    }
+
+    /* Inline pull-quote testimonial */
+    .pull-quote {
+      margin-top: 2.5rem;
+      border-left: 3px solid var(--magenta);
+      padding: 0.25rem 0 0.25rem 1.75rem;
+      position: relative;
+    }
+
+    .pull-quote-mark {
+      font-size: 5rem; line-height: 1; font-weight: 900;
+      color: var(--magenta); opacity: 0.15;
+      position: absolute; top: -1rem; left: 0.75rem;
+      pointer-events: none; user-select: none; font-style: normal;
+    }
+
+    .pull-quote blockquote {
+      font-size: 1.125rem; font-style: italic; font-weight: 500;
+      color: var(--navy); line-height: 1.7; margin: 0 0 1.25rem;
+    }
+
+    .pull-quote-attribution {
+      display: flex; align-items: center; gap: 0.875rem;
+    }
+
+    .pull-quote-avatar {
+      width: 3rem; height: 3rem; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+      outline: 2px solid var(--magenta); outline-offset: 2px;
+    }
+
+    .pull-quote-name {
+      font-size: 0.875rem; font-weight: 700; color: var(--navy);
+    }
+
+    .pull-quote-role {
+      font-size: 0.8125rem; color: var(--muted); margin-top: 0.1rem;
+    }
+
+    .pull-quote-tag {
+      display: inline-block; padding: 0.2rem 0.625rem;
+      background: rgba(233,30,140,0.08); color: var(--magenta);
+      border-radius: 9999px; font-size: 0.75rem; font-weight: 600;
+      margin-top: 0.375rem;
+    }
+
+    /* Assessment list */
+    .assessment-list {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 0.625rem; margin-top: 1.5rem;
+    }
+
+    .assessment-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.9375rem; color: var(--navy); font-weight: 500;
+      padding: 0.875rem 1rem; background: var(--stone);
+      border-radius: 0.625rem; border: 1px solid var(--border);
+    }
+
+    .assessment-item::before {
+      content: ''; display: block; width: 0.375rem; height: 0.375rem;
+      border-radius: 50%; background: var(--amber); flex-shrink: 0;
+    }
+
+    /* Careers */
+    .careers-tags {
+      display: flex; flex-wrap: wrap; gap: 0.625rem; margin-top: 1.5rem;
+    }
+
+    .career-tag {
+      display: inline-block; background: var(--tint);
+      color: var(--navy); font-size: 0.8125rem; font-weight: 600;
+      padding: 0.375rem 0.875rem; border-radius: 9999px;
+      border: 1px solid var(--border);
+    }
+
+    /* Entry requirements */
+    .entry-table {
+      width: 100%; border-collapse: collapse; margin-top: 1.5rem;
+      font-size: 0.9375rem;
+    }
+
+    .entry-table tr { border-bottom: 1px solid var(--border); }
+    .entry-table tr:last-child { border-bottom: none; }
+
+    .entry-table th {
+      text-align: left; font-size: 0.6875rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted);
+      padding: 0.875rem 1rem 0.875rem 0; width: 38%;
+    }
+
+    .entry-table td {
+      padding: 0.875rem 0; color: var(--navy); font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .entry-note {
+      margin-top: 1.25rem; padding: 1rem 1.25rem;
+      background: #FFF8EC; border-radius: 0.75rem;
+      border-left: 3px solid var(--amber);
+      font-size: 0.875rem; color: var(--navy); line-height: 1.6;
+    }
+
+    /* ── SIDEBAR ── */
+
+    .course-sidebar { position: sticky; top: calc(4.25rem + 1.5rem); }
+
+    .sidebar-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 1rem; overflow: hidden; margin-bottom: 1.25rem;
+    }
+
+    .sidebar-card-head {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-card-title {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--muted);
+    }
+
+    .sidebar-card-body { padding: 1.25rem 1.5rem; }
+
+    /* Apply card */
+    .apply-card {
+      background: var(--navy);
+      border-radius: 1rem; padding: 1.75rem; margin-bottom: 1.25rem;
+      position: relative; overflow: hidden;
+    }
+
+    .apply-card-deco {
+      position: absolute; top: -3rem; right: -3rem;
+      width: 10rem; height: 10rem; opacity: 0.06; pointer-events: none;
+    }
+
+    .apply-card-label {
+      font-size: 0.625rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--amber); margin-bottom: 0.5rem;
+    }
+
+    .apply-card-title {
+      font-size: 1.25rem; font-weight: 900; color: white;
+      letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 0.5rem;
+    }
+
+    .apply-card-deadline {
+      font-size: 0.8125rem; color: rgba(255,255,255,0.6);
+      margin-bottom: 1.5rem; line-height: 1.5;
+    }
+
+    .btn-apply {
+      display: block; text-align: center; background: var(--magenta);
+      color: white; font-weight: 700; font-size: 0.9375rem;
+      padding: 0.875rem 1.5rem; border-radius: 9999px;
+      transition: background 0.2s, transform 0.15s; margin-bottom: 0.75rem;
+      position: relative; z-index: 1;
+    }
+    .btn-apply:hover { background: #c41570; transform: translateY(-1px); }
+
+    .btn-audition {
+      display: block; text-align: center; background: rgba(255,255,255,0.08);
+      color: white; font-weight: 600; font-size: 0.875rem;
+      padding: 0.75rem 1.5rem; border-radius: 9999px;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      transition: background 0.2s; position: relative; z-index: 1;
+    }
+    .btn-audition:hover { background: rgba(255,255,255,0.14); }
+
+    /* Key facts */
+    .keyfact-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+    .keyfact-row:last-child { border-bottom: none; }
+    .keyfact-label { color: var(--muted); flex-shrink: 0; }
+    .keyfact-value { font-weight: 700; color: var(--navy); text-align: right; }
+
+    /* Contact */
+    .contact-row {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      font-size: 0.875rem; padding: 0.625rem 0;
+    }
+    .contact-row svg { flex-shrink: 0; margin-top: 0.1rem; color: var(--magenta); }
+    .contact-row a { color: var(--navy); transition: color 0.2s; }
+    .contact-row a:hover { color: var(--magenta); }
+
+    /* Related courses */
+    .related-course {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.75rem; padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem; font-weight: 600; color: var(--navy);
+      transition: color 0.2s;
+    }
+    .related-course:last-child { border-bottom: none; }
+    .related-course:hover { color: var(--magenta); }
+    .related-course svg { flex-shrink: 0; color: var(--muted); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       OPEN DAY CTA BANNER
+       ═══════════════════════════════════════════════════════════════ */
+
+    .cta-banner {
+      background: var(--navy); padding: 4rem 0;
+      position: relative; overflow: hidden;
+    }
+
+    .cta-banner-deco {
+      position: absolute; pointer-events: none;
+    }
+    .cta-banner-deco-1 { top: -4rem; right: -4rem; width: 20rem; height: 20rem; opacity: 0.07; }
+    .cta-banner-deco-2 { bottom: -5rem; left: -3rem; width: 18rem; height: 18rem; opacity: 0.06; }
+    .cta-banner-deco-3 { top: 50%; left: 40%; transform: translateY(-50%); width: 14rem; height: 14rem; opacity: 0.04; }
+
+    .cta-banner-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 3rem; position: relative; z-index: 1;
+    }
+
+    .cta-banner-text h2 {
+      font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight: 900; color: white;
+      letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.75rem;
+    }
+
+    .cta-banner-text h2 em {
+      font-style: normal; color: var(--amber);
+    }
+
+    .cta-banner-text p {
+      font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.6; max-width: 44ch;
+    }
+
+    .btn-banner {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--amber); color: var(--navy); font-weight: 700;
+      font-size: 0.9375rem; padding: 0.875rem 2rem; border-radius: 9999px;
+      white-space: nowrap; flex-shrink: 0;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-banner:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════ */
+
+    .site-footer { background: var(--stone); border-top: 1px solid var(--border); color: var(--muted); }
+
+    .footer-inner { max-width: 1320px; margin: 0 auto; padding: 4rem 2rem 2.5rem; }
+
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem; padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border); margin-bottom: 2rem;
+    }
+
+    .footer-brand-name { font-size: 0.9375rem; font-weight: 800; color: var(--navy); margin-bottom: 0.75rem; }
+    .footer-brand-body { font-size: 0.875rem; line-height: 1.7; margin-bottom: 1.5rem; }
+
+    .footer-social { display: flex; gap: 0.625rem; }
+    .social-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 2.125rem; height: 2.125rem; border-radius: 50%;
+      background: rgba(35,50,79,0.07); color: var(--navy);
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-icon:hover { background: var(--magenta); color: white; }
+
+    .footer-col h4 { font-size: 0.6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--navy); margin-bottom: 1.25rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
+    .footer-col ul a { font-size: 0.875rem; color: var(--muted); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--magenta); }
+
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .footer-bottom p { font-size: 0.75rem; }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: 0.75rem; color: var(--muted); transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--navy); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESPONSIVE
+       ═══════════════════════════════════════════════════════════════ */
+
+    @media (max-width: 1080px) {
+      .course-layout { grid-template-columns: 1fr; }
+      .course-sidebar { position: static; }
+      .sidebar-card { max-width: 560px; }
+      .apply-card { max-width: 560px; }
+      .facts-inner { grid-template-columns: repeat(2, 1fr); }
+      .fact-item:nth-child(2) { border-right: none; }
+      .fact-item:nth-child(3) { border-right: 1px solid var(--border); padding-left: 0; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 800px) {
+      .course-hero { grid-template-columns: 1fr; height: auto; }
+      .course-hero-panel { padding: 3rem 1.75rem; }
+      .course-hero-photo { height: 50vw; }
+      .module-grid { grid-template-columns: 1fr; }
+      .teaching-grid { grid-template-columns: 1fr; }
+      .assessment-list { grid-template-columns: 1fr; }
+      .rankings-strip { grid-template-columns: 1fr; }
+      .cta-banner-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-text-link { display: none; }
+      .facts-inner { grid-template-columns: 1fr 1fr; }
+      .fact-item:nth-child(2) { border-right: none; }
+      .fact-item:nth-child(3) { border-right: 1px solid var(--border); }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════════════ -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo" aria-label="Bath Spa University home">
+        <svg class="nav-logomark" viewBox="60 400 1300 615" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="white" d="M946.5 409.9v399.3c0 110.1 88.2 199.3 197.1 199.6V409.9z"/>
+          <path fill="white" d="M1356.8 409.9h-198.2v598.9h.6c109.1 0 197.6-89.4 197.6-199.6z"/>
+          <path fill="white" d="M710.7 602.1v218.4H508.5c7.7 105.2 95.3 188.2 202.2 188.2 112 0 202.8-91 202.8-203.3s-90.8-203.3-202.8-203.3"/>
+          <path fill="white" d="M697.3 813.1V596.5h202.2c-7.7-104.3-95.3-186.6-202.2-186.6-112 0-202.8 90.3-202.8 201.6s90.8 201.6 202.8 201.6"/>
+          <path fill="white" d="M473.6 859.2c0 82.6-66.3 149.5-148 149.5h-52.7V409.9h52.2c80 .3 144.7 67.1 144.7 149.5s-64.7 149.2-144.7 149.5h.5v.8c81.7 0 148 66.9 148 149.5"/>
+          <path fill="white" d="M258.7 719.1V409.4h-198v598.9h198v-9.8z"/>
+        </svg>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Student Life</a></li>
+        <li><a href="#">Business & Community</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" class="nav-text-link">Search</a>
+        <a href="#" class="btn-nav-cta">Open Days
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       BREADCRUMB
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="breadcrumb-bar">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="home.html">Home</a>
+      <span class="breadcrumb-sep" aria-hidden="true">›</span>
+      <a href="#">Courses</a>
+      <span class="breadcrumb-sep" aria-hidden="true">›</span>
+      <a href="#">Undergraduate</a>
+      <span class="breadcrumb-sep" aria-hidden="true">›</span>
+      <span class="breadcrumb-current">Acting BA (Hons)</span>
+    </nav>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       COURSE HERO
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="course-hero" aria-labelledby="course-title">
+
+    <div class="course-hero-panel">
+
+      <svg class="course-hero-deco-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#2DD4A8"/>
+      </svg>
+
+      <svg class="course-hero-deco-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="white"/>
+      </svg>
+
+      <p class="course-school">Bath School of Music and Performing Arts</p>
+
+      <h1 class="course-title" id="course-title">Acting</h1>
+      <p class="course-award">BA (Hons) · Undergraduate</p>
+
+      <p class="course-tagline">Train to become a versatile and employable voice, film and stage actor in one of the UK's most creative university environments.</p>
+
+      <div class="course-meta-pills">
+        <span class="meta-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          3 years full-time
+        </span>
+        <span class="meta-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Newton Park, Bath
+        </span>
+        <span class="meta-pill">UCAS W410</span>
+        <span class="meta-pill">September 2026</span>
+      </div>
+
+      <div class="course-hero-actions">
+        <a href="#" class="btn-primary">
+          Apply now
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#" class="btn-ghost">Book an open day</a>
+      </div>
+
+    </div>
+
+    <div class="course-hero-photo" role="img" aria-label="Acting students performing at Bath Spa University">
+      <img
+        src="https://www.bathspa.ac.uk/media/bathspaacuk/courses/acting/Pool-no-water-mast-1000x1000.jpg"
+        alt="Students at Bath Spa University"
+        loading="eager"
+        fetchpriority="high"
+      >
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       KEY FACTS BAR
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="facts-bar" aria-label="Key course facts">
+    <div class="facts-inner">
+      <div class="fact-item">
+        <span class="fact-label">UK fee</span>
+        <span class="fact-value">£9,790</span>
+        <span class="fact-note">per year (2026 entry)</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">Duration</span>
+        <span class="fact-value">3 years</span>
+        <span class="fact-note">Full-time · Part-time available</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">UCAS code</span>
+        <span class="fact-value">W410</span>
+        <span class="fact-note">Institution code B20</span>
+      </div>
+      <div class="fact-item">
+        <span class="fact-label">Start date</span>
+        <span class="fact-value">September 2026</span>
+        <span class="fact-note">Newton Park campus</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       MAIN CONTENT + SIDEBAR
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="course-layout">
+
+    <!-- ── MAIN ── -->
+    <main class="course-main" id="main-content">
+
+      <!-- OVERVIEW -->
+      <section class="course-section" aria-labelledby="overview-heading">
+        <p class="section-eyebrow">The course</p>
+        <h2 class="course-h2" id="overview-heading">About this course</h2>
+        <div class="course-body">
+          <p>This BA (Hons) Acting programme trains you to become a versatile and employable actor across theatre, screen, radio, and voiceover. You'll develop a wide range of practical skills while building a professional portfolio — real work, for real audiences — before you graduate.</p>
+          <p>Training is built around collaboration with industry partners including Ustinov Studios, The Rondo Theatre, and Theatre Royal Bath. Bath Spa Productions, our in-house professional company, creates genuine opportunities to perform in high-quality productions from your first year.</p>
+          <p>We take an entrepreneurial approach to actor training. Alongside performance skills, you'll develop the business acumen and creative independence to build a sustainable career in a competitive industry.</p>
+        </div>
+
+        <div class="rankings-strip" role="list" aria-label="Course rankings">
+          <div class="ranking-item" role="listitem">
+            <p class="ranking-stat">#2</p>
+            <p class="ranking-desc">in the South West for Drama and Dance</p>
+            <p class="ranking-source">Guardian University Guide 2026</p>
+          </div>
+          <div class="ranking-item" role="listitem">
+            <p class="ranking-stat">Top 5</p>
+            <p class="ranking-desc">in the South West for graduate prospects</p>
+            <p class="ranking-source">Guardian University Guide 2026</p>
+          </div>
+          <div class="ranking-item" role="listitem">
+            <p class="ranking-stat">Top 10</p>
+            <p class="ranking-desc">in the UK for value added</p>
+            <p class="ranking-source">Guardian University Guide 2026</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT YOU'LL STUDY -->
+      <section class="course-section" aria-labelledby="modules-heading">
+        <p class="section-eyebrow">Curriculum</p>
+        <h2 class="course-h2" id="modules-heading">What you'll study</h2>
+        <p class="course-body">The programme is structured across three years, moving from foundational skills to independent professional practice. Each year builds on the last, culminating in a final year of high-quality public productions assessed by external industry professionals.</p>
+
+        <div class="module-tabs" role="tablist" aria-label="Study years">
+          <button class="module-tab active" role="tab" aria-selected="true" data-panel="year1">Year 1</button>
+          <button class="module-tab" role="tab" aria-selected="false" data-panel="year2">Year 2</button>
+          <button class="module-tab" role="tab" aria-selected="false" data-panel="year3">Year 3</button>
+        </div>
+
+        <div class="module-panel active" id="panel-year1" role="tabpanel">
+          <div class="module-grid">
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Preparing the Actor</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Introduction to Acting</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Acting Processes in Action</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Form and Practice</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">The Actor in an Ensemble</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Performance Practice</span></div>
+          </div>
+        </div>
+
+        <div class="module-panel" id="panel-year2" role="tabpanel">
+          <div class="module-grid">
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Text Project</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Theatre Making</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">The Actor's Portfolio Career</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Live Performance</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Mediated Performance</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">The Self-Directed Creative</span></div>
+          </div>
+        </div>
+
+        <div class="module-panel" id="panel-year3" role="tabpanel">
+          <div class="module-grid">
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Acting Independent Study</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Production Project: Live Production</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Production Project: Mediated Production</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Production Project: Small Scale Production</span></div>
+            <div class="module-card"><span class="module-dot" aria-hidden="true"></span><span class="module-name">Creative Portfolio</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW YOU'LL LEARN -->
+      <section class="course-section" aria-labelledby="teaching-heading">
+        <p class="section-eyebrow">Teaching</p>
+        <h2 class="course-h2" id="teaching-heading">How you'll learn</h2>
+        <p class="course-body">Teaching takes place through a rich mix of practical studio work and small-group teaching. In years one and two, you can expect around 18 contact hours per week, with increasing independent practice in your final year.</p>
+
+        <div class="teaching-grid">
+          <div class="teaching-card">
+            <div class="teaching-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <p class="teaching-card-title">Practical acting classes</p>
+              <p class="teaching-card-desc">Regular studio sessions developing technique across voice, movement, and character work.</p>
+            </div>
+          </div>
+          <div class="teaching-card">
+            <div class="teaching-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div>
+              <p class="teaching-card-title">Seminars and workshops</p>
+              <p class="teaching-card-desc">Industry-led workshops with directors, writers, and casting professionals from partner organisations.</p>
+            </div>
+          </div>
+          <div class="teaching-card">
+            <div class="teaching-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            </div>
+            <div>
+              <p class="teaching-card-title">Rehearsals and productions</p>
+              <p class="teaching-card-desc">Public-facing productions via Bath Spa Productions and SparkFest, our student-led festival.</p>
+            </div>
+          </div>
+          <div class="teaching-card">
+            <div class="teaching-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <p class="teaching-card-title">One-to-one tutorials</p>
+              <p class="teaching-card-desc">Regular individual feedback sessions with specialist staff to support your personal development.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1.25rem 1.5rem; background: var(--tint); border-radius: 0.875rem; border: 1px solid var(--border);">
+          <p style="font-size: 0.875rem; color: var(--navy); font-weight: 600; margin-bottom: 0.25rem;">Adobe Creative Campus</p>
+          <p style="font-size: 0.875rem; color: var(--muted); line-height: 1.6;">As one of only three Adobe Creative Campuses in the UK, all students have access to the full Adobe Creative Suite — invaluable for screen and media work.</p>
+        </div>
+      </section>
+
+      <!-- STUDENT TESTIMONIAL -->
+      <section class="course-section" aria-labelledby="testimonial-heading">
+        <p class="section-eyebrow">Student voice</p>
+        <h2 class="course-h2" id="testimonial-heading">Hear from our students</h2>
+
+        <div class="pull-quote">
+          <span class="pull-quote-mark" aria-hidden="true">&ldquo;</span>
+          <blockquote>
+            The productions here are genuinely professional &mdash; we performed at the Edinburgh Fringe in second year and had industry casting directors in the audience. The tutors push you hard, but you come out the other side knowing exactly who you are as an actor.
+          </blockquote>
+          <div class="pull-quote-attribution">
+            <img
+              class="pull-quote-avatar"
+              src="https://i.pravatar.cc/150?img=47"
+              alt="Photo of Mia Thornton, Acting student"
+              loading="lazy"
+            >
+            <div>
+              <p class="pull-quote-name">Mia Thornton</p>
+              <p class="pull-quote-role">BA (Hons) Acting &middot; Year 3</p>
+              <span class="pull-quote-tag">Edinburgh Fringe performer</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ASSESSMENT -->
+      <section class="course-section" aria-labelledby="assessment-heading">
+        <p class="section-eyebrow">Assessment</p>
+        <h2 class="course-h2" id="assessment-heading">How you'll be assessed</h2>
+        <p class="course-body">Assessment is primarily practice-based, reflecting the realities of professional acting. Your final year productions are assessed by external industry professionals.</p>
+        <div class="assessment-list" role="list">
+          <div class="assessment-item" role="listitem">Live performances</div>
+          <div class="assessment-item" role="listitem">Self-reflective journals</div>
+          <div class="assessment-item" role="listitem">Essays and written work</div>
+          <div class="assessment-item" role="listitem">Vivas (verbal examinations)</div>
+          <div class="assessment-item" role="listitem">Presentations</div>
+          <div class="assessment-item" role="listitem">Creative portfolio</div>
+        </div>
+      </section>
+
+      <!-- CAREERS -->
+      <section class="course-section" aria-labelledby="careers-heading">
+        <p class="section-eyebrow">After you graduate</p>
+        <h2 class="course-h2" id="careers-heading">Your career</h2>
+        <div class="course-body">
+          <p>Our graduates work across stage, screen, and voiceover sectors. Recent alumni credits include UK national tours, Netflix and BBC productions, award-winning short films, immersive theatre experiences, and West End pantomimes.</p>
+          <p>Many graduates go on to establish their own theatre companies, move into directing, writing, arts administration, or teaching. Ongoing graduate support is available through our dedicated Grad Support Unit.</p>
+        </div>
+        <div class="careers-tags" aria-label="Career paths">
+          <span class="career-tag">Stage actor</span>
+          <span class="career-tag">Screen & TV</span>
+          <span class="career-tag">Voiceover artist</span>
+          <span class="career-tag">Theatre director</span>
+          <span class="career-tag">Theatre company founder</span>
+          <span class="career-tag">Playwright</span>
+          <span class="career-tag">Casting</span>
+          <span class="career-tag">Arts administration</span>
+          <span class="career-tag">Drama teaching</span>
+          <span class="career-tag">Immersive theatre</span>
+        </div>
+      </section>
+
+      <!-- STUDENT PERFORMANCES CAROUSEL -->
+      <section class="course-section" aria-labelledby="performances-heading">
+        <p class="section-eyebrow">Gallery</p>
+        <h2 class="course-h2" id="performances-heading">Student performances</h2>
+
+        <div class="carousel" id="perf-carousel" aria-label="Student performance photos" role="region">
+          <div class="carousel-track" id="perf-track">
+            <div class="carousel-slide">
+              <img src="https://www.bathspa.ac.uk/media/bathspaacuk/courses/acting/Hay-Fever-654x438.jpg" alt="Students performing Hay Fever" loading="lazy">
+              <p class="carousel-caption">Hay Fever — Drama Studio production</p>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://www.bathspa.ac.uk/media/bathspaacuk/courses/acting/Pool-no-water-1493x1000.jpg" alt="Students performing Pool (no water)" loading="lazy">
+              <p class="carousel-caption">Pool (no water) — final year production</p>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://www.bathspa.ac.uk/media/bathspaacuk/courses/acting/snow-queen-acting-654x438.jpg" alt="Students performing The Snow Queen" loading="lazy">
+              <p class="carousel-caption">The Snow Queen — BSU Productions</p>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <span class="carousel-label" id="perf-counter" aria-live="polite">1 / 3</span>
+            <div class="carousel-dots" role="tablist" aria-label="Go to slide">
+              <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="Slide 1" data-slide="0"></button>
+              <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 2" data-slide="1"></button>
+              <button class="carousel-dot" role="tab" aria-selected="false" aria-label="Slide 3" data-slide="2"></button>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <button class="carousel-btn" id="perf-prev" aria-label="Previous slide">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-btn" id="perf-next" aria-label="Next slide">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENTRY REQUIREMENTS -->
+      <section class="course-section" aria-labelledby="entry-heading">
+        <p class="section-eyebrow">Admissions</p>
+        <h2 class="course-h2" id="entry-heading">Entry requirements</h2>
+        <p class="course-body">We welcome applications from students with a range of qualifications and backgrounds. All applicants meeting our entry criteria will be invited to audition — there is no audition fee.</p>
+
+        <table class="entry-table">
+          <tbody>
+            <tr>
+              <th scope="row">A Levels</th>
+              <td>Grades BBB–BCC. No specific subjects required.</td>
+            </tr>
+            <tr>
+              <th scope="row">BTEC Extended Diploma</th>
+              <td>DDM–DMM (Distinction Distinction Merit to Distinction Merit Merit)</td>
+            </tr>
+            <tr>
+              <th scope="row">T Levels</th>
+              <td>Grade Merit</td>
+            </tr>
+            <tr>
+              <th scope="row">International Baccalaureate</th>
+              <td>Minimum 32 points</td>
+            </tr>
+            <tr>
+              <th scope="row">Access to HE</th>
+              <td>60 credits, 45 at Level 3, Merit or higher</td>
+            </tr>
+            <tr>
+              <th scope="row">International students</th>
+              <td>IELTS 6.0, minimum 5.5 in each element</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="entry-note" role="note">
+          <strong>Audition required.</strong> Shortlisted applicants are invited to audition as part of the selection process. We also accept Accreditation of Prior Learning (APL) for applicants with non-traditional qualifications — <a href="#" style="color: var(--navy); font-weight: 600;">get in touch to discuss your experience</a>.
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="course-sidebar" aria-label="Course actions and information">
+
+      <!-- Apply card -->
+      <div class="apply-card" aria-labelledby="apply-title">
+        <svg class="apply-card-deco" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#F5A623"/>
+        </svg>
+        <p class="apply-card-label">2026 entry</p>
+        <h2 class="apply-card-title" id="apply-title">Ready to apply?</h2>
+        <p class="apply-card-deadline">Applications for September 2026 entry are now open via UCAS.</p>
+        <a href="#" class="btn-apply">Apply via UCAS</a>
+        <a href="#" class="btn-audition">Book an audition</a>
+      </div>
+
+      <!-- Key facts -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <p class="sidebar-card-title">Key facts</p>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="keyfact-row">
+            <span class="keyfact-label">Award</span>
+            <span class="keyfact-value">BA (Hons)</span>
+          </div>
+          <div class="keyfact-row">
+            <span class="keyfact-label">Duration</span>
+            <span class="keyfact-value">3 years full-time</span>
+          </div>
+          <div class="keyfact-row">
+            <span class="keyfact-label">UK fee</span>
+            <span class="keyfact-value">£9,790 / year</span>
+          </div>
+          <div class="keyfact-row">
+            <span class="keyfact-label">International fee</span>
+            <span class="keyfact-value">£18,585 / year</span>
+          </div>
+          <div class="keyfact-row">
+            <span class="keyfact-label">UCAS code</span>
+            <span class="keyfact-value">W410</span>
+          </div>
+          <div class="keyfact-row">
+            <span class="keyfact-label">Location</span>
+            <span class="keyfact-value">Newton Park</span>
+          </div>
+          <div class="keyfact-row">
+            <span class="keyfact-label">Start</span>
+            <span class="keyfact-value">September 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <p class="sidebar-card-title">Get in touch</p>
+        </div>
+        <div class="sidebar-card-body">
+          <div class="contact-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div>
+              <p style="font-size:0.75rem; color:var(--muted); margin-bottom:0.125rem;">Course Leader</p>
+              <a href="mailto:k.irvine@bathspa.ac.uk">Kerry Irvine</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.92 17z"/></svg>
+            <a href="tel:+441225875875">+44 (0)1225 875875</a>
+          </div>
+          <div class="contact-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:admissions@bathspa.ac.uk">admissions@bathspa.ac.uk</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related courses -->
+      <div class="sidebar-card">
+        <div class="sidebar-card-head">
+          <p class="sidebar-card-title">Related courses</p>
+        </div>
+        <div class="sidebar-card-body" style="padding-top:0.5rem; padding-bottom:0.5rem;">
+          <a href="#" class="related-course">
+            Drama BA (Hons)
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="related-course">
+            Drama (Musical Theatre) BA (Hons)
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="related-course">
+            Theatre Festival and Event Production
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#" class="related-course">
+            Film and Screen Studies BA (Hons)
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       OPEN DAY BANNER
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="cta-banner">
+    <!-- blob 1: top right -->
+    <svg class="cta-banner-deco cta-banner-deco-1" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="white"/>
+    </svg>
+    <!-- blob 2: bottom left -->
+    <svg class="cta-banner-deco cta-banner-deco-2" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M80,50 C30,80 10,150 50,200 C90,250 160,270 210,240 C260,210 280,140 250,90 C220,40 150,20 110,25 C95,27 85,38 80,50 Z" fill="white"/>
+    </svg>
+    <!-- blob 3: centre mid -->
+    <svg class="cta-banner-deco cta-banner-deco-3" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="white"/>
+    </svg>
+    <div class="cta-banner-inner">
+      <div class="cta-banner-text">
+        <h2>See us <em>in person</em></h2>
+        <p>Visit Newton Park at an Open Day and meet the Acting team, tour our facilities, and watch current students perform.</p>
+      </div>
+      <a href="#" class="btn-banner">
+        Book an Open Day
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <p class="footer-brand-name">Bath Spa University</p>
+          <p class="footer-brand-body">A creative and professionally creative university in the heart of one of Britain's most beautiful cities.</p>
+          <div class="footer-social" aria-label="Follow us on social media">
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="YouTube">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Study</h4>
+          <ul>
+            <li><a href="#">Undergraduate</a></li>
+            <li><a href="#">Postgraduate</a></li>
+            <li><a href="#">Teacher Training</a></li>
+            <li><a href="#">International</a></li>
+            <li><a href="#">Open Days</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Locations</a></li>
+            <li><a href="#">News & Events</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Student Life</h4>
+          <ul>
+            <li><a href="#">Accommodation</a></li>
+            <li><a href="#">Wellbeing</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Students' Union</a></li>
+            <li><a href="#">Library</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Bath Spa University. All rights reserved. Newton Park, Newton St Loe, Bath, BA2 9BN.</p>
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Terms</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Module year tab switching
+    const tabs = document.querySelectorAll('.module-tab');
+    const panels = document.querySelectorAll('.module-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.panel;
+
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach(p => p.classList.remove('active'));
+
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        document.getElementById('panel-' + target).classList.add('active');
+      });
+    });
+
+    // Performances carousel
+    (function () {
+      const track   = document.getElementById('perf-track');
+      const dots    = document.querySelectorAll('#perf-carousel .carousel-dot');
+      const counter = document.getElementById('perf-counter');
+      const total   = dots.length;
+      let current   = 0;
+
+      function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+          d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+        });
+        counter.textContent = `${current + 1} / ${total}`;
+      }
+
+      document.getElementById('perf-prev').addEventListener('click', () => goTo(current - 1));
+      document.getElementById('perf-next').addEventListener('click', () => goTo(current + 1));
+      dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.slide)));
+
+      // Keyboard support
+      document.getElementById('perf-carousel').addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft')  goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
+      });
+    })();
+  </script>
+
+</body>
+</html>
