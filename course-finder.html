@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Course — Bath Spa University</title>
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #23324f;
+      background: #ffffff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    :root {
+      --navy:    #23324f;
+      --magenta: #E91E8C;
+      --teal:    #2DD4A8;
+      --amber:   #F5A623;
+      --stone:   #F9F7F4;
+      --tint:    #EEF1F6;
+      --muted:   #5a6b82;
+      --border:  rgba(35,50,79,0.09);
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       NAV
+       ════════════════════════════════════════════════════════════════ */
+
+    .site-nav {
+      position: sticky; top: 0; z-index: 200;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 2rem;
+      height: 4.25rem; display: flex; align-items: center;
+      justify-content: space-between; gap: 2rem;
+    }
+
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logomark { width: 5rem; height: 2.375rem; }
+
+    .nav-links { display: flex; list-style: none; flex: 1; justify-content: center; }
+    .nav-links a {
+      display: block; font-size: 0.875rem; font-weight: 500;
+      color: rgba(255,255,255,0.72); padding: 0.5rem 0.875rem;
+      border-radius: 0.375rem; transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: white; background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: white; background: rgba(255,255,255,0.08); }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .nav-text-link { font-size: 0.8125rem; font-weight: 500; color: rgba(255,255,255,0.65); }
+    .nav-text-link:hover { color: white; }
+
+    .btn-nav-cta {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: var(--magenta); color: white; font-size: 0.8125rem;
+      font-weight: 700; padding: 0.5rem 1.125rem; border-radius: 9999px;
+      transition: background 0.2s;
+    }
+    .btn-nav-cta:hover { background: #c41570; }
+
+    /* ════════════════════════════════════════════════════════════════
+       MASTHEAD — Level 1 style (this is a top-level tool page)
+       ════════════════════════════════════════════════════════════════ */
+
+    .masthead {
+      background: var(--navy);
+      position: relative; overflow: hidden;
+      padding: 3.5rem 0 3.75rem;
+    }
+
+    .masthead-deco-tr {
+      position: absolute; top: -4rem; right: -4rem;
+      width: 22rem; height: 22rem; opacity: 0.05; pointer-events: none;
+    }
+
+    .masthead-deco-bl {
+      position: absolute; bottom: -5rem; left: -5rem;
+      width: 20rem; height: 20rem; opacity: 0.04; pointer-events: none;
+    }
+
+    .masthead-inner {
+      position: relative; z-index: 1;
+      max-width: 1320px; margin: 0 auto; padding: 0 2rem;
+    }
+
+    .masthead-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.625rem;
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--amber); margin-bottom: 1rem;
+    }
+
+    .masthead-eyebrow::before {
+      content: ''; display: block; width: 1.75rem; height: 2px;
+      background: var(--amber); flex-shrink: 0;
+    }
+
+    .masthead-headline {
+      font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight: 900;
+      line-height: 0.97; letter-spacing: -0.03em; color: white;
+      margin-bottom: 1.25rem;
+    }
+
+    .masthead-headline .accent { color: var(--amber); }
+
+    .masthead-sub {
+      font-size: 1.0625rem; color: rgba(255,255,255,0.6);
+      max-width: 54ch; margin-bottom: 2.25rem; line-height: 1.65;
+    }
+
+    /* Search bar in masthead */
+    .masthead-search {
+      display: flex; max-width: 640px;
+    }
+
+    .masthead-search-input {
+      flex: 1; height: 3.25rem;
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.18);
+      border-right: none;
+      border-radius: 0.625rem 0 0 0.625rem;
+      padding: 0 1.25rem;
+      font-size: 0.9375rem; color: white;
+      outline: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .masthead-search-input::placeholder { color: rgba(255,255,255,0.4); }
+    .masthead-search-input:focus {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .masthead-search-btn {
+      height: 3.25rem; padding: 0 1.625rem;
+      background: var(--magenta); color: white;
+      font-size: 0.875rem; font-weight: 700;
+      border: none; border-radius: 0 0.625rem 0.625rem 0;
+      cursor: pointer; display: flex; align-items: center; gap: 0.5rem;
+      transition: background 0.2s;
+    }
+
+    .masthead-search-btn:hover { background: #c41570; }
+
+    .masthead-meta {
+      margin-top: 1.5rem;
+      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+
+    .masthead-count {
+      font-size: 0.8125rem; color: rgba(255,255,255,0.5);
+    }
+
+    .masthead-count strong { color: rgba(255,255,255,0.8); font-weight: 700; }
+
+    .masthead-az {
+      font-size: 0.8125rem; font-weight: 600; color: rgba(255,255,255,0.55);
+      display: flex; align-items: center; gap: 0.375rem;
+      transition: color 0.2s;
+    }
+
+    .masthead-az:hover { color: white; }
+
+    /* ════════════════════════════════════════════════════════════════
+       MODE TOGGLE — Browse by Interest / Search & Filter
+       ════════════════════════════════════════════════════════════════ */
+
+    .mode-bar {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 4.25rem; z-index: 100;
+    }
+
+    .mode-bar-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+    }
+
+    .mode-tabs {
+      display: flex; gap: 0;
+    }
+
+    .mode-tab {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.875rem; font-weight: 600; color: var(--muted);
+      padding: 1rem 1.25rem;
+      border-bottom: 2.5px solid transparent;
+      cursor: pointer; transition: color 0.2s, border-color 0.2s;
+      background: none; border-top: none; border-left: none; border-right: none;
+    }
+
+    .mode-tab:hover { color: var(--navy); }
+
+    .mode-tab.active {
+      color: var(--navy);
+      border-bottom-color: var(--magenta);
+    }
+
+    .mode-tab svg { flex-shrink: 0; }
+
+    .mode-bar-right {
+      display: flex; align-items: center; gap: 1rem;
+    }
+
+    .sort-label { font-size: 0.8125rem; color: var(--muted); white-space: nowrap; }
+
+    .sort-select {
+      font-size: 0.8125rem; font-weight: 600; color: var(--navy);
+      border: 1px solid var(--border); border-radius: 0.4375rem;
+      padding: 0.4375rem 0.75rem; background: white; cursor: pointer;
+      outline: none;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       INTEREST AREAS PANEL
+       ════════════════════════════════════════════════════════════════ */
+
+    .interest-panel {
+      background: var(--stone);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0 3rem;
+    }
+
+    .interest-panel-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 2rem;
+    }
+
+    .interest-intro {
+      margin-bottom: 2rem;
+    }
+
+    .interest-intro-label {
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.15em; color: var(--magenta); margin-bottom: 0.5rem;
+    }
+
+    .interest-intro-title {
+      font-size: 1.375rem; font-weight: 900; color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+
+    .interest-intro-body {
+      font-size: 0.9375rem; color: var(--muted); margin-top: 0.375rem;
+    }
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+      gap: 0.75rem;
+    }
+
+    .interest-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 0.875rem;
+      padding: 1.125rem 1.25rem 1.125rem 1rem;
+      display: flex; align-items: center; gap: 0.875rem;
+      cursor: pointer;
+      transition: border-color 0.18s, box-shadow 0.18s, transform 0.15s;
+      text-align: left;
+    }
+
+    .interest-card:hover {
+      border-color: var(--magenta);
+      box-shadow: 0 4px 16px rgba(233,30,140,0.1);
+      transform: translateY(-1px);
+    }
+
+    .interest-card.active {
+      border-color: var(--magenta);
+      background: #fff0f7;
+      box-shadow: 0 0 0 3px rgba(233,30,140,0.1);
+    }
+
+    .interest-icon {
+      width: 2.375rem; height: 2.375rem;
+      border-radius: 0.625rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.125rem;
+      line-height: 1;
+    }
+
+    .interest-name {
+      font-size: 0.8125rem; font-weight: 700; color: var(--navy);
+      line-height: 1.3;
+    }
+
+    .interest-count {
+      font-size: 0.75rem; color: var(--muted); margin-top: 0.125rem;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       SEARCH + FILTER PANEL
+       ════════════════════════════════════════════════════════════════ */
+
+    .finder-body {
+      max-width: 1320px; margin: 0 auto; padding: 2.5rem 2rem 4rem;
+      display: grid; grid-template-columns: 15rem 1fr; gap: 3rem;
+      align-items: start;
+    }
+
+    /* ── Sidebar ── */
+
+    .sidebar {
+      position: sticky; top: calc(4.25rem + 3rem + 1px);
+    }
+
+    .sidebar-section {
+      margin-bottom: 1.75rem;
+    }
+
+    .sidebar-heading {
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--muted); margin-bottom: 0.75rem;
+    }
+
+    .filter-list { display: flex; flex-direction: column; gap: 0.375rem; }
+
+    .filter-item {
+      display: flex; align-items: center; gap: 0.625rem; cursor: pointer;
+    }
+
+    .filter-item input[type="checkbox"] { accent-color: var(--magenta); width: 1rem; height: 1rem; flex-shrink: 0; cursor: pointer; }
+
+    .filter-label {
+      font-size: 0.875rem; color: var(--navy); flex: 1; cursor: pointer;
+    }
+
+    .filter-count {
+      font-size: 0.75rem; color: var(--muted);
+      background: var(--tint); border-radius: 9999px;
+      padding: 0.1rem 0.5rem; flex-shrink: 0;
+    }
+
+    .sidebar-divider {
+      border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;
+    }
+
+    .btn-reset {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      font-size: 0.8125rem; font-weight: 600; color: var(--muted);
+      background: none; border: none; cursor: pointer; padding: 0;
+      transition: color 0.2s;
+    }
+
+    .btn-reset:hover { color: var(--magenta); }
+
+    /* ── Active filters strip ── */
+
+    .active-filters {
+      display: flex; align-items: center; gap: 0.625rem;
+      flex-wrap: wrap; margin-bottom: 1.5rem;
+    }
+
+    .active-filter-label {
+      font-size: 0.8125rem; color: var(--muted); flex-shrink: 0;
+    }
+
+    .active-filter-chip {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      font-size: 0.8rem; font-weight: 600; color: var(--navy);
+      background: var(--tint); border: 1px solid var(--border);
+      border-radius: 9999px; padding: 0.25rem 0.625rem 0.25rem 0.75rem;
+    }
+
+    .active-filter-chip button {
+      background: none; border: none; cursor: pointer;
+      color: var(--muted); display: flex; align-items: center;
+      padding: 0; line-height: 1; transition: color 0.2s;
+    }
+
+    .active-filter-chip button:hover { color: var(--magenta); }
+
+    /* ── Results header ── */
+
+    .results-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 1.5rem; gap: 1rem;
+    }
+
+    .results-count {
+      font-size: 0.9375rem; color: var(--muted);
+    }
+
+    .results-count strong { color: var(--navy); font-weight: 800; }
+
+    /* ── Course grid ── */
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .course-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .course-card:hover {
+      box-shadow: 0 8px 28px rgba(35,50,79,0.1);
+      transform: translateY(-2px);
+    }
+
+    .course-card-image {
+      height: 11rem;
+      position: relative; overflow: hidden;
+    }
+
+    .course-card-image img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .course-card-image-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .course-card-badge {
+      position: absolute; top: 0.75rem; left: 0.75rem;
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: white; padding: 0.25rem 0.625rem;
+      border-radius: 9999px; background: rgba(35,50,79,0.65);
+      backdrop-filter: blur(6px);
+    }
+
+    .course-card-body {
+      padding: 1.125rem 1.25rem 1.375rem;
+      display: flex; flex-direction: column; flex: 1;
+    }
+
+    .course-card-section {
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--magenta); margin-bottom: 0.375rem;
+    }
+
+    .course-card-title {
+      font-size: 1rem; font-weight: 800; color: var(--navy);
+      line-height: 1.25; margin-bottom: 0.5rem;
+    }
+
+    .course-card-desc {
+      font-size: 0.8125rem; color: var(--muted); line-height: 1.55;
+      flex: 1; margin-bottom: 1rem;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .course-card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--border); padding-top: 0.875rem; gap: 0.5rem;
+    }
+
+    .course-card-meta {
+      display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    }
+
+    .course-card-pill {
+      font-size: 0.6875rem; font-weight: 600;
+      color: var(--muted); background: var(--tint);
+      border-radius: 9999px; padding: 0.2rem 0.5625rem;
+    }
+
+    .course-card-link {
+      display: inline-flex; align-items: center; gap: 0.25rem;
+      font-size: 0.8125rem; font-weight: 700; color: var(--magenta);
+      white-space: nowrap; transition: gap 0.2s;
+    }
+
+    .course-card-link:hover { gap: 0.5rem; }
+
+    /* ── Pagination ── */
+
+    .pagination {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.375rem; margin-top: 3rem;
+    }
+
+    .page-btn {
+      width: 2.375rem; height: 2.375rem;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600;
+      color: var(--muted); border: 1px solid var(--border);
+      background: white; cursor: pointer; transition: all 0.15s;
+    }
+
+    .page-btn:hover { color: var(--navy); border-color: rgba(35,50,79,0.25); }
+    .page-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+    .page-btn.arrow { color: var(--navy); }
+
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       NAV
+       ════════════════════════════════════════════════════════════════ -->
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="Bath Spa University home">
+        <svg class="nav-logomark" viewBox="0 0 120 57" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <text x="4" y="38" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="900" font-size="13" fill="white" letter-spacing="-0.5">Bath Spa</text>
+          <text x="4" y="52" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.55)">University</text>
+        </svg>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#" class="active">Study</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Student Life</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Business</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#" class="nav-text-link">International</a>
+        <a href="#" class="btn-nav-cta">Apply now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       MASTHEAD
+       ════════════════════════════════════════════════════════════════ -->
+
+  <section class="masthead" aria-labelledby="masthead-headline">
+    <svg class="masthead-deco-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#F5A623"/>
+    </svg>
+    <svg class="masthead-deco-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#2DD4A8"/>
+    </svg>
+
+    <div class="masthead-inner">
+      <p class="masthead-eyebrow">Bath Spa University</p>
+      <h1 class="masthead-headline" id="masthead-headline">
+        Find your<br><span class="accent">course</span>
+      </h1>
+      <p class="masthead-sub">
+        Search across undergraduate, postgraduate, and short courses — or browse by the subject areas that interest you most.
+      </p>
+
+      <div class="masthead-search" role="search">
+        <input
+          class="masthead-search-input"
+          type="search"
+          placeholder="e.g. Acting, Graphic Design, Creative Writing…"
+          aria-label="Search courses"
+        >
+        <button class="masthead-search-btn" type="submit" aria-label="Search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Search
+        </button>
+      </div>
+
+      <div class="masthead-meta">
+        <span class="masthead-count"><strong>270+</strong> courses available</span>
+        <a href="#" class="masthead-az">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          Browse A–Z
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       MODE BAR
+       ════════════════════════════════════════════════════════════════ -->
+
+  <div class="mode-bar" role="tablist" aria-label="Browse mode">
+    <div class="mode-bar-inner">
+      <div class="mode-tabs">
+        <button class="mode-tab" role="tab" aria-selected="true" aria-controls="panel-interests">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          Browse by interest area
+        </button>
+        <button class="mode-tab active" role="tab" aria-selected="false" aria-controls="panel-filter">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          Search &amp; filter
+        </button>
+      </div>
+      <div class="mode-bar-right">
+        <span class="sort-label">Sort by</span>
+        <select class="sort-select" aria-label="Sort courses">
+          <option>A–Z</option>
+          <option>Most popular</option>
+          <option>Newest</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       INTEREST AREAS PANEL
+       ════════════════════════════════════════════════════════════════ -->
+
+  <div class="interest-panel" id="panel-interests" role="tabpanel">
+    <div class="interest-panel-inner">
+      <div class="interest-intro">
+        <p class="interest-intro-label">Browse by subject</p>
+        <h2 class="interest-intro-title">What are you interested in?</h2>
+        <p class="interest-intro-body">Select one or more areas to see all related courses across every level.</p>
+      </div>
+
+      <div class="interest-grid" role="list">
+
+        <button class="interest-card active" role="listitem" aria-pressed="true">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Art &amp; Design</p>
+            <p class="interest-count">24 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Business, Management &amp; Economics</p>
+            <p class="interest-count">18 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Computing</p>
+            <p class="interest-count">8 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Education &amp; Teaching</p>
+            <p class="interest-count">12 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">English, Writing &amp; Publishing</p>
+            <p class="interest-count">10 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="3"/><path d="M12 8v13"/><path d="M8 14c0 0 1.5-2 4-2s4 2 4 2"/><line x1="6" y1="21" x2="18" y2="21"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Fashion</p>
+            <p class="interest-count">7 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="14" rx="2"/><path d="M2 20h20"/><path d="M8 20V16M16 20V16"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Film &amp; Media</p>
+            <p class="interest-count">9 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Food &amp; Nutrition</p>
+            <p class="interest-count">6 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Geography &amp; Environmental Sciences</p>
+            <p class="interest-count">5 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">History</p>
+            <p class="interest-count">6 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 3 21 8 8 21 3 21 3 16 16 3"/><line x1="8" y1="3" x2="14" y2="9"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Law</p>
+            <p class="interest-count">4 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Life Science</p>
+            <p class="interest-count">5 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Marketing</p>
+            <p class="interest-count">7 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Music &amp; Sound</p>
+            <p class="interest-count">14 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Performing Arts &amp; Production</p>
+            <p class="interest-count">11 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Politics, Philosophies &amp; Ethics</p>
+            <p class="interest-count">8 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Social Sciences</p>
+            <p class="interest-count">9 courses</p>
+          </div>
+        </button>
+
+        <button class="interest-card" role="listitem" aria-pressed="false">
+          <div class="interest-icon" style="background:#FFD6E8;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div>
+            <p class="interest-name">Sport</p>
+            <p class="interest-count">6 courses</p>
+          </div>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SEARCH + FILTER + RESULTS
+       ════════════════════════════════════════════════════════════════ -->
+
+  <div id="panel-filter" role="tabpanel">
+    <div class="finder-body">
+
+      <!-- Sidebar filters -->
+      <aside class="sidebar" aria-label="Filter courses">
+
+        <div class="sidebar-section">
+          <p class="sidebar-heading">Course level</p>
+          <div class="filter-list">
+            <label class="filter-item">
+              <input type="checkbox" checked>
+              <span class="filter-label">Undergraduate</span>
+              <span class="filter-count">142</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Postgraduate</span>
+              <span class="filter-count">68</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">PGCE / Teaching</span>
+              <span class="filter-count">12</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Research Degree</span>
+              <span class="filter-count">8</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Foundation</span>
+              <span class="filter-count">6</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Short Course</span>
+              <span class="filter-count">24</span>
+            </label>
+          </div>
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <div class="sidebar-section">
+          <p class="sidebar-heading">Study mode</p>
+          <div class="filter-list">
+            <label class="filter-item">
+              <input type="checkbox" checked>
+              <span class="filter-label">Full-time</span>
+              <span class="filter-count">198</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Part-time</span>
+              <span class="filter-count">54</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Distance learning</span>
+              <span class="filter-count">18</span>
+            </label>
+          </div>
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <div class="sidebar-section">
+          <p class="sidebar-heading">School</p>
+          <div class="filter-list">
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Bath Business School</span>
+              <span class="filter-count">32</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Bath School of Art, Film &amp; Media</span>
+              <span class="filter-count">44</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Bath School of Design</span>
+              <span class="filter-count">18</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Music &amp; Performing Arts</span>
+              <span class="filter-count">28</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">School of Education</span>
+              <span class="filter-count">16</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">School of Sciences</span>
+              <span class="filter-count">22</span>
+            </label>
+            <label class="filter-item">
+              <input type="checkbox">
+              <span class="filter-label">Writing, Publishing &amp; Humanities</span>
+              <span class="filter-count">30</span>
+            </label>
+          </div>
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <button class="btn-reset" type="button">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.91"/></svg>
+          Reset all filters
+        </button>
+
+      </aside>
+
+      <!-- Results -->
+      <main aria-label="Course results">
+
+        <!-- Active filters -->
+        <div class="active-filters" aria-label="Active filters">
+          <span class="active-filter-label">Filtered by:</span>
+          <span class="active-filter-chip">
+            Art &amp; Design
+            <button aria-label="Remove Art &amp; Design filter">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </span>
+          <span class="active-filter-chip">
+            Undergraduate
+            <button aria-label="Remove Undergraduate filter">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </span>
+          <span class="active-filter-chip">
+            Full-time
+            <button aria-label="Remove Full-time filter">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </span>
+        </div>
+
+        <div class="results-header">
+          <p class="results-count">Showing <strong>24 courses</strong> in Art &amp; Design</p>
+        </div>
+
+        <div class="course-grid">
+
+          <!-- Card 1 -->
+          <article class="course-card">
+            <div class="course-card-image">
+              <div class="course-card-image-placeholder" style="background: linear-gradient(135deg, #c8a882 0%, #8b6e52 100%);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              <span class="course-card-badge">BA (Hons)</span>
+            </div>
+            <div class="course-card-body">
+              <p class="course-card-section">Art &amp; Design</p>
+              <h3 class="course-card-title">Acting</h3>
+              <p class="course-card-desc">Train for a portfolio career across theatre, screen, radio and voiceover with practising professionals at our specialist Newton Park campus.</p>
+              <div class="course-card-footer">
+                <div class="course-card-meta">
+                  <span class="course-card-pill">3 years</span>
+                  <span class="course-card-pill">Full-time</span>
+                </div>
+                <a href="#" class="course-card-link">
+                  View course
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="course-card">
+            <div class="course-card-image">
+              <div class="course-card-image-placeholder" style="background: linear-gradient(135deg, #6b8a9e 0%, #3d5a70 100%);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              <span class="course-card-badge">BA (Hons)</span>
+            </div>
+            <div class="course-card-body">
+              <p class="course-card-section">Art &amp; Design</p>
+              <h3 class="course-card-title">Fine Art</h3>
+              <p class="course-card-desc">Develop your practice across painting, sculpture, printmaking and digital media in our well-equipped studios alongside a vibrant creative community.</p>
+              <div class="course-card-footer">
+                <div class="course-card-meta">
+                  <span class="course-card-pill">3 years</span>
+                  <span class="course-card-pill">Full-time</span>
+                </div>
+                <a href="#" class="course-card-link">
+                  View course
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="course-card">
+            <div class="course-card-image">
+              <div class="course-card-image-placeholder" style="background: linear-gradient(135deg, #a87cb8 0%, #6b3d88 100%);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              <span class="course-card-badge">BA (Hons)</span>
+            </div>
+            <div class="course-card-body">
+              <p class="course-card-section">Art &amp; Design</p>
+              <h3 class="course-card-title">Graphic Communication</h3>
+              <p class="course-card-desc">Combine conceptual thinking with professional craft skills across branding, editorial, motion and digital design for a career in creative industries.</p>
+              <div class="course-card-footer">
+                <div class="course-card-meta">
+                  <span class="course-card-pill">3 years</span>
+                  <span class="course-card-pill">Full-time</span>
+                </div>
+                <a href="#" class="course-card-link">
+                  View course
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="course-card">
+            <div class="course-card-image">
+              <div class="course-card-image-placeholder" style="background: linear-gradient(135deg, #82a87c 0%, #4a7044 100%);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              <span class="course-card-badge">BA (Hons)</span>
+            </div>
+            <div class="course-card-body">
+              <p class="course-card-section">Art &amp; Design</p>
+              <h3 class="course-card-title">Illustration</h3>
+              <p class="course-card-desc">Build a versatile illustration practice spanning editorial, children's publishing, animation and surface design with a strong emphasis on visual storytelling.</p>
+              <div class="course-card-footer">
+                <div class="course-card-meta">
+                  <span class="course-card-pill">3 years</span>
+                  <span class="course-card-pill">Full-time</span>
+                </div>
+                <a href="#" class="course-card-link">
+                  View course
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="course-card">
+            <div class="course-card-image">
+              <div class="course-card-image-placeholder" style="background: linear-gradient(135deg, #c89e72 0%, #8b6840 100%);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              <span class="course-card-badge">MA</span>
+            </div>
+            <div class="course-card-body">
+              <p class="course-card-section">Art &amp; Design</p>
+              <h3 class="course-card-title">Fine Art (Postgraduate)</h3>
+              <p class="course-card-desc">A practice-led postgraduate programme for artists ready to develop a sustained and ambitious body of work in a supportive critical community.</p>
+              <div class="course-card-footer">
+                <div class="course-card-meta">
+                  <span class="course-card-pill">1 year</span>
+                  <span class="course-card-pill">Full-time</span>
+                </div>
+                <a href="#" class="course-card-link">
+                  View course
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="course-card">
+            <div class="course-card-image">
+              <div class="course-card-image-placeholder" style="background: linear-gradient(135deg, #7c9ec8 0%, #3d6688 100%);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </div>
+              <span class="course-card-badge">BA (Hons)</span>
+            </div>
+            <div class="course-card-body">
+              <p class="course-card-section">Art &amp; Design</p>
+              <h3 class="course-card-title">Photography</h3>
+              <p class="course-card-desc">Explore documentary, conceptual and commercial photography with access to professional darkrooms, studios, and an active exhibition programme.</p>
+              <div class="course-card-footer">
+                <div class="course-card-meta">
+                  <span class="course-card-pill">3 years</span>
+                  <span class="course-card-pill">Full-time</span>
+                </div>
+                <a href="#" class="course-card-link">
+                  View course
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /course-grid -->
+
+        <!-- Pagination -->
+        <nav class="pagination" aria-label="Course results pages">
+          <button class="page-btn arrow" aria-label="Previous page">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="page-btn active" aria-label="Page 1" aria-current="page">1</button>
+          <button class="page-btn" aria-label="Page 2">2</button>
+          <button class="page-btn" aria-label="Page 3">3</button>
+          <button class="page-btn" aria-label="Page 4">4</button>
+          <span class="page-btn" style="border:none;background:none;cursor:default;">…</span>
+          <button class="page-btn" aria-label="Page 19">19</button>
+          <button class="page-btn arrow" aria-label="Next page">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </nav>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>
