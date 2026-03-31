@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masthead Hierarchy System — Bath Spa University</title>
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #23324f;
+      background: #f0f2f5;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    :root {
+      --navy:    #23324f;
+      --magenta: #E91E8C;
+      --teal:    #2DD4A8;
+      --amber:   #F5A623;
+      --stone:   #F9F7F4;
+      --tint:    #EEF1F6;
+      --muted:   #5a6b82;
+      --border:  rgba(35,50,79,0.09);
+    }
+
+    /* ── Demo chrome ── */
+
+    .system-header {
+      background: var(--navy);
+      padding: 2.5rem 2rem 2rem;
+    }
+
+    .system-header-inner { max-width: 1320px; margin: 0 auto; }
+
+    .system-label {
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--amber); margin-bottom: 0.75rem;
+    }
+
+    .system-title {
+      font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 900;
+      line-height: 1; letter-spacing: -0.03em; color: white; margin-bottom: 0.75rem;
+    }
+
+    .system-desc { font-size: 0.9375rem; color: rgba(255,255,255,0.6); max-width: 60ch; }
+
+    .level-divider { background: #f0f2f5; padding: 2rem 2rem 1rem; }
+
+    .level-divider-inner {
+      max-width: 1320px; margin: 0 auto;
+      display: flex; align-items: center; gap: 1rem;
+    }
+
+    .level-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--navy); color: white; font-size: 0.6875rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      padding: 0.375rem 0.875rem 0.375rem 0.625rem; border-radius: 9999px; flex-shrink: 0;
+    }
+
+    .level-tag-dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; flex-shrink: 0; }
+
+    .level-info { font-size: 0.8125rem; color: var(--muted); }
+    .level-info strong { color: var(--navy); font-weight: 600; }
+
+    .masthead-frame { background: white; overflow: hidden; }
+
+    .notes-section { background: #f0f2f5; padding: 2rem 2rem 0; }
+    .notes-inner { max-width: 1320px; margin: 0 auto; }
+
+    .notes-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+
+    .note-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 0.875rem; padding: 1.375rem 1.5rem;
+    }
+
+    .note-level {
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--magenta); margin-bottom: 0.5rem;
+    }
+
+    .note-title { font-size: 0.9375rem; font-weight: 800; color: var(--navy); margin-bottom: 0.75rem; }
+
+    .note-list { list-style: none; display: flex; flex-direction: column; gap: 0.375rem; }
+
+    .note-list li {
+      font-size: 0.8125rem; color: var(--muted);
+      display: flex; align-items: baseline; gap: 0.5rem;
+    }
+
+    .note-list li::before { content: '–'; color: var(--magenta); flex-shrink: 0; }
+
+    .bottom-spacer { height: 4rem; }
+
+    /* ── Shared nav ── */
+
+    .site-nav {
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 2rem;
+      height: 4.25rem; display: flex; align-items: center;
+      justify-content: space-between; gap: 2rem;
+    }
+
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logomark { width: 5rem; height: 2.375rem; }
+
+    .nav-links { display: flex; list-style: none; flex: 1; justify-content: center; }
+    .nav-links a {
+      display: block; font-size: 0.875rem; font-weight: 500;
+      color: rgba(255,255,255,0.72); padding: 0.5rem 0.875rem;
+      border-radius: 0.375rem; transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: white; }
+    .nav-links a.active { background: rgba(255,255,255,0.08); }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+    .nav-text-link { font-size: 0.8125rem; font-weight: 500; color: rgba(255,255,255,0.65); }
+
+    .btn-nav-cta {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: var(--magenta); color: white; font-size: 0.8125rem;
+      font-weight: 700; padding: 0.5rem 1.125rem; border-radius: 9999px;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       LEVEL 1 — Home / top-level landing
+       Deep, dark, full photo split. No breadcrumb.
+       ════════════════════════════════════════════════════════════════ */
+
+    .l1-hero {
+      display: grid; grid-template-columns: 1fr 1fr; height: 480px;
+    }
+
+    .l1-panel {
+      background: var(--navy); padding: 3.5rem 3rem 3.5rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+
+    .l1-deco-bl {
+      position: absolute; bottom: -5rem; left: -5rem;
+      width: 20rem; height: 20rem; opacity: 0.05; pointer-events: none;
+    }
+
+    .l1-deco-tr {
+      position: absolute; top: -4rem; right: -4rem;
+      width: 18rem; height: 18rem; opacity: 0.06; pointer-events: none;
+    }
+
+    .l1-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.625rem;
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--amber);
+      margin-bottom: 1.75rem; position: relative; z-index: 1;
+    }
+
+    .l1-eyebrow::before {
+      content: ''; display: block; width: 1.75rem; height: 2px;
+      background: var(--amber); flex-shrink: 0;
+    }
+
+    .l1-headline {
+      font-size: clamp(2.25rem, 3.5vw, 3.5rem); font-weight: 900;
+      line-height: 0.97; letter-spacing: -0.03em; color: white;
+      margin-bottom: 1.5rem; position: relative; z-index: 1;
+    }
+
+    .l1-headline .accent { color: var(--amber); }
+
+    .l1-body {
+      font-size: 1rem; color: rgba(255,255,255,0.65);
+      line-height: 1.7; max-width: 44ch; margin-bottom: 2rem;
+      position: relative; z-index: 1;
+    }
+
+    .l1-actions { display: flex; gap: 0.875rem; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--magenta); color: white; font-weight: 700;
+      font-size: 0.9375rem; padding: 0.9375rem 2rem; border-radius: 9999px;
+    }
+
+    .btn-ghost-light {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: white; font-weight: 600;
+      font-size: 0.9375rem; padding: 0.9375rem 2rem; border-radius: 9999px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+    }
+
+    .l1-photo {
+      position: relative; overflow: hidden;
+    }
+
+    .l1-photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #b8c4d0 0%, #8fa0b5 100%);
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       LEVEL 2 — Section landing (Art & Design, Music, Business…)
+       Medium depth, light, blobs. Breadcrumb as separate bar below nav.
+       ════════════════════════════════════════════════════════════════ */
+
+    .l2-breadcrumb-bar {
+      background: var(--stone);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .l2-breadcrumb {
+      max-width: 1320px; margin: 0 auto; padding: 0.75rem 2rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8125rem; color: var(--muted); flex-wrap: wrap;
+    }
+
+    .l2-breadcrumb a { color: var(--muted); }
+    .l2-breadcrumb a:hover { color: var(--magenta); }
+    .l2-bc-sep { color: rgba(35,50,79,0.3); font-size: 0.75rem; }
+    .l2-bc-current { color: var(--navy); font-weight: 600; }
+
+    .l2-hero {
+      background: white; border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden; padding: 5.5rem 0 5rem;
+    }
+
+    .l2-blob-tr {
+      position: absolute; top: -3rem; right: -4rem;
+      width: 28rem; height: 28rem; pointer-events: none;
+    }
+
+    .l2-blob-bl {
+      position: absolute; bottom: -5rem; left: -5rem;
+      width: 24rem; height: 24rem; pointer-events: none;
+    }
+
+    .l2-inner {
+      position: relative; z-index: 1;
+      max-width: 1320px; margin: 0 auto; padding: 0 2rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+
+    .l2-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.625rem;
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--magenta); margin-bottom: 1.5rem;
+    }
+
+    .l2-eyebrow::before {
+      content: ''; display: block; width: 1.75rem; height: 2px;
+      background: var(--magenta); flex-shrink: 0;
+    }
+
+    .l2-headline {
+      font-size: clamp(2.75rem, 4.5vw, 4.25rem); font-weight: 900;
+      line-height: 0.95; letter-spacing: -0.035em; color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .l2-headline .accent { color: var(--magenta); }
+
+    .l2-body {
+      font-size: 1.0625rem; color: var(--muted);
+      line-height: 1.72; max-width: 42ch; margin-bottom: 2.5rem;
+    }
+
+    .l2-actions { display: flex; flex-wrap: wrap; gap: 0.875rem; }
+
+    .btn-primary-dark {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--magenta); color: white; font-weight: 700;
+      font-size: 0.9375rem; padding: 0.9375rem 2rem; border-radius: 9999px;
+    }
+
+    .btn-ghost-dark {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--navy); font-weight: 600;
+      font-size: 0.9375rem; padding: 0.9375rem 2rem; border-radius: 9999px;
+      border: 1.5px solid var(--border);
+    }
+
+    .l2-stat-cluster { display: flex; flex-direction: column; gap: 0.875rem; }
+
+    .l2-stat-card {
+      background: white; border: 1px solid var(--border);
+      border-radius: 1rem; padding: 1.125rem 1.375rem;
+      display: flex; align-items: center; gap: 1rem;
+      box-shadow: 0 2px 8px rgba(35,50,79,0.06);
+    }
+
+    .l2-stat-icon {
+      width: 2.5rem; height: 2.5rem; border-radius: 0.625rem;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .l2-stat-num {
+      font-size: 1.375rem; font-weight: 900; color: var(--navy);
+      line-height: 1; letter-spacing: -0.02em;
+    }
+
+    .l2-stat-label { font-size: 0.8125rem; color: var(--muted); line-height: 1.4; }
+
+    /* ════════════════════════════════════════════════════════════════
+       LEVEL 3A — Course page
+       Deep, dark, photo split — same visual weight as L1 but with
+       breadcrumb integrated inside the navy panel.
+       ════════════════════════════════════════════════════════════════ */
+
+    .l3a-hero {
+      display: grid; grid-template-columns: 1.1fr 1fr; height: 420px;
+    }
+
+    .l3a-panel {
+      background: var(--navy); padding: 2.5rem 3rem 2.5rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+
+    .l3a-deco-bl {
+      position: absolute; bottom: -5rem; left: -5rem;
+      width: 18rem; height: 18rem; opacity: 0.05; pointer-events: none;
+    }
+
+    .l3a-deco-tr {
+      position: absolute; top: -4rem; right: -4rem;
+      width: 15rem; height: 15rem; opacity: 0.05; pointer-events: none;
+    }
+
+    /* Breadcrumb lives inside the panel */
+    .l3a-breadcrumb {
+      display: flex; align-items: center; gap: 0.375rem; flex-wrap: wrap;
+      font-size: 0.8rem; margin-bottom: 1.25rem; position: relative; z-index: 1;
+    }
+
+    .l3a-breadcrumb a { color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .l3a-breadcrumb a:hover { color: rgba(255,255,255,0.8); }
+    .l3a-bc-sep { color: rgba(255,255,255,0.18); font-size: 0.7rem; }
+    .l3a-bc-current { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+    .l3a-badges {
+      display: flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 0.875rem; position: relative; z-index: 1; flex-wrap: wrap;
+    }
+
+    .l3a-badge {
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; padding: 0.275rem 0.6875rem;
+      border-radius: 9999px; flex-shrink: 0;
+    }
+
+    .l3a-badge--type {
+      background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .l3a-badge--section {
+      background: rgba(233,30,140,0.15); color: #f06cb8;
+      border: 1px solid rgba(233,30,140,0.22);
+    }
+
+    .l3a-headline {
+      font-size: clamp(2rem, 3vw, 2.875rem); font-weight: 900;
+      line-height: 1.02; letter-spacing: -0.03em; color: white;
+      margin-bottom: 0.625rem; position: relative; z-index: 1;
+    }
+
+    .l3a-sub {
+      font-size: 0.9375rem; color: rgba(255,255,255,0.5);
+      position: relative; z-index: 1;
+    }
+
+    .l3a-sub strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+    .l3a-photo { position: relative; overflow: hidden; }
+
+    .l3a-photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #9fafc0 0%, #6b8099 100%);
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       LEVEL 3B — General sub-page
+       Compact, light, section-colour strip. Breadcrumb inside masthead.
+       Use for: info pages, facilities, staff, events, etc.
+       ════════════════════════════════════════════════════════════════ */
+
+    .l3b-masthead {
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .l3b-strip {
+      height: 4px;
+      background: linear-gradient(90deg, var(--magenta) 0%, #c41570 100%);
+    }
+
+    .l3b-inner {
+      max-width: 1320px; margin: 0 auto; padding: 1.75rem 2rem 2.25rem;
+    }
+
+    .l3b-breadcrumb {
+      display: flex; align-items: center; gap: 0.375rem; flex-wrap: wrap;
+      font-size: 0.8rem; color: var(--muted); margin-bottom: 1.125rem;
+    }
+
+    .l3b-breadcrumb a { color: var(--muted); transition: color 0.2s; }
+    .l3b-breadcrumb a:hover { color: var(--magenta); }
+    .l3b-bc-sep { color: rgba(35,50,79,0.25); font-size: 0.7rem; }
+    .l3b-bc-current { color: var(--navy); font-weight: 600; }
+
+    .l3b-content {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+
+    .l3b-section-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--magenta); margin-bottom: 0.625rem;
+    }
+
+    .l3b-section-tag::before {
+      content: ''; display: block; width: 1.25rem; height: 2px;
+      background: var(--magenta); flex-shrink: 0;
+    }
+
+    .l3b-title {
+      font-size: clamp(1.625rem, 3vw, 2.375rem); font-weight: 900;
+      line-height: 1.05; letter-spacing: -0.03em; color: var(--navy);
+    }
+
+    .l3b-actions {
+      display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; flex-shrink: 0;
+    }
+
+    .btn-sm-primary {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: var(--magenta); color: white; font-weight: 700;
+      font-size: 0.875rem; padding: 0.625rem 1.375rem; border-radius: 9999px;
+    }
+
+    .btn-sm-ghost {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: transparent; color: var(--navy); font-weight: 600;
+      font-size: 0.875rem; padding: 0.625rem 1.375rem; border-radius: 9999px;
+      border: 1.5px solid var(--border);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Demo header -->
+  <div class="system-header">
+    <div class="system-header-inner">
+      <p class="system-label">Bath Spa University · Design System</p>
+      <h1 class="system-title">Masthead Hierarchy</h1>
+      <p class="system-desc">Three levels: top-level landing pages, section landings, and sub-pages — two sub-page patterns for courses vs. everything else.</p>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       LEVEL 1 — Top-level landing
+       ════════════════════════════════════════════════════════════════ -->
+
+  <div class="level-divider">
+    <div class="level-divider-inner">
+      <span class="level-tag">
+        <span class="level-tag-dot" style="background: var(--amber);"></span>
+        Level 1
+      </span>
+      <span class="level-info"><strong>Top-level landing</strong> — deepest, dark navy, full photo, no breadcrumb. e.g. Home, Open Days.</span>
+    </div>
+  </div>
+
+  <div class="masthead-frame">
+    <nav class="site-nav" aria-label="Site navigation">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="Bath Spa University home">
+          <svg class="nav-logomark" viewBox="0 0 120 57" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="4" y="38" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="900" font-size="13" fill="white" letter-spacing="-0.5">Bath Spa</text>
+            <text x="4" y="52" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.55)">University</text>
+          </svg>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#">Study</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Student Life</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Business</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#" class="nav-text-link">International</a>
+          <a href="#" class="btn-nav-cta">Apply now</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="l1-hero" aria-labelledby="l1-headline">
+      <div class="l1-panel">
+        <svg class="l1-deco-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#F5A623"/>
+        </svg>
+        <svg class="l1-deco-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#2DD4A8"/>
+        </svg>
+        <p class="l1-eyebrow">Bath Spa University · 2026</p>
+        <h1 class="l1-headline" id="l1-headline">
+          Open Days<br><span class="accent">2026</span>
+        </h1>
+        <p class="l1-body">Explore our beautiful campuses, meet academic staff, and discover a creative community unlike any other.</p>
+        <div class="l1-actions">
+          <a href="#" class="btn-primary">Book your place</a>
+          <a href="#" class="btn-ghost-light">Explore courses</a>
+        </div>
+      </div>
+      <div class="l1-photo" role="img" aria-label="Students at Bath Spa University campus">
+        <div class="l1-photo-placeholder">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       LEVEL 2 — Section landing
+       ════════════════════════════════════════════════════════════════ -->
+
+  <div class="level-divider">
+    <div class="level-divider-inner">
+      <span class="level-tag">
+        <span class="level-tag-dot" style="background: var(--teal);"></span>
+        Level 2
+      </span>
+      <span class="level-info"><strong>Section landing</strong> — medium depth, light, breadcrumb as a separate bar between nav and hero. e.g. Art & Design, Music.</span>
+    </div>
+  </div>
+
+  <div class="masthead-frame">
+    <nav class="site-nav" aria-label="Site navigation">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="Bath Spa University home">
+          <svg class="nav-logomark" viewBox="0 0 120 57" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="4" y="38" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="900" font-size="13" fill="white" letter-spacing="-0.5">Bath Spa</text>
+            <text x="4" y="52" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.55)">University</text>
+          </svg>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#" class="active">Study</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Student Life</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Business</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#" class="nav-text-link">International</a>
+          <a href="#" class="btn-nav-cta">Apply now</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb sits between nav and hero as its own bar -->
+    <div class="l2-breadcrumb-bar">
+      <nav class="l2-breadcrumb" aria-label="Breadcrumb">
+        <a href="#">Home</a>
+        <span class="l2-bc-sep" aria-hidden="true">›</span>
+        <a href="#">Undergraduate Study</a>
+        <span class="l2-bc-sep" aria-hidden="true">›</span>
+        <span class="l2-bc-current" aria-current="page">Art & Design</span>
+      </nav>
+    </div>
+
+    <section class="l2-hero" aria-labelledby="l2-headline">
+      <svg class="l2-blob-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#F5A623" opacity="0.07"/>
+      </svg>
+      <svg class="l2-blob-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#2DD4A8" opacity="0.05"/>
+      </svg>
+      <div class="l2-inner">
+        <div>
+          <p class="l2-eyebrow">Art & Design · Undergraduate · Bath Spa</p>
+          <h1 class="l2-headline" id="l2-headline">
+            Learn from<br>practising<br><span class="accent">artists</span>
+          </h1>
+          <p class="l2-body">At Bath Spa, your tutors are working artists and designers — not just academics. Train in specialist studios, experiment freely, and graduate ready for a creative career.</p>
+          <div class="l2-actions">
+            <a href="#" class="btn-primary-dark">Explore courses</a>
+            <a href="#" class="btn-ghost-dark">Book an open day</a>
+          </div>
+        </div>
+        <div class="l2-stat-cluster" aria-label="Key facts">
+          <div class="l2-stat-card">
+            <div class="l2-stat-icon" style="background:#FFF3D6;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <div>
+              <p class="l2-stat-num">#2</p>
+              <p class="l2-stat-label">South West for Continuation</p>
+            </div>
+          </div>
+          <div class="l2-stat-card">
+            <div class="l2-stat-icon" style="background:#FFD6E8;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E91E8C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div>
+              <p class="l2-stat-num">Free</p>
+              <p class="l2-stat-label">Adobe Creative Suite for every student</p>
+            </div>
+          </div>
+          <div class="l2-stat-card">
+            <div class="l2-stat-icon" style="background:#D6FFF0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2DD4A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <div>
+              <p class="l2-stat-num">9</p>
+              <p class="l2-stat-label">Specialist undergraduate degrees</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       LEVEL 3A — Course page
+       Deep + photo (same visual weight as L1), but breadcrumb is
+       integrated inside the navy panel rather than a separate bar.
+       ════════════════════════════════════════════════════════════════ -->
+
+  <div class="level-divider">
+    <div class="level-divider-inner">
+      <span class="level-tag">
+        <span class="level-tag-dot" style="background: var(--magenta);"></span>
+        Level 3A
+      </span>
+      <span class="level-info"><strong>Course pages</strong> — deep + photo, same visual weight as L1. Breadcrumb integrated inside the panel (no separate bar). Degree type + section badges for context.</span>
+    </div>
+  </div>
+
+  <div class="masthead-frame">
+    <nav class="site-nav" aria-label="Site navigation">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="Bath Spa University home">
+          <svg class="nav-logomark" viewBox="0 0 120 57" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="4" y="38" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="900" font-size="13" fill="white" letter-spacing="-0.5">Bath Spa</text>
+            <text x="4" y="52" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.55)">University</text>
+          </svg>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#" class="active">Study</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Student Life</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Business</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#" class="nav-text-link">International</a>
+          <a href="#" class="btn-nav-cta">Apply now</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="l3a-hero" aria-labelledby="l3a-headline">
+      <div class="l3a-panel">
+        <svg class="l3a-deco-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#F5A623"/>
+        </svg>
+        <svg class="l3a-deco-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#2DD4A8"/>
+        </svg>
+
+        <!-- Breadcrumb inside the panel — no separate bar -->
+        <nav class="l3a-breadcrumb" aria-label="Breadcrumb">
+          <a href="#">Home</a>
+          <span class="l3a-bc-sep" aria-hidden="true">›</span>
+          <a href="#">Undergraduate</a>
+          <span class="l3a-bc-sep" aria-hidden="true">›</span>
+          <a href="#">Art & Design</a>
+          <span class="l3a-bc-sep" aria-hidden="true">›</span>
+          <span class="l3a-bc-current" aria-current="page">Acting BA (Hons)</span>
+        </nav>
+
+        <div class="l3a-badges">
+          <span class="l3a-badge l3a-badge--type">BA (Hons)</span>
+          <span class="l3a-badge l3a-badge--section">Art & Design</span>
+        </div>
+
+        <h1 class="l3a-headline" id="l3a-headline">Acting</h1>
+        <p class="l3a-sub">
+          <strong>3 years</strong> full-time ·
+          <strong>Newton Park</strong> campus ·
+          UCAS: W400
+        </p>
+      </div>
+
+      <div class="l3a-photo" role="img" aria-label="Acting students at Bath Spa University">
+        <div class="l3a-photo-placeholder">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       LEVEL 3B — General sub-page
+       Light, compact, section-colour strip. Breadcrumb inside masthead.
+       ════════════════════════════════════════════════════════════════ -->
+
+  <div class="level-divider">
+    <div class="level-divider-inner">
+      <span class="level-tag">
+        <span class="level-tag-dot" style="background: var(--teal);"></span>
+        Level 3B
+      </span>
+      <span class="level-info"><strong>General sub-pages</strong> — compact, light, section-colour strip at top. Breadcrumb + section tag inside. e.g. Studios & Facilities, Staff profiles, Events.</span>
+    </div>
+  </div>
+
+  <div class="masthead-frame">
+    <nav class="site-nav" aria-label="Site navigation">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="Bath Spa University home">
+          <svg class="nav-logomark" viewBox="0 0 120 57" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="4" y="38" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="900" font-size="13" fill="white" letter-spacing="-0.5">Bath Spa</text>
+            <text x="4" y="52" font-family="ui-sans-serif,system-ui,sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.55)">University</text>
+          </svg>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#" class="active">Study</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Student Life</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Business</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#" class="nav-text-link">International</a>
+          <a href="#" class="btn-nav-cta">Apply now</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="l3b-masthead" aria-labelledby="l3b-headline">
+      <!-- Thin section-colour strip — can vary by section -->
+      <div class="l3b-strip"></div>
+
+      <div class="l3b-inner">
+        <!-- Breadcrumb inside the masthead — no separate bar -->
+        <nav class="l3b-breadcrumb" aria-label="Breadcrumb">
+          <a href="#">Home</a>
+          <span class="l3b-bc-sep" aria-hidden="true">›</span>
+          <a href="#">Student Life</a>
+          <span class="l3b-bc-sep" aria-hidden="true">›</span>
+          <a href="#">Art & Design</a>
+          <span class="l3b-bc-sep" aria-hidden="true">›</span>
+          <span class="l3b-bc-current" aria-current="page">Studios & Facilities</span>
+        </nav>
+
+        <div class="l3b-content">
+          <div>
+            <p class="l3b-section-tag">Art & Design</p>
+            <h1 class="l3b-title" id="l3b-headline">Studios & Facilities</h1>
+          </div>
+          <div class="l3b-actions">
+            <a href="#" class="btn-sm-ghost">Book a visit</a>
+            <a href="#" class="btn-sm-primary">Apply now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- Design notes -->
+  <div class="notes-section">
+    <div class="notes-inner">
+      <div class="notes-grid">
+
+        <div class="note-card">
+          <p class="note-level">Level 1 — Top-level</p>
+          <p class="note-title">Home / Open Days</p>
+          <ul class="note-list">
+            <li>~480px tall; full photo split</li>
+            <li>Dark navy, maximum visual weight</li>
+            <li>No breadcrumb — you are at the root</li>
+          </ul>
+        </div>
+
+        <div class="note-card">
+          <p class="note-level">Level 2 — Section landing</p>
+          <p class="note-title">Art & Design, Music, Business…</p>
+          <ul class="note-list">
+            <li>~300–380px tall; light, blobs</li>
+            <li>Breadcrumb as a <em>separate bar</em> below nav</li>
+            <li>Stat cards or image in right column</li>
+          </ul>
+        </div>
+
+        <div class="note-card">
+          <p class="note-level">Level 3 — Sub-pages</p>
+          <p class="note-title">Courses (3A) · Everything else (3B)</p>
+          <ul class="note-list">
+            <li>Breadcrumb always <em>inside</em> the masthead</li>
+            <li>3A: deep + photo; degree type + section badges</li>
+            <li>3B: compact light; section-colour strip + section tag</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-spacer"></div>
+
+</body>
+</html>
