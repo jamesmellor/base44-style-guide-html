@@ -1752,6 +1752,94 @@
           </div>
         </div>
 
+        <!-- ── Video Template: Text Left / Video Right ── -->
+        <div class="pattern-demo">
+          <div class="pattern-label">
+            <p class="label">Video Template</p>
+            <span class="label-badge">With Video</span>
+          </div>
+          <p class="pattern-description">Text panel left · Video panel right · Play button overlay · Duration badge · Suitable for student stories, campus films, and course previews</p>
+
+          <!-- Variant A: Dark text panel left, video right -->
+          <div class="pv1-grid" style="margin-bottom:2rem;">
+            <!-- Text panel -->
+            <div class="pv1-text">
+              <svg class="pv-blob pv-blob-bl" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#2DD4A8" opacity="0.06"/>
+              </svg>
+              <div style="position:relative;z-index:10;">
+                <div class="pv-badges" style="margin-bottom:1.25rem;">
+                  <span class="badge" style="background:#E91E8C;color:white;">Student Story</span>
+                  <span class="pv-badge-outline">4 min watch</span>
+                </div>
+                <h1 class="pv1-heading">What it's really like to study here.</h1>
+                <p class="pv1-body">Maya shares her first-year experience — from studio life on Newton Park campus to discovering Bath's thriving gallery scene.</p>
+                <div class="button-row">
+                  <button class="btn btn-accent btn-lg">Find Your Course</button>
+                  <button class="btn btn-outline-white btn-lg">Book Open Day</button>
+                </div>
+              </div>
+            </div>
+            <!-- Video panel -->
+            <div class="pv1-image" style="cursor:pointer;">
+              <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/bf376f827_generated_92cba8a7.png"
+                   alt="Creative students collaborating in the art studio">
+              <!-- Dark overlay -->
+              <div style="position:absolute;inset:0;background:rgba(35,50,79,0.25);"></div>
+              <!-- Play button -->
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                <div style="width:5rem;height:5rem;border-radius:50%;background:#F5A623;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="none" style="margin-left:4px;">
+                    <polygon points="6 3 20 12 6 21 6 3"/>
+                  </svg>
+                </div>
+              </div>
+              <!-- Duration badge -->
+              <span style="position:absolute;bottom:1.25rem;right:1.25rem;background:rgba(35,50,79,0.85);color:white;font-size:0.75rem;font-weight:600;padding:0.3rem 0.65rem;border-radius:0.4rem;letter-spacing:0.02em;">4:32</span>
+            </div>
+          </div>
+
+          <!-- Variant B: Video left, light text panel right -->
+          <div class="pv2-grid">
+            <!-- Video panel -->
+            <div class="pv2-image" style="cursor:pointer;">
+              <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69b29d8e095788643a94c057/7582c44e2_generated_939065c9.png"
+                   alt="Aerial view of Bath city">
+              <!-- Dark overlay -->
+              <div style="position:absolute;inset:0;background:rgba(35,50,79,0.2);"></div>
+              <!-- Play button -->
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                <div style="width:5rem;height:5rem;border-radius:50%;background:#F5A623;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="none" style="margin-left:4px;">
+                    <polygon points="6 3 20 12 6 21 6 3"/>
+                  </svg>
+                </div>
+              </div>
+              <!-- Duration badge -->
+              <span style="position:absolute;bottom:1.25rem;right:1.25rem;background:rgba(35,50,79,0.85);color:white;font-size:0.75rem;font-weight:600;padding:0.3rem 0.65rem;border-radius:0.4rem;letter-spacing:0.02em;">6:10</span>
+              <span class="pv2-location-tag"><span class="pv2-dot"></span>Bath, UK</span>
+            </div>
+            <!-- Text panel -->
+            <div class="pv2-text">
+              <svg class="pv-blob pv-blob-tr" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M220,30 C270,60 290,130 260,180 C230,230 160,260 110,240 C60,220 20,160 30,100 C40,40 100,10 150,10 C175,10 195,15 220,30 Z" fill="#F5A623" opacity="0.07"/>
+              </svg>
+              <div style="position:relative;z-index:10;">
+                <span class="pv2-overline">City of Bath</span>
+                <h2 class="pv2-heading">A city that inspires creativity</h2>
+                <p class="pv2-body">Bath isn't just beautiful — it's alive with culture, music, art, and ideas. From Roman architecture to indie galleries, this UNESCO World Heritage city is your extended campus.</p>
+                <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+                  <button class="btn btn-primary btn-lg">Explore Bath</button>
+                  <button class="pv2-watch-btn">
+                    <span class="pv2-play-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+                    Watch film
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Footer Note -->
         <div class="footer-note">
           <p class="footer-note-eyebrow">Bath Spa University</p>
