@@ -731,6 +731,180 @@
       .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
 
+    /* ═══════════════════════════════════════════════════════════════
+       VIDEO COMPONENTS
+       ═══════════════════════════════════════════════════════════════ */
+
+    /* Inline content video */
+    .inline-video {
+      margin: 2rem 0;
+      border-radius: 0.875rem;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: var(--navy);
+      cursor: pointer;
+    }
+
+    .inline-video img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      opacity: 0.88;
+      transition: opacity 0.3s;
+    }
+
+    .inline-video:hover img { opacity: 0.75; }
+
+    .inline-video-scrim {
+      position: absolute; inset: 0;
+      background: rgba(35,50,79,0.15);
+      pointer-events: none;
+    }
+
+    .inline-video-btn {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .inline-video-pill {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: rgba(35,50,79,0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 9999px;
+      padding: 0.625rem 1.25rem 0.625rem 0.625rem;
+      transition: background 0.2s;
+    }
+
+    .inline-video:hover .inline-video-pill { background: rgba(35,50,79,0.88); }
+
+    .inline-video-play {
+      width: 2.25rem; height: 2.25rem; border-radius: 50%;
+      background: var(--amber);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .inline-video-label {
+      color: white; font-size: 0.875rem; font-weight: 600;
+    }
+
+    .inline-video-duration {
+      color: rgba(255,255,255,0.5); font-size: 0.8125rem;
+    }
+
+    .inline-video-caption {
+      font-size: 0.8rem; color: #8fa0b5; line-height: 1.5;
+      margin-top: 0.625rem;
+    }
+
+    /* Featured student story video — split layout */
+    .video-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      margin-top: 2.5rem;
+      min-height: 22rem;
+    }
+
+    @media (max-width: 800px) { .video-split { grid-template-columns: 1fr; } }
+
+    .video-split-text {
+      background: var(--navy);
+      padding: 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+
+    .video-split-deco {
+      position: absolute; bottom: -4rem; left: -4rem;
+      width: 16rem; height: 16rem; opacity: 0.05; pointer-events: none;
+    }
+
+    .video-split-eyebrow {
+      font-size: 0.625rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.18em; color: var(--amber);
+      display: flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 1rem; position: relative; z-index: 1;
+    }
+    .video-split-eyebrow::before {
+      content: ''; display: block; width: 1.25rem; height: 2px;
+      background: var(--amber); flex-shrink: 0;
+    }
+
+    .video-split-heading {
+      font-size: 1.625rem; font-weight: 900; color: white;
+      letter-spacing: -0.02em; line-height: 1.15;
+      margin-bottom: 0.875rem; position: relative; z-index: 1;
+    }
+
+    .video-split-body {
+      font-size: 0.9375rem; color: rgba(255,255,255,0.65);
+      line-height: 1.65; margin-bottom: 1.75rem;
+      position: relative; z-index: 1;
+    }
+
+    .video-split-meta {
+      display: flex; align-items: center; gap: 0.75rem;
+      position: relative; z-index: 1;
+    }
+
+    .video-split-avatar {
+      width: 2.5rem; height: 2.5rem; border-radius: 50%;
+      object-fit: cover; flex-shrink: 0;
+      outline: 2px solid var(--amber); outline-offset: 2px;
+    }
+
+    .video-split-name { font-size: 0.875rem; font-weight: 700; color: white; }
+    .video-split-role { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.1rem; }
+
+    .video-split-thumb {
+      position: relative; overflow: hidden; cursor: pointer;
+      min-height: 18rem;
+    }
+
+    .video-split-thumb img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .video-split-thumb:hover img { transform: scale(1.03); }
+
+    .video-split-thumb-scrim {
+      position: absolute; inset: 0;
+      background: rgba(35,50,79,0.3);
+      pointer-events: none;
+    }
+
+    .video-split-play {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .video-split-play-btn {
+      width: 4.5rem; height: 4.5rem; border-radius: 50%;
+      background: var(--amber);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .video-split-thumb:hover .video-split-play-btn {
+      transform: scale(1.08);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+    }
+
+    .video-split-duration {
+      position: absolute; bottom: 1rem; right: 1rem;
+      background: rgba(35,50,79,0.82); color: white;
+      font-size: 0.75rem; font-weight: 600;
+      padding: 0.25rem 0.6rem; border-radius: 0.375rem;
+    }
+
   </style>
 </head>
 <body>
@@ -883,6 +1057,27 @@
           <p>We take an entrepreneurial approach to actor training. Alongside performance skills, you'll develop the business acumen and creative independence to build a sustainable career in a competitive industry.</p>
         </div>
 
+        <div class="inline-video" role="button" aria-label="Play course overview video — 3 minutes 48 seconds" tabindex="0">
+          <img
+            src="https://www.bathspa.ac.uk/media/bathspaacuk/courses/acting/Pool-no-water-1493x1000.jpg"
+            alt="Acting students performing on stage at Bath Spa University"
+            loading="lazy"
+          >
+          <div class="inline-video-scrim"></div>
+          <div class="inline-video-btn">
+            <div class="inline-video-pill">
+              <div class="inline-video-play">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="white" stroke="none" style="margin-left:2px;" aria-hidden="true">
+                  <polygon points="6 3 20 12 6 21 6 3"/>
+                </svg>
+              </div>
+              <span class="inline-video-label">Course overview</span>
+              <span class="inline-video-duration">3:48</span>
+            </div>
+          </div>
+        </div>
+        <p class="inline-video-caption">See inside the studios and meet the team — Acting at Bath Spa University, 2026.</p>
+
         <div class="rankings-strip" role="list" aria-label="Course rankings">
           <div class="ranking-item" role="listitem">
             <p class="ranking-stat">#2</p>
@@ -1022,6 +1217,48 @@
             </div>
           </div>
         </div>
+
+        <div class="video-split">
+          <!-- Text panel -->
+          <div class="video-split-text">
+            <svg class="video-split-deco" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M80,50 C30,80 10,150 50,200 C90,250 160,280 210,260 C260,240 280,180 270,120 C260,60 200,20 140,10 C110,5 85,20 80,50 Z" fill="#2DD4A8"/>
+            </svg>
+            <p class="video-split-eyebrow">Student story</p>
+            <h3 class="video-split-heading">A week in the life of an Acting student</h3>
+            <p class="video-split-body">From morning voice classes to late rehearsals for a final year production — Mia takes us behind the scenes of a typical week at Bath Spa.</p>
+            <div class="video-split-meta">
+              <img
+                class="video-split-avatar"
+                src="https://i.pravatar.cc/150?img=47"
+                alt="Photo of Mia Thornton"
+                loading="lazy"
+              >
+              <div>
+                <p class="video-split-name">Mia Thornton</p>
+                <p class="video-split-role">BA (Hons) Acting · Year 3</p>
+              </div>
+            </div>
+          </div>
+          <!-- Video thumbnail panel -->
+          <div class="video-split-thumb" role="button" aria-label="Play student story video — 4 minutes 12 seconds" tabindex="0">
+            <img
+              src="https://www.bathspa.ac.uk/media/bathspaacuk/courses/acting/Hay-Fever-654x438.jpg"
+              alt="Mia Thornton performing in Hay Fever at Bath Spa University"
+              loading="lazy"
+            >
+            <div class="video-split-thumb-scrim"></div>
+            <div class="video-split-play">
+              <div class="video-split-play-btn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white" stroke="none" style="margin-left:3px;" aria-hidden="true">
+                  <polygon points="6 3 20 12 6 21 6 3"/>
+                </svg>
+              </div>
+            </div>
+            <span class="video-split-duration">4:12</span>
+          </div>
+        </div>
+
       </section>
 
       <!-- ASSESSMENT -->
